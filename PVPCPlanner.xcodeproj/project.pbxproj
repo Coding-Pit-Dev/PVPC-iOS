@@ -268,6 +268,7 @@
 				12C8217B2C3BE8A700717D4F /* Frameworks */,
 				12C8217C2C3BE8A700717D4F /* Resources */,
 				128DEC352C3D168F003A1834 /* Swiftlint */,
+				12887C2C2C3D35E100AC462B /* Pre-Commit */,
 			);
 			buildRules = (
 			);
@@ -326,6 +327,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		12887C2C2C3D35E100AC462B /* Pre-Commit */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Pre-Commit";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp ./.scripts/pre-commit ./.git/hooks\n";
+		};
 		128DEC352C3D168F003A1834 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
