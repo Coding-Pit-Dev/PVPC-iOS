@@ -1,24 +1,37 @@
 # This workflow will build a Swift project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
 
-name: Swift
+name: SwiftUI CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
-    name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-        swift: ["5.2", "5.3"]
-    runs-on: ${{ matrix.os }}
+    runs-on: macos-latest
+
     steps:
-      - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
-        with:
-          swift-version: ${{ matrix.swift }}
-      - uses: actions/checkout@v4
-      - name: Build
-        run: swift build
-      - name: Run tests
-        run: swift test
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: '14.3' # Cambia esto a la versión de Xcode que necesitas
+
+    - name: Build
+      run: xcodebuild build -scheme PVPCPlanner -destination 'platform=iOS Simulator,name=iPhone 12,OS=15.4'
+
+    - name: Run tests
+      run: xcodebuild test -scheme PVPCPlanner -destination 'platform=iOS Simulator,name=iPhone 12,OS=15.4'
+
+    - name: Archive build
+      run: xcodebuild archive -scheme PVPCPlanner -archivePath ${{ github.workspace }}/build/PVPCPlanner.xcarchive
+
+    - name: Export IPA
+      run: xcodebuild -exportArchive -archivePath ${{ github.workspace }}/build/YourSchemeName.xcarchive -exportPath ${{ github.workspace }}/build/YourSchemeName -exportOptionsPlist ExportOptions.plist
