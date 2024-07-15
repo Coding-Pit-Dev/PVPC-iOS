@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1213F8322C459ED3008B4373 /* PVPCPlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1213F8312C459ED3008B4373 /* PVPCPlannerTests.swift */; };
 		12726C4D2C3C00130020D35A /* ProjectStructure.md in Resources */ = {isa = PBXBuildFile; fileRef = 12726C4C2C3C00130020D35A /* ProjectStructure.md */; };
 		129120CA2C3BFBA50037E939 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 129120C92C3BFBA50037E939 /* README.md */; };
 		12C821822C3BE8A700717D4F /* PVPCPlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C821812C3BE8A700717D4F /* PVPCPlannerApp.swift */; };
@@ -15,7 +16,19 @@
 		12C821892C3BE8A800717D4F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C821882C3BE8A800717D4F /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1213F8332C459ED3008B4373 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12C821762C3BE8A700717D4F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12C8217D2C3BE8A700717D4F;
+			remoteInfo = PVPCPlanner;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1213F82F2C459ED3008B4373 /* PVPCPlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PVPCPlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1213F8312C459ED3008B4373 /* PVPCPlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCPlannerTests.swift; sourceTree = "<group>"; };
 		12726C4C2C3C00130020D35A /* ProjectStructure.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ProjectStructure.md; sourceTree = "<group>"; };
 		129120C92C3BFBA50037E939 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		12C8217E2C3BE8A700717D4F /* PVPCPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PVPCPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,6 +39,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1213F82C2C459ED3008B4373 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		12C8217B2C3BE8A700717D4F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -36,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1213F8302C459ED3008B4373 /* PVPCPlannerTests */ = {
+			isa = PBXGroup;
+			children = (
+				1213F8312C459ED3008B4373 /* PVPCPlannerTests.swift */,
+			);
+			path = PVPCPlannerTests;
+			sourceTree = "<group>";
+		};
 		129120B02C3BFA5C0037E939 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +250,7 @@
 			children = (
 				129120C92C3BFBA50037E939 /* README.md */,
 				12C821802C3BE8A700717D4F /* PVPCPlanner */,
+				1213F8302C459ED3008B4373 /* PVPCPlannerTests */,
 				12C8217F2C3BE8A700717D4F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -230,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				12C8217E2C3BE8A700717D4F /* PVPCPlanner.app */,
+				1213F82F2C459ED3008B4373 /* PVPCPlannerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -260,6 +290,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1213F82E2C459ED3008B4373 /* PVPCPlannerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1213F8372C459ED3008B4373 /* Build configuration list for PBXNativeTarget "PVPCPlannerTests" */;
+			buildPhases = (
+				1213F82B2C459ED3008B4373 /* Sources */,
+				1213F82C2C459ED3008B4373 /* Frameworks */,
+				1213F82D2C459ED3008B4373 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1213F8342C459ED3008B4373 /* PBXTargetDependency */,
+			);
+			name = PVPCPlannerTests;
+			productName = PVPCPlannerTests;
+			productReference = 1213F82F2C459ED3008B4373 /* PVPCPlannerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		12C8217D2C3BE8A700717D4F /* PVPCPlanner */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 12C8218C2C3BE8A800717D4F /* Build configuration list for PBXNativeTarget "PVPCPlanner" */;
@@ -287,6 +335,10 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					1213F82E2C459ED3008B4373 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 12C8217D2C3BE8A700717D4F;
+					};
 					12C8217D2C3BE8A700717D4F = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -306,11 +358,19 @@
 			projectRoot = "";
 			targets = (
 				12C8217D2C3BE8A700717D4F /* PVPCPlanner */,
+				1213F82E2C459ED3008B4373 /* PVPCPlannerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1213F82D2C459ED3008B4373 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		12C8217C2C3BE8A700717D4F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -325,6 +385,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1213F82B2C459ED3008B4373 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1213F8322C459ED3008B4373 /* PVPCPlannerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		12C8217A2C3BE8A700717D4F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -336,7 +404,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1213F8342C459ED3008B4373 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12C8217D2C3BE8A700717D4F /* PVPCPlanner */;
+			targetProxy = 1213F8332C459ED3008B4373 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		1213F8352C459ED3008B4373 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 45G29VT72M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codingPitDev.PVPCPlannerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PVPCPlanner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PVPCPlanner";
+			};
+			name = Debug;
+		};
+		1213F8362C459ED3008B4373 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 45G29VT72M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codingPitDev.PVPCPlannerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PVPCPlanner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PVPCPlanner";
+			};
+			name = Release;
+		};
 		12C8218A2C3BE8A800717D4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -519,6 +631,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1213F8372C459ED3008B4373 /* Build configuration list for PBXNativeTarget "PVPCPlannerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1213F8352C459ED3008B4373 /* Debug */,
+				1213F8362C459ED3008B4373 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		12C821792C3BE8A700717D4F /* Build configuration list for PBXProject "PVPCPlanner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
