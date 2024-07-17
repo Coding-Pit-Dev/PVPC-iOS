@@ -1,10 +1,3 @@
-//
-//  PVPCPlannerTests.swift
-//  PVPCPlannerTests
-//
-//  Created by Oliver Ramírez Cáceres on 15/7/24.
-//
-
 import XCTest
 
 final class PVPCPlannerTests: XCTestCase {
@@ -27,9 +20,6 @@ final class PVPCPlannerTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 
 }
