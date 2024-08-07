@@ -14,6 +14,15 @@
 		12C821842C3BE8A700717D4F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C821832C3BE8A700717D4F /* ContentView.swift */; };
 		12C821862C3BE8A800717D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C821852C3BE8A800717D4F /* Assets.xcassets */; };
 		12C821892C3BE8A800717D4F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C821882C3BE8A800717D4F /* Preview Assets.xcassets */; };
+		1ADDACE62C636DBA00797976 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADDACE52C636DBA00797976 /* NetworkRepository.swift */; };
+		1ADDACE92C63745700797976 /* PVPCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADDACE82C63745700797976 /* PVPCModel.swift */; };
+		1ADDACED2C63750E00797976 /* PVPCNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 1ADDACEC2C63750E00797976 /* PVPCNetwork */; };
+		1ADDACF02C6375B800797976 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADDACEF2C6375B800797976 /* URL.swift */; };
+		1ADDACF22C6377A700797976 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADDACF12C6377A700797976 /* URLRequest.swift */; };
+		1ADDACF42C6379CF00797976 /* AllPricesTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 1ADDACF32C6379CF00797976 /* AllPricesTest.json */; };
+		1ADDACF62C6379DD00797976 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADDACF52C6379DD00797976 /* PreviewData.swift */; };
+		1ADDACF92C637ADA00797976 /* PricesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADDACF82C637ADA00797976 /* PricesVM.swift */; };
+		1ADDACFE2C637C2A00797976 /* PricesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADDACFD2C637C2A00797976 /* PricesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +45,14 @@
 		12C821832C3BE8A700717D4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		12C821852C3BE8A800717D4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12C821882C3BE8A800717D4F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1ADDACE52C636DBA00797976 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
+		1ADDACE82C63745700797976 /* PVPCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCModel.swift; sourceTree = "<group>"; };
+		1ADDACEF2C6375B800797976 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		1ADDACF12C6377A700797976 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
+		1ADDACF32C6379CF00797976 /* AllPricesTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AllPricesTest.json; sourceTree = "<group>"; };
+		1ADDACF52C6379DD00797976 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
+		1ADDACF82C637ADA00797976 /* PricesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesVM.swift; sourceTree = "<group>"; };
+		1ADDACFD2C637C2A00797976 /* PricesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ADDACED2C63750E00797976 /* PVPCNetwork in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,28 +90,6 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		129120B12C3BFA620037E939 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				129120BD2C3BFACC0037E939 /* Models */,
-				129120BA2C3BFAB70037E939 /* DataSource */,
-				129120C02C3BFAE00037E939 /* Repositories */,
-				129120BF2C3BFAD80037E939 /* Persistence */,
-				129120BE2C3BFAD00037E939 /* Network */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		129120B32C3BFA6D0037E939 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				129120B92C3BFAA80037E939 /* UserCases */,
-				129120B82C3BFAA10037E939 /* Protocols */,
-				129120B72C3BFA9B0037E939 /* Domain */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
 		129120B42C3BFA720037E939 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,85 +108,6 @@
 				129120C62C3BFB5C0037E939 /* Localization */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		129120B62C3BFA810037E939 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		129120B72C3BFA9B0037E939 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		129120B82C3BFAA10037E939 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		129120B92C3BFAA80037E939 /* UserCases */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UserCases;
-			sourceTree = "<group>";
-		};
-		129120BA2C3BFAB70037E939 /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-				129120BC2C3BFAC60037E939 /* Local */,
-				129120BB2C3BFAC10037E939 /* Remote */,
-			);
-			path = DataSource;
-			sourceTree = "<group>";
-		};
-		129120BB2C3BFAC10037E939 /* Remote */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Remote;
-			sourceTree = "<group>";
-		};
-		129120BC2C3BFAC60037E939 /* Local */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Local;
-			sourceTree = "<group>";
-		};
-		129120BD2C3BFACC0037E939 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		129120BE2C3BFAD00037E939 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		129120BF2C3BFAD80037E939 /* Persistence */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Persistence;
-			sourceTree = "<group>";
-		};
-		129120C02C3BFAE00037E939 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repositories;
 			sourceTree = "<group>";
 		};
 		129120C12C3BFAFC0037E939 /* ViewModels */ = {
@@ -252,6 +169,7 @@
 				12C821802C3BE8A700717D4F /* PVPCPlanner */,
 				1213F8302C459ED3008B4373 /* PVPCPlannerTests */,
 				12C8217F2C3BE8A700717D4F /* Products */,
+				1ADDACEB2C63750E00797976 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -267,14 +185,16 @@
 		12C821802C3BE8A700717D4F /* PVPCPlanner */ = {
 			isa = PBXGroup;
 			children = (
-				12726C4C2C3C00130020D35A /* ProjectStructure.md */,
-				129120B62C3BFA810037E939 /* Utils */,
+				1ADDACFA2C637C0F00797976 /* View */,
+				1ADDACF72C637AC500797976 /* ViewModel */,
+				1ADDACEE2C6375AB00797976 /* Interface */,
+				1ADDACE42C636DAD00797976 /* Repository */,
 				129120B52C3BFA790037E939 /* Resources */,
 				129120B42C3BFA720037E939 /* Presentation */,
-				129120B32C3BFA6D0037E939 /* Domain */,
-				129120B12C3BFA620037E939 /* Data */,
+				1ADDACE72C63743200797976 /* Model */,
 				129120B02C3BFA5C0037E939 /* App */,
 				12C821872C3BE8A800717D4F /* Preview Content */,
+				12726C4C2C3C00130020D35A /* ProjectStructure.md */,
 			);
 			path = PVPCPlanner;
 			sourceTree = "<group>";
@@ -282,9 +202,59 @@
 		12C821872C3BE8A800717D4F /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				1ADDACF32C6379CF00797976 /* AllPricesTest.json */,
 				12C821882C3BE8A800717D4F /* Preview Assets.xcassets */,
+				1ADDACF52C6379DD00797976 /* PreviewData.swift */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1ADDACE42C636DAD00797976 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				1ADDACE52C636DBA00797976 /* NetworkRepository.swift */,
+			);
+			name = Repository;
+			sourceTree = "<group>";
+		};
+		1ADDACE72C63743200797976 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1ADDACE82C63745700797976 /* PVPCModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1ADDACEB2C63750E00797976 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1ADDACEE2C6375AB00797976 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				1ADDACEF2C6375B800797976 /* URL.swift */,
+				1ADDACF12C6377A700797976 /* URLRequest.swift */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		1ADDACF72C637AC500797976 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1ADDACF82C637ADA00797976 /* PricesVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1ADDACFA2C637C0F00797976 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1ADDACFD2C637C2A00797976 /* PricesView.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +293,9 @@
 			dependencies = (
 			);
 			name = PVPCPlanner;
+			packageProductDependencies = (
+				1ADDACEC2C63750E00797976 /* PVPCNetwork */,
+			);
 			productName = PVPCPlanner;
 			productReference = 12C8217E2C3BE8A700717D4F /* PVPCPlanner.app */;
 			productType = "com.apple.product-type.application";
@@ -355,6 +328,9 @@
 				Base,
 			);
 			mainGroup = 12C821752C3BE8A700717D4F;
+			packageReferences = (
+				1ADDACEA2C6374EF00797976 /* XCRemoteSwiftPackageReference "PVPCNetwork" */,
+			);
 			productRefGroup = 12C8217F2C3BE8A700717D4F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -377,6 +353,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ADDACF42C6379CF00797976 /* AllPricesTest.json in Resources */,
 				129120CA2C3BFBA50037E939 /* README.md in Resources */,
 				12C821892C3BE8A800717D4F /* Preview Assets.xcassets in Resources */,
 				12726C4D2C3C00130020D35A /* ProjectStructure.md in Resources */,
@@ -439,7 +416,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ADDACF02C6375B800797976 /* URL.swift in Sources */,
+				1ADDACE92C63745700797976 /* PVPCModel.swift in Sources */,
+				1ADDACF92C637ADA00797976 /* PricesVM.swift in Sources */,
+				1ADDACE62C636DBA00797976 /* NetworkRepository.swift in Sources */,
+				1ADDACF22C6377A700797976 /* URLRequest.swift in Sources */,
+				1ADDACF62C6379DD00797976 /* PreviewData.swift in Sources */,
 				12C821842C3BE8A700717D4F /* ContentView.swift in Sources */,
+				1ADDACFE2C637C2A00797976 /* PricesView.swift in Sources */,
 				12C821822C3BE8A700717D4F /* PVPCPlannerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -709,6 +693,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1ADDACEA2C6374EF00797976 /* XCRemoteSwiftPackageReference "PVPCNetwork" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Bitos88/PVPCNetwork";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1ADDACEC2C63750E00797976 /* PVPCNetwork */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1ADDACEA2C6374EF00797976 /* XCRemoteSwiftPackageReference "PVPCNetwork" */;
+			productName = PVPCNetwork;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 12C821762C3BE8A700717D4F /* Project object */;
 }
