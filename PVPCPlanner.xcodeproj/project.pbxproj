@@ -355,6 +355,9 @@
 				Base,
 			);
 			mainGroup = 12C821752C3BE8A700717D4F;
+			packageReferences = (
+				1ADDACE32C63689700797976 /* XCRemoteSwiftPackageReference "PVPCNetwork" */,
+			);
 			productRefGroup = 12C8217F2C3BE8A700717D4F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -709,6 +712,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1ADDACE32C63689700797976 /* XCRemoteSwiftPackageReference "PVPCNetwork" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Bitos88/PVPCNetwork";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 12C821762C3BE8A700717D4F /* Project object */;
 }
