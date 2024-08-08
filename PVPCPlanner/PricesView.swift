@@ -1,10 +1,3 @@
-//
-//  PricesView.swift
-//  PVPCPlanner
-//
-//  Created by Alberto Alegre Bravo on 7/8/24.
-//
-
 import SwiftUI
 
 struct PricesView: View {

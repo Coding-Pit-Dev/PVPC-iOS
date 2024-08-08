@@ -94,32 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				12C821852C3BE8A800717D4F /* Assets.xcassets */,
-				129120C82C3BFB720037E939 /* Constants */,
-				129120C72C3BFB6D0037E939 /* Fonts */,
-				129120C62C3BFB5C0037E939 /* Localization */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		129120C62C3BFB5C0037E939 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Localization;
-			sourceTree = "<group>";
-		};
-		129120C72C3BFB6D0037E939 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
-		129120C82C3BFB720037E939 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Constants;
 			sourceTree = "<group>";
 		};
 		12C821752C3BE8A700717D4F = {
@@ -148,7 +124,7 @@
 				1ADDACFA2C637C0F00797976 /* View */,
 				1ADDACF72C637AC500797976 /* ViewModel */,
 				1ADDAD022C64C1B800797976 /* Data */,
-				1ADDACEE2C6375AB00797976 /* Interface */,
+				1ADDACEE2C6375AB00797976 /* Network */,
 				129120B52C3BFA790037E939 /* Resources */,
 				129120B02C3BFA5C0037E939 /* App */,
 				12C821872C3BE8A800717D4F /* Preview Content */,
@@ -192,13 +168,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1ADDACEE2C6375AB00797976 /* Interface */ = {
+		1ADDACEE2C6375AB00797976 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				1ADDACEF2C6375B800797976 /* URL.swift */,
 				1ADDACF12C6377A700797976 /* URLRequest.swift */,
 			);
-			name = Interface;
+			name = Network;
 			sourceTree = "<group>";
 		};
 		1ADDACF72C637AC500797976 /* ViewModel */ = {

@@ -1,10 +1,3 @@
-//
-//  URL.swift
-//  PVPCPlanner
-//
-//  Created by Alberto Alegre Bravo on 7/8/24.
-//
-
 import Foundation
 
 let api = URL(string: "https://api.preciodelaluz.org/v1/prices")!
