@@ -90,15 +90,6 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		129120B42C3BFA720037E939 /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				129120C22C3BFB2E0037E939 /* Views */,
-				129120C12C3BFAFC0037E939 /* ViewModels */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
 		129120B52C3BFA790037E939 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,37 +99,6 @@
 				129120C62C3BFB5C0037E939 /* Localization */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		129120C12C3BFAFC0037E939 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		129120C22C3BFB2E0037E939 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				129120C42C3BFB3A0037E939 /* Screens */,
-				129120C32C3BFB330037E939 /* Components */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		129120C32C3BFB330037E939 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		129120C42C3BFB3A0037E939 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				12C821832C3BE8A700717D4F /* ContentView.swift */,
-			);
-			path = Screens;
 			sourceTree = "<group>";
 		};
 		129120C62C3BFB5C0037E939 /* Localization */ = {
@@ -187,11 +147,9 @@
 			children = (
 				1ADDACFA2C637C0F00797976 /* View */,
 				1ADDACF72C637AC500797976 /* ViewModel */,
+				1ADDAD022C64C1B800797976 /* Data */,
 				1ADDACEE2C6375AB00797976 /* Interface */,
-				1ADDACE42C636DAD00797976 /* Repository */,
 				129120B52C3BFA790037E939 /* Resources */,
-				129120B42C3BFA720037E939 /* Presentation */,
-				1ADDACE72C63743200797976 /* Model */,
 				129120B02C3BFA5C0037E939 /* App */,
 				12C821872C3BE8A800717D4F /* Preview Content */,
 				12726C4C2C3C00130020D35A /* ProjectStructure.md */,
@@ -202,9 +160,9 @@
 		12C821872C3BE8A800717D4F /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				1ADDACFF2C64C11D00797976 /* RepositoryPreview */,
 				1ADDACF32C6379CF00797976 /* AllPricesTest.json */,
 				12C821882C3BE8A800717D4F /* Preview Assets.xcassets */,
-				1ADDACF52C6379DD00797976 /* PreviewData.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -215,6 +173,7 @@
 				1ADDACE52C636DBA00797976 /* NetworkRepository.swift */,
 			);
 			name = Repository;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		1ADDACE72C63743200797976 /* Model */ = {
@@ -223,6 +182,7 @@
 				1ADDACE82C63745700797976 /* PVPCModel.swift */,
 			);
 			name = Model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		1ADDACEB2C63750E00797976 /* Frameworks */ = {
@@ -252,9 +212,43 @@
 		1ADDACFA2C637C0F00797976 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1ADDACFD2C637C2A00797976 /* PricesView.swift */,
+				1ADDAD002C64C18800797976 /* Screen */,
+				1ADDAD012C64C19000797976 /* Components */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		1ADDACFF2C64C11D00797976 /* RepositoryPreview */ = {
+			isa = PBXGroup;
+			children = (
+				1ADDACF52C6379DD00797976 /* PreviewData.swift */,
+			);
+			name = RepositoryPreview;
+			sourceTree = "<group>";
+		};
+		1ADDAD002C64C18800797976 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				1ADDACFD2C637C2A00797976 /* PricesView.swift */,
+				12C821832C3BE8A700717D4F /* ContentView.swift */,
+			);
+			name = Screen;
+			sourceTree = "<group>";
+		};
+		1ADDAD012C64C19000797976 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		1ADDAD022C64C1B800797976 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1ADDACE72C63743200797976 /* Model */,
+				1ADDACE42C636DAD00797976 /* Repository */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
