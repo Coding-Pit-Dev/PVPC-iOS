@@ -14,8 +14,9 @@
 		12C821842C3BE8A700717D4F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C821832C3BE8A700717D4F /* ContentView.swift */; };
 		12C821862C3BE8A800717D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C821852C3BE8A800717D4F /* Assets.xcassets */; };
 		12C821892C3BE8A800717D4F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C821882C3BE8A800717D4F /* Preview Assets.xcassets */; };
+		1A00362E2C69F27E00DC89C0 /* PVPCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00362D2C69F27E00DC89C0 /* PVPCModel.swift */; };
 		1ADDACE62C636DBA00797976 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADDACE52C636DBA00797976 /* NetworkRepository.swift */; };
-		1ADDACE92C63745700797976 /* PVPCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADDACE82C63745700797976 /* PVPCModel.swift */; };
+		1ADDACE92C63745700797976 /* PVPCModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADDACE82C63745700797976 /* PVPCModelDTO.swift */; };
 		1ADDACED2C63750E00797976 /* PVPCNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 1ADDACEC2C63750E00797976 /* PVPCNetwork */; };
 		1ADDACF02C6375B800797976 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADDACEF2C6375B800797976 /* URL.swift */; };
 		1ADDACF22C6377A700797976 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADDACF12C6377A700797976 /* URLRequest.swift */; };
@@ -45,8 +46,9 @@
 		12C821832C3BE8A700717D4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		12C821852C3BE8A800717D4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12C821882C3BE8A800717D4F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1A00362D2C69F27E00DC89C0 /* PVPCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCModel.swift; sourceTree = "<group>"; };
 		1ADDACE52C636DBA00797976 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
-		1ADDACE82C63745700797976 /* PVPCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCModel.swift; sourceTree = "<group>"; };
+		1ADDACE82C63745700797976 /* PVPCModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCModelDTO.swift; sourceTree = "<group>"; };
 		1ADDACEF2C6375B800797976 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		1ADDACF12C6377A700797976 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		1ADDACF32C6379CF00797976 /* AllPricesTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AllPricesTest.json; sourceTree = "<group>"; };
@@ -143,6 +145,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		1A00362B2C69F21600DC89C0 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				1ADDACE82C63745700797976 /* PVPCModelDTO.swift */,
+			);
+			name = DTO;
+			sourceTree = "<group>";
+		};
+		1A00362C2C69F22900DC89C0 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				1A00362D2C69F27E00DC89C0 /* PVPCModel.swift */,
+			);
+			name = Presentation;
+			sourceTree = "<group>";
+		};
 		1ADDACE42C636DAD00797976 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +173,8 @@
 		1ADDACE72C63743200797976 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1ADDACE82C63745700797976 /* PVPCModel.swift */,
+				1A00362C2C69F22900DC89C0 /* Presentation */,
+				1A00362B2C69F21600DC89C0 /* DTO */,
 			);
 			name = Model;
 			path = ..;
@@ -387,11 +406,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ADDACF02C6375B800797976 /* URL.swift in Sources */,
-				1ADDACE92C63745700797976 /* PVPCModel.swift in Sources */,
+				1ADDACE92C63745700797976 /* PVPCModelDTO.swift in Sources */,
 				1ADDACF92C637ADA00797976 /* PricesVM.swift in Sources */,
 				1ADDACE62C636DBA00797976 /* NetworkRepository.swift in Sources */,
 				1ADDACF22C6377A700797976 /* URLRequest.swift in Sources */,
 				1ADDACF62C6379DD00797976 /* PreviewData.swift in Sources */,
+				1A00362E2C69F27E00DC89C0 /* PVPCModel.swift in Sources */,
 				12C821842C3BE8A700717D4F /* ContentView.swift in Sources */,
 				1ADDACFE2C637C2A00797976 /* PricesView.swift in Sources */,
 				12C821822C3BE8A700717D4F /* PVPCPlannerApp.swift in Sources */,
