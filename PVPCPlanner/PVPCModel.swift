@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct PVPCModel {
+struct PVPCModel: Identifiable, Hashable {
+    var id: UUID { UUID() }
     let dia: String
     let hora: String
     let pcb: String

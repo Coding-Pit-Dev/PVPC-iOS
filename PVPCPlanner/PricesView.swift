@@ -5,10 +5,8 @@ struct PricesView: View {
 
     var body: some View {
         List {
-            if let prices = vm.pricesString {
-                ForEach(prices, id: \.self) { price in
-                    Text("\(price)")
-                }
+            ForEach(vm.prices, id: \.self) { price in
+                Text("\(price.hora)")
             }
         }
         .task {

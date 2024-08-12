@@ -2,7 +2,7 @@ import Foundation
 
 struct PVPCResponse: Codable {
     let pvpc: [PVPCDTO]
-    
+
     enum CodingKeys: String, CodingKey {
         case pvpc = "PVPC"
     }
@@ -34,7 +34,7 @@ struct PVPCDTO: Codable {
     let edsrcym: String
     let tahpcb: String
     let tahcym: String
-    
+
     enum CodingKeys: String, CodingKey {
         case dia = "Dia"
         case hora = "Hora"
@@ -62,7 +62,7 @@ struct PVPCDTO: Codable {
         case tahpcb = "TAHPCB"
         case tahcym = "TAHCYM"
     }
-    
+
     var toPresentation: PVPCModel {
         PVPCModel(dia: dia,
                   hora: hora,

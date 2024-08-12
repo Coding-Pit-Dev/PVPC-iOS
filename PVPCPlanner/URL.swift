@@ -1,27 +1,16 @@
 import Foundation
 
-let api = URL(string: "https://api.preciodelaluz.org/v1/prices")!
+let api = URL(string: "https://api.esios.ree.es/archives/70/download_json")!
 
 extension URL {
-    static let allPricesURL = api.appending(path: "all")
-        .appending(queryItems: [.zone])
-    static let averagePricesURL = api.appending(path: "avg")
-        .appending(queryItems: [.zone])
-    static let maxPriceURL = api.appending(path: "max")
-        .appending(queryItems: [.zone])
-    static let minPriceURL = api.appending(path: "min")
-        .appending(queryItems: [.zone])
-    static let nowPricesURL = api.appending(path: "now")
-        .appending(queryItems: [.zone])
-    static func cheapestPricesURL(number: Int = 2) -> URL {
-        api.appending(path: "cheapests")
-            .appending(queryItems: [.numberPrices(number: number)])
+    static func allPricesURL(date: Date) -> URL {
+        api.appending(queryItems: [.zone, .date(date)])
     }
 }
 
 extension URLQueryItem {
-    static let zone = URLQueryItem(name: "zone", value: "PCB")
-    static func numberPrices(number: Int) -> URLQueryItem {
-        URLQueryItem(name: "n", value: "\(number)")
+    static let zone = URLQueryItem(name: "locale", value: "es")
+    static func date(_ date: Date) -> URLQueryItem {
+        URLQueryItem(name: "date", value: DateFormatter.dateFormatter.string(from: date))
     }
 }
