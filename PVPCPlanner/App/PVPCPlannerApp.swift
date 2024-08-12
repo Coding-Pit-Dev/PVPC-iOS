@@ -4,7 +4,7 @@ import SwiftUI
 struct PVPCPlannerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PricesView()
         }
     }
 }
