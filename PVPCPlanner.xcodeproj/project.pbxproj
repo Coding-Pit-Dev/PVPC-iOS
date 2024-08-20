@@ -49,13 +49,13 @@
 		12C821882C3BE8A800717D4F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1A00362D2C69F27E00DC89C0 /* PVPCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCModel.swift; sourceTree = "<group>"; };
 		1A0036312C69FE9B00DC89C0 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
-		1ADDACE52C636DBA00797976 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
+		1ADDACE52C636DBA00797976 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkRepository.swift; path = PVPCPlanner/NetworkRepository.swift; sourceTree = SOURCE_ROOT; };
 		1ADDACE82C63745700797976 /* PVPCModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCModelDTO.swift; sourceTree = "<group>"; };
 		1ADDACEF2C6375B800797976 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		1ADDACF12C6377A700797976 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		1ADDACF32C6379CF00797976 /* AllPricesTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AllPricesTest.json; sourceTree = "<group>"; };
 		1ADDACF52C6379DD00797976 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
-		1ADDACF82C637ADA00797976 /* PricesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesVM.swift; sourceTree = "<group>"; };
+		1ADDACF82C637ADA00797976 /* PricesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PricesVM.swift; path = PVPCPlanner/ViewModel/PricesVM.swift; sourceTree = SOURCE_ROOT; };
 		1ADDACFD2C637C2A00797976 /* PricesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,16 +91,18 @@
 			children = (
 				12C821812C3BE8A700717D4F /* PVPCPlannerApp.swift */,
 			);
-			path = App;
-			sourceTree = "<group>";
+			name = App;
+			path = PVPCPlanner/App;
+			sourceTree = SOURCE_ROOT;
 		};
 		129120B52C3BFA790037E939 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				12C821852C3BE8A800717D4F /* Assets.xcassets */,
 			);
-			path = Resources;
-			sourceTree = "<group>";
+			name = Resources;
+			path = PVPCPlanner/Resources;
+			sourceTree = SOURCE_ROOT;
 		};
 		12C821752C3BE8A700717D4F = {
 			isa = PBXGroup;
@@ -154,8 +156,9 @@
 				1ACBAB142C74D00600269327 /* Components */,
 				1ACBAB132C74CFF000269327 /* Screen */,
 			);
-			path = View;
-			sourceTree = "<group>";
+			name = View;
+			path = PVPCPlanner/View;
+			sourceTree = SOURCE_ROOT;
 		};
 		1ACBAB132C74CFF000269327 /* Screen */ = {
 			isa = PBXGroup;
@@ -163,31 +166,35 @@
 				1ADDACFD2C637C2A00797976 /* PricesView.swift */,
 				12C821832C3BE8A700717D4F /* ContentView.swift */,
 			);
-			path = Screen;
-			sourceTree = "<group>";
+			name = Screen;
+			path = PVPCPlanner/View/Screen;
+			sourceTree = SOURCE_ROOT;
 		};
 		1ACBAB142C74D00600269327 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Components;
-			sourceTree = "<group>";
+			name = Components;
+			path = PVPCPlanner/View/Components;
+			sourceTree = SOURCE_ROOT;
 		};
 		1ACBAB162C74D03000269327 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				1A00362D2C69F27E00DC89C0 /* PVPCModel.swift */,
 			);
-			path = Presentation;
-			sourceTree = "<group>";
+			name = Presentation;
+			path = PVPCPlanner/Presentation;
+			sourceTree = SOURCE_ROOT;
 		};
 		1ACBAB172C74D03700269327 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
 				1ADDACE82C63745700797976 /* PVPCModelDTO.swift */,
 			);
-			path = DTO;
-			sourceTree = "<group>";
+			name = DTO;
+			path = PVPCPlanner/DTO;
+			sourceTree = SOURCE_ROOT;
 		};
 		1ACBAB192C74D06E00269327 /* Network */ = {
 			isa = PBXGroup;
@@ -195,24 +202,27 @@
 				1ADDACF12C6377A700797976 /* URLRequest.swift */,
 				1ADDACEF2C6375B800797976 /* URL.swift */,
 			);
-			path = Network;
-			sourceTree = "<group>";
+			name = Network;
+			path = PVPCPlanner/Network;
+			sourceTree = SOURCE_ROOT;
 		};
 		1ACBAB1A2C74D09400269327 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				1ACBAB1B2C74D09C00269327 /* Extensions */,
 			);
-			path = Utils;
-			sourceTree = "<group>";
+			name = Utils;
+			path = PVPCPlanner/Utils;
+			sourceTree = SOURCE_ROOT;
 		};
 		1ACBAB1B2C74D09C00269327 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				1A0036312C69FE9B00DC89C0 /* DateFormatter+Extension.swift */,
 			);
-			path = Extensions;
-			sourceTree = "<group>";
+			name = Extensions;
+			path = PVPCPlanner/Utils/Extensions;
+			sourceTree = SOURCE_ROOT;
 		};
 		1ADDACE42C636DAD00797976 /* Repository */ = {
 			isa = PBXGroup;
@@ -220,8 +230,8 @@
 				1ADDACE52C636DBA00797976 /* NetworkRepository.swift */,
 			);
 			name = Repository;
-			path = ..;
-			sourceTree = "<group>";
+			path = PVPCPlanner;
+			sourceTree = SOURCE_ROOT;
 		};
 		1ADDACE72C63743200797976 /* Model */ = {
 			isa = PBXGroup;
@@ -230,8 +240,8 @@
 				1ACBAB172C74D03700269327 /* DTO */,
 			);
 			name = Model;
-			path = ..;
-			sourceTree = "<group>";
+			path = PVPCPlanner;
+			sourceTree = SOURCE_ROOT;
 		};
 		1ADDACEB2C63750E00797976 /* Frameworks */ = {
 			isa = PBXGroup;
@@ -245,8 +255,9 @@
 			children = (
 				1ADDACF82C637ADA00797976 /* PricesVM.swift */,
 			);
-			path = ViewModel;
-			sourceTree = "<group>";
+			name = ViewModel;
+			path = PVPCPlanner/ViewModel;
+			sourceTree = SOURCE_ROOT;
 		};
 		1ADDACFF2C64C11D00797976 /* RepositoryPreview */ = {
 			isa = PBXGroup;
@@ -262,8 +273,9 @@
 				1ADDACE72C63743200797976 /* Model */,
 				1ADDACE42C636DAD00797976 /* Repository */,
 			);
-			path = Data;
-			sourceTree = "<group>";
+			name = Data;
+			path = PVPCPlanner/Data;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
