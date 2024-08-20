@@ -38,24 +38,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1213F82F2C459ED3008B4373 /* PVPCPlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PVPCPlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1213F82F2C459ED3008B4373 /* PVPCPlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = PVPCPlannerTests.xctest; path = "/Users/albertoalegrebravo/PVPC-iOS/build/Debug-iphoneos/PVPCPlanner.app/PlugIns/PVPCPlannerTests.xctest"; sourceTree = "<absolute>"; };
 		1213F8312C459ED3008B4373 /* PVPCPlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCPlannerTests.swift; sourceTree = "<group>"; };
 		12726C4C2C3C00130020D35A /* ProjectStructure.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ProjectStructure.md; sourceTree = "<group>"; };
 		129120C92C3BFBA50037E939 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		12C8217E2C3BE8A700717D4F /* PVPCPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PVPCPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		12C8217E2C3BE8A700717D4F /* PVPCPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PVPCPlanner.app; path = "/Users/albertoalegrebravo/PVPC-iOS/build/Debug-iphoneos/PVPCPlanner.app"; sourceTree = "<absolute>"; };
 		12C821812C3BE8A700717D4F /* PVPCPlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCPlannerApp.swift; sourceTree = "<group>"; };
 		12C821832C3BE8A700717D4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		12C821852C3BE8A800717D4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12C821882C3BE8A800717D4F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1A00362D2C69F27E00DC89C0 /* PVPCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCModel.swift; sourceTree = "<group>"; };
 		1A0036312C69FE9B00DC89C0 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
-		1ADDACE52C636DBA00797976 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
+		1ADDACE52C636DBA00797976 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkRepository.swift; path = PVPCPlanner/NetworkRepository.swift; sourceTree = SOURCE_ROOT; };
 		1ADDACE82C63745700797976 /* PVPCModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCModelDTO.swift; sourceTree = "<group>"; };
 		1ADDACEF2C6375B800797976 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		1ADDACF12C6377A700797976 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		1ADDACF32C6379CF00797976 /* AllPricesTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AllPricesTest.json; sourceTree = "<group>"; };
 		1ADDACF52C6379DD00797976 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
-		1ADDACF82C637ADA00797976 /* PricesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesVM.swift; sourceTree = "<group>"; };
+		1ADDACF82C637ADA00797976 /* PricesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PricesVM.swift; path = PVPCPlanner/ViewModel/PricesVM.swift; sourceTree = SOURCE_ROOT; };
 		1ADDACFD2C637C2A00797976 /* PricesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,16 +91,18 @@
 			children = (
 				12C821812C3BE8A700717D4F /* PVPCPlannerApp.swift */,
 			);
-			path = App;
-			sourceTree = "<group>";
+			name = App;
+			path = PVPCPlanner/App;
+			sourceTree = SOURCE_ROOT;
 		};
 		129120B52C3BFA790037E939 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				12C821852C3BE8A800717D4F /* Assets.xcassets */,
 			);
-			path = Resources;
-			sourceTree = "<group>";
+			name = Resources;
+			path = PVPCPlanner/Resources;
+			sourceTree = SOURCE_ROOT;
 		};
 		12C821752C3BE8A700717D4F = {
 			isa = PBXGroup;
@@ -108,28 +110,18 @@
 				129120C92C3BFBA50037E939 /* README.md */,
 				12C821802C3BE8A700717D4F /* PVPCPlanner */,
 				1213F8302C459ED3008B4373 /* PVPCPlannerTests */,
-				12C8217F2C3BE8A700717D4F /* Products */,
 				1ADDACEB2C63750E00797976 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		12C8217F2C3BE8A700717D4F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				12C8217E2C3BE8A700717D4F /* PVPCPlanner.app */,
-				1213F82F2C459ED3008B4373 /* PVPCPlannerTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		12C821802C3BE8A700717D4F /* PVPCPlanner */ = {
 			isa = PBXGroup;
 			children = (
-				1ADDACFA2C637C0F00797976 /* View */,
+				1ACBAB122C74CFE700269327 /* View */,
 				1ADDACF72C637AC500797976 /* ViewModel */,
 				1ADDAD022C64C1B800797976 /* Data */,
-				1ADDACEE2C6375AB00797976 /* Network */,
-				1A00362F2C69FE7E00DC89C0 /* Utils */,
+				1ACBAB192C74D06E00269327 /* Network */,
+				1ACBAB1A2C74D09400269327 /* Utils */,
 				129120B52C3BFA790037E939 /* Resources */,
 				129120B02C3BFA5C0037E939 /* App */,
 				12C821872C3BE8A800717D4F /* Preview Content */,
@@ -148,37 +140,79 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		1A00362B2C69F21600DC89C0 /* DTO */ = {
+		1ACBAB122C74CFE700269327 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1ADDACE82C63745700797976 /* PVPCModelDTO.swift */,
+				1ACBAB142C74D00600269327 /* Components */,
+				1ACBAB132C74CFF000269327 /* Screen */,
 			);
-			name = DTO;
-			sourceTree = "<group>";
+			name = View;
+			path = PVPCPlanner/View;
+			sourceTree = SOURCE_ROOT;
 		};
-		1A00362C2C69F22900DC89C0 /* Presentation */ = {
+		1ACBAB132C74CFF000269327 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				1ADDACFD2C637C2A00797976 /* PricesView.swift */,
+				12C821832C3BE8A700717D4F /* ContentView.swift */,
+			);
+			name = Screen;
+			path = PVPCPlanner/View/Screen;
+			sourceTree = SOURCE_ROOT;
+		};
+		1ACBAB142C74D00600269327 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Components;
+			path = PVPCPlanner/View/Components;
+			sourceTree = SOURCE_ROOT;
+		};
+		1ACBAB162C74D03000269327 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				1A00362D2C69F27E00DC89C0 /* PVPCModel.swift */,
 			);
 			name = Presentation;
-			sourceTree = "<group>";
+			path = PVPCPlanner/Presentation;
+			sourceTree = SOURCE_ROOT;
 		};
-		1A00362F2C69FE7E00DC89C0 /* Utils */ = {
+		1ACBAB172C74D03700269327 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				1A0036302C69FE8C00DC89C0 /* Extensions */,
+				1ADDACE82C63745700797976 /* PVPCModelDTO.swift */,
+			);
+			name = DTO;
+			path = PVPCPlanner/DTO;
+			sourceTree = SOURCE_ROOT;
+		};
+		1ACBAB192C74D06E00269327 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1ADDACF12C6377A700797976 /* URLRequest.swift */,
+				1ADDACEF2C6375B800797976 /* URL.swift */,
+			);
+			name = Network;
+			path = PVPCPlanner/Network;
+			sourceTree = SOURCE_ROOT;
+		};
+		1ACBAB1A2C74D09400269327 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1ACBAB1B2C74D09C00269327 /* Extensions */,
 			);
 			name = Utils;
-			sourceTree = "<group>";
+			path = PVPCPlanner/Utils;
+			sourceTree = SOURCE_ROOT;
 		};
-		1A0036302C69FE8C00DC89C0 /* Extensions */ = {
+		1ACBAB1B2C74D09C00269327 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				1A0036312C69FE9B00DC89C0 /* DateFormatter+Extension.swift */,
 			);
 			name = Extensions;
-			sourceTree = "<group>";
+			path = PVPCPlanner/Utils/Extensions;
+			sourceTree = SOURCE_ROOT;
 		};
 		1ADDACE42C636DAD00797976 /* Repository */ = {
 			isa = PBXGroup;
@@ -186,18 +220,18 @@
 				1ADDACE52C636DBA00797976 /* NetworkRepository.swift */,
 			);
 			name = Repository;
-			path = ..;
-			sourceTree = "<group>";
+			path = PVPCPlanner;
+			sourceTree = SOURCE_ROOT;
 		};
 		1ADDACE72C63743200797976 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1A00362C2C69F22900DC89C0 /* Presentation */,
-				1A00362B2C69F21600DC89C0 /* DTO */,
+				1ACBAB162C74D03000269327 /* Presentation */,
+				1ACBAB172C74D03700269327 /* DTO */,
 			);
 			name = Model;
-			path = ..;
-			sourceTree = "<group>";
+			path = PVPCPlanner;
+			sourceTree = SOURCE_ROOT;
 		};
 		1ADDACEB2C63750E00797976 /* Frameworks */ = {
 			isa = PBXGroup;
@@ -206,31 +240,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1ADDACEE2C6375AB00797976 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				1ADDACEF2C6375B800797976 /* URL.swift */,
-				1ADDACF12C6377A700797976 /* URLRequest.swift */,
-			);
-			name = Network;
-			sourceTree = "<group>";
-		};
 		1ADDACF72C637AC500797976 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				1ADDACF82C637ADA00797976 /* PricesVM.swift */,
 			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		1ADDACFA2C637C0F00797976 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				1ADDAD002C64C18800797976 /* Screen */,
-				1ADDAD012C64C19000797976 /* Components */,
-			);
-			name = View;
-			sourceTree = "<group>";
+			name = ViewModel;
+			path = PVPCPlanner/ViewModel;
+			sourceTree = SOURCE_ROOT;
 		};
 		1ADDACFF2C64C11D00797976 /* RepositoryPreview */ = {
 			isa = PBXGroup;
@@ -240,30 +257,15 @@
 			name = RepositoryPreview;
 			sourceTree = "<group>";
 		};
-		1ADDAD002C64C18800797976 /* Screen */ = {
-			isa = PBXGroup;
-			children = (
-				1ADDACFD2C637C2A00797976 /* PricesView.swift */,
-				12C821832C3BE8A700717D4F /* ContentView.swift */,
-			);
-			name = Screen;
-			sourceTree = "<group>";
-		};
-		1ADDAD012C64C19000797976 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Components;
-			sourceTree = "<group>";
-		};
 		1ADDAD022C64C1B800797976 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				1ADDACE72C63743200797976 /* Model */,
 				1ADDACE42C636DAD00797976 /* Repository */,
 			);
-			path = Data;
-			sourceTree = "<group>";
+			name = Data;
+			path = PVPCPlanner/Data;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -339,7 +341,7 @@
 			packageReferences = (
 				1ADDACEA2C6374EF00797976 /* XCRemoteSwiftPackageReference "PVPCNetwork" */,
 			);
-			productRefGroup = 12C8217F2C3BE8A700717D4F /* Products */;
+			productRefGroup = 12C821752C3BE8A700717D4F;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
