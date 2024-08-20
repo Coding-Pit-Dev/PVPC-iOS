@@ -125,11 +125,11 @@
 		12C821802C3BE8A700717D4F /* PVPCPlanner */ = {
 			isa = PBXGroup;
 			children = (
-				1ADDACFA2C637C0F00797976 /* View */,
+				1ACBAB122C74CFE700269327 /* View */,
 				1ADDACF72C637AC500797976 /* ViewModel */,
 				1ADDAD022C64C1B800797976 /* Data */,
-				1ADDACEE2C6375AB00797976 /* Network */,
-				1A00362F2C69FE7E00DC89C0 /* Utils */,
+				1ACBAB192C74D06E00269327 /* Network */,
+				1ACBAB1A2C74D09400269327 /* Utils */,
 				129120B52C3BFA790037E939 /* Resources */,
 				129120B02C3BFA5C0037E939 /* App */,
 				12C821872C3BE8A800717D4F /* Preview Content */,
@@ -148,36 +148,70 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		1A00362B2C69F21600DC89C0 /* DTO */ = {
+		1ACBAB122C74CFE700269327 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1ADDACE82C63745700797976 /* PVPCModelDTO.swift */,
+				1ACBAB142C74D00600269327 /* Components */,
+				1ACBAB132C74CFF000269327 /* Screen */,
 			);
-			name = DTO;
+			path = View;
 			sourceTree = "<group>";
 		};
-		1A00362C2C69F22900DC89C0 /* Presentation */ = {
+		1ACBAB132C74CFF000269327 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				1ADDACFD2C637C2A00797976 /* PricesView.swift */,
+				12C821832C3BE8A700717D4F /* ContentView.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		1ACBAB142C74D00600269327 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		1ACBAB162C74D03000269327 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				1A00362D2C69F27E00DC89C0 /* PVPCModel.swift */,
 			);
-			name = Presentation;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
-		1A00362F2C69FE7E00DC89C0 /* Utils */ = {
+		1ACBAB172C74D03700269327 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				1A0036302C69FE8C00DC89C0 /* Extensions */,
+				1ADDACE82C63745700797976 /* PVPCModelDTO.swift */,
 			);
-			name = Utils;
+			path = DTO;
 			sourceTree = "<group>";
 		};
-		1A0036302C69FE8C00DC89C0 /* Extensions */ = {
+		1ACBAB192C74D06E00269327 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1ADDACF12C6377A700797976 /* URLRequest.swift */,
+				1ADDACEF2C6375B800797976 /* URL.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1ACBAB1A2C74D09400269327 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1ACBAB1B2C74D09C00269327 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		1ACBAB1B2C74D09C00269327 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				1A0036312C69FE9B00DC89C0 /* DateFormatter+Extension.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1ADDACE42C636DAD00797976 /* Repository */ = {
@@ -192,8 +226,8 @@
 		1ADDACE72C63743200797976 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1A00362C2C69F22900DC89C0 /* Presentation */,
-				1A00362B2C69F21600DC89C0 /* DTO */,
+				1ACBAB162C74D03000269327 /* Presentation */,
+				1ACBAB172C74D03700269327 /* DTO */,
 			);
 			name = Model;
 			path = ..;
@@ -206,15 +240,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1ADDACEE2C6375AB00797976 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				1ADDACEF2C6375B800797976 /* URL.swift */,
-				1ADDACF12C6377A700797976 /* URLRequest.swift */,
-			);
-			name = Network;
-			sourceTree = "<group>";
-		};
 		1ADDACF72C637AC500797976 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,37 +248,12 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		1ADDACFA2C637C0F00797976 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				1ADDAD002C64C18800797976 /* Screen */,
-				1ADDAD012C64C19000797976 /* Components */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 		1ADDACFF2C64C11D00797976 /* RepositoryPreview */ = {
 			isa = PBXGroup;
 			children = (
 				1ADDACF52C6379DD00797976 /* PreviewData.swift */,
 			);
 			name = RepositoryPreview;
-			sourceTree = "<group>";
-		};
-		1ADDAD002C64C18800797976 /* Screen */ = {
-			isa = PBXGroup;
-			children = (
-				1ADDACFD2C637C2A00797976 /* PricesView.swift */,
-				12C821832C3BE8A700717D4F /* ContentView.swift */,
-			);
-			name = Screen;
-			sourceTree = "<group>";
-		};
-		1ADDAD012C64C19000797976 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Components;
 			sourceTree = "<group>";
 		};
 		1ADDAD022C64C1B800797976 /* Data */ = {
