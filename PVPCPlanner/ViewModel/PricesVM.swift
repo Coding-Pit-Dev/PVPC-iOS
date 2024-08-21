@@ -2,7 +2,7 @@ import Foundation
 
 @Observable
 final class PricesVM {
-    let repository: NetworkRepositoryPotocol
+    let getPricesUseCase: PricesUseCaseProtocol
     var prices: [PVPCModel] = []
 
     let date: Date = .now
@@ -10,13 +10,13 @@ final class PricesVM {
     var errorMsg = ""
     var showError = false
 
-    init(repository: NetworkRepositoryPotocol = NetworkRepository.shared) {
-        self.repository = repository
+    init(getPricesUseCase: PricesUseCaseProtocol = GetPricesUseCase.shared) {
+        self.getPricesUseCase = getPricesUseCase
     }
 
     func getPricesList() async {
         do {
-            prices = try await repository.getDayPrices(date: date)
+            prices = try await getPricesUseCase.fetchDayPrices(date: date)
         } catch {
             print(error)
             showError.toggle()

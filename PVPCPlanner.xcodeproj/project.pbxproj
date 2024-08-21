@@ -16,6 +16,8 @@
 		12C821892C3BE8A800717D4F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C821882C3BE8A800717D4F /* Preview Assets.xcassets */; };
 		1A00362E2C69F27E00DC89C0 /* PVPCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00362D2C69F27E00DC89C0 /* PVPCModel.swift */; };
 		1A0036322C69FE9B00DC89C0 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0036312C69FE9B00DC89C0 /* DateFormatter+Extension.swift */; };
+		1ACBAB262C7629BD00269327 /* PricesUseCaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACBAB252C7629BD00269327 /* PricesUseCaseProtocols.swift */; };
+		1ACBAB282C762A1300269327 /* GetPricesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACBAB272C762A1300269327 /* GetPricesUseCase.swift */; };
 		1ADDACE62C636DBA00797976 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADDACE52C636DBA00797976 /* NetworkRepository.swift */; };
 		1ADDACE92C63745700797976 /* PVPCModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADDACE82C63745700797976 /* PVPCModelDTO.swift */; };
 		1ADDACED2C63750E00797976 /* PVPCNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 1ADDACEC2C63750E00797976 /* PVPCNetwork */; };
@@ -38,17 +40,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1213F82F2C459ED3008B4373 /* PVPCPlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = PVPCPlannerTests.xctest; path = "/Users/albertoalegrebravo/PVPC-iOS/build/Debug-iphoneos/PVPCPlanner.app/PlugIns/PVPCPlannerTests.xctest"; sourceTree = "<absolute>"; };
 		1213F8312C459ED3008B4373 /* PVPCPlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCPlannerTests.swift; sourceTree = "<group>"; };
 		12726C4C2C3C00130020D35A /* ProjectStructure.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ProjectStructure.md; sourceTree = "<group>"; };
 		129120C92C3BFBA50037E939 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		12C8217E2C3BE8A700717D4F /* PVPCPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PVPCPlanner.app; path = "/Users/albertoalegrebravo/PVPC-iOS/build/Debug-iphoneos/PVPCPlanner.app"; sourceTree = "<absolute>"; };
 		12C821812C3BE8A700717D4F /* PVPCPlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCPlannerApp.swift; sourceTree = "<group>"; };
 		12C821832C3BE8A700717D4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		12C821852C3BE8A800717D4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12C821882C3BE8A800717D4F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1A00362D2C69F27E00DC89C0 /* PVPCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCModel.swift; sourceTree = "<group>"; };
 		1A0036312C69FE9B00DC89C0 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
+		1ACBAB1C2C74EAAB00269327 /* PVPCPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PVPCPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ACBAB1D2C74EAAB00269327 /* PVPCPlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PVPCPlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ACBAB252C7629BD00269327 /* PricesUseCaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesUseCaseProtocols.swift; sourceTree = "<group>"; };
+		1ACBAB272C762A1300269327 /* GetPricesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPricesUseCase.swift; sourceTree = "<group>"; };
 		1ADDACE52C636DBA00797976 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkRepository.swift; path = PVPCPlanner/NetworkRepository.swift; sourceTree = SOURCE_ROOT; };
 		1ADDACE82C63745700797976 /* PVPCModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCModelDTO.swift; sourceTree = "<group>"; };
 		1ADDACEF2C6375B800797976 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
@@ -111,12 +115,15 @@
 				12C821802C3BE8A700717D4F /* PVPCPlanner */,
 				1213F8302C459ED3008B4373 /* PVPCPlannerTests */,
 				1ADDACEB2C63750E00797976 /* Frameworks */,
+				1ACBAB1C2C74EAAB00269327 /* PVPCPlanner.app */,
+				1ACBAB1D2C74EAAB00269327 /* PVPCPlannerTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
 		12C821802C3BE8A700717D4F /* PVPCPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				1ACBAB222C76296100269327 /* Domain */,
 				1ACBAB122C74CFE700269327 /* View */,
 				1ADDACF72C637AC500797976 /* ViewModel */,
 				1ADDAD022C64C1B800797976 /* Data */,
@@ -214,6 +221,31 @@
 			path = PVPCPlanner/Utils/Extensions;
 			sourceTree = SOURCE_ROOT;
 		};
+		1ACBAB222C76296100269327 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				1ACBAB242C76298C00269327 /* Protocols */,
+				1ACBAB232C76297000269327 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		1ACBAB232C76297000269327 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				1ACBAB272C762A1300269327 /* GetPricesUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		1ACBAB242C76298C00269327 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1ACBAB252C7629BD00269327 /* PricesUseCaseProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		1ADDACE42C636DAD00797976 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,7 +317,7 @@
 			);
 			name = PVPCPlannerTests;
 			productName = PVPCPlannerTests;
-			productReference = 1213F82F2C459ED3008B4373 /* PVPCPlannerTests.xctest */;
+			productReference = 1ACBAB1D2C74EAAB00269327 /* PVPCPlannerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		12C8217D2C3BE8A700717D4F /* PVPCPlanner */ = {
@@ -307,7 +339,7 @@
 				1ADDACEC2C63750E00797976 /* PVPCNetwork */,
 			);
 			productName = PVPCPlanner;
-			productReference = 12C8217E2C3BE8A700717D4F /* PVPCPlanner.app */;
+			productReference = 1ACBAB1C2C74EAAB00269327 /* PVPCPlanner.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -428,6 +460,7 @@
 			files = (
 				1ADDACF02C6375B800797976 /* URL.swift in Sources */,
 				1ADDACE92C63745700797976 /* PVPCModelDTO.swift in Sources */,
+				1ACBAB282C762A1300269327 /* GetPricesUseCase.swift in Sources */,
 				1ADDACF92C637ADA00797976 /* PricesVM.swift in Sources */,
 				1ADDACE62C636DBA00797976 /* NetworkRepository.swift in Sources */,
 				1ADDACF22C6377A700797976 /* URLRequest.swift in Sources */,
@@ -437,6 +470,7 @@
 				1ADDACFE2C637C2A00797976 /* PricesView.swift in Sources */,
 				1A0036322C69FE9B00DC89C0 /* DateFormatter+Extension.swift in Sources */,
 				12C821822C3BE8A700717D4F /* PVPCPlannerApp.swift in Sources */,
+				1ACBAB262C7629BD00269327 /* PricesUseCaseProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,5 +22,5 @@ struct PreviewNetworkRepository: NetworkRepositoryPotocol {
 }
 
 extension PricesVM {
-    static let previewVM = PricesVM(repository: PreviewNetworkRepository())
+    static let previewVM = PricesVM()
 }
