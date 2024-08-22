@@ -4,9 +4,7 @@ import Foundation
 final class PricesVM {
     let getPricesUseCase: PricesUseCaseProtocol
     var prices: [PVPCModel] = []
-
     let date: Date = .now
-
     var errorMsg = ""
     var showError = false
 

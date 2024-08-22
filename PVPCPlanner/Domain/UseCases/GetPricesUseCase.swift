@@ -1,10 +1,3 @@
-//
-//  GetPricesUseCase.swift
-//  PVPCPlanner
-//
-//  Created by Alberto Alegre Bravo on 21/8/24.
-//
-
 import Foundation
 
 final class GetPricesUseCase: PricesUseCaseProtocol {
