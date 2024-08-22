@@ -1,10 +1,3 @@
-//
-//  PreviewData.swift
-//  PVPCPlanner
-//
-//  Created by Alberto Alegre Bravo on 7/8/24.
-//
-
 import Foundation
 
 struct PreviewNetworkRepository: NetworkRepositoryPotocol {
@@ -22,5 +15,5 @@ struct PreviewNetworkRepository: NetworkRepositoryPotocol {
 }
 
 extension PricesVM {
-    static let previewVM = PricesVM(repository: PreviewNetworkRepository())
+    static let previewVM = PricesVM()
 }
