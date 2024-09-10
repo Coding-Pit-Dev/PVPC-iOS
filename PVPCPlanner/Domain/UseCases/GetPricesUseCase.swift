@@ -3,7 +3,6 @@ import Foundation
 final class GetPricesUseCase: PricesUseCaseProtocol {
     static let shared = GetPricesUseCase()
     let repository: NetworkRepositoryPotocol
-    
     init(repository: NetworkRepositoryPotocol = NetworkRepository.shared) {
         self.repository = repository
     }
