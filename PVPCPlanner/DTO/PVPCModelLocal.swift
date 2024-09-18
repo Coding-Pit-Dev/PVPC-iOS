@@ -13,10 +13,10 @@ import SwiftData
 @Model
 class PVPCModelLocal: Identifiable, Hashable {
     @Attribute(.unique) var id: UUID = UUID() // Adds the uuid automatically
-    let dia: String
-    let hora: String
-    let pcb: String
-    let cym: String
+    var dia: String
+    var hora: String
+    var pcb: String
+    var cym: String
 
     init(dia: String, hora: String, pcb: String, cym: String) {
             self.dia = dia

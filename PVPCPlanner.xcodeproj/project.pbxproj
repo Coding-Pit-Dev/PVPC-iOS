@@ -40,6 +40,8 @@
 		8D20FBBE2C78C178007DBE4A /* GetAllPVPCFromLocalDBUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D20FBBD2C78C177007DBE4A /* GetAllPVPCFromLocalDBUseCase.swift */; };
 		8D20FBC02C78C1F8007DBE4A /* GetPVPCByDayFromLocalDBUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D20FBBF2C78C1F8007DBE4A /* GetPVPCByDayFromLocalDBUseCase.swift */; };
 		8D20FBC22C78C24B007DBE4A /* RemovePVPCByDayFromLocalDBUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D20FBC12C78C24B007DBE4A /* RemovePVPCByDayFromLocalDBUseCase.swift */; };
+		8DB777862C9B1CFE00A4ADA7 /* UpdatePVPCLocalByIdUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB777852C9B1CFE00A4ADA7 /* UpdatePVPCLocalByIdUseCase.swift */; };
+		8DB777882C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB777872C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift */; };
 		8DF50E4E2C90A11B00F696BA /* AddPVPCToLocaDBUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF50E4D2C90A11B00F696BA /* AddPVPCToLocaDBUseCaseTest.swift */; };
 		8DF50E502C90A13300F696BA /* RemovePVPCByDayFromLocalDBUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF50E4F2C90A13300F696BA /* RemovePVPCByDayFromLocalDBUseCaseTest.swift */; };
 		8DF50E522C90A13F00F696BA /* GetAllPVPCFromLocalDBUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF50E512C90A13F00F696BA /* GetAllPVPCFromLocalDBUseCaseTest.swift */; };
@@ -86,11 +88,13 @@
 		1ADDACFD2C637C2A00797976 /* PricesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesView.swift; sourceTree = "<group>"; };
 		8D20FBB22C78A2CA007DBE4A /* PVPCModelLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCModelLocal.swift; sourceTree = "<group>"; };
 		8D20FBB42C78A4B2007DBE4A /* PVPCLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCLocalDataSource.swift; sourceTree = "<group>"; };
-		8D20FBB92C78ACA2007DBE4A /* PVPCDatabaseContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PVPCDatabaseContainer.swift; path = PVPCPlannerTests/PVPCDatabaseContainer.swift; sourceTree = SOURCE_ROOT; };
+		8D20FBB92C78ACA2007DBE4A /* PVPCDatabaseContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PVPCDatabaseContainer.swift; path = PVPCPlanner/Data/DBContainers/PVPCDatabaseContainer.swift; sourceTree = SOURCE_ROOT; };
 		8D20FBBB2C78B19D007DBE4A /* AddPVPCToLocaDBUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPVPCToLocaDBUseCase.swift; sourceTree = "<group>"; };
 		8D20FBBD2C78C177007DBE4A /* GetAllPVPCFromLocalDBUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllPVPCFromLocalDBUseCase.swift; sourceTree = "<group>"; };
 		8D20FBBF2C78C1F8007DBE4A /* GetPVPCByDayFromLocalDBUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPVPCByDayFromLocalDBUseCase.swift; sourceTree = "<group>"; };
 		8D20FBC12C78C24B007DBE4A /* RemovePVPCByDayFromLocalDBUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePVPCByDayFromLocalDBUseCase.swift; sourceTree = "<group>"; };
+		8DB777852C9B1CFE00A4ADA7 /* UpdatePVPCLocalByIdUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePVPCLocalByIdUseCase.swift; sourceTree = "<group>"; };
+		8DB777872C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePVPCByIDLocaUseCaseTest.swift; sourceTree = "<group>"; };
 		8DF50E4D2C90A11B00F696BA /* AddPVPCToLocaDBUseCaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPVPCToLocaDBUseCaseTest.swift; sourceTree = "<group>"; };
 		8DF50E4F2C90A13300F696BA /* RemovePVPCByDayFromLocalDBUseCaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemovePVPCByDayFromLocalDBUseCaseTest.swift; sourceTree = "<group>"; };
 		8DF50E512C90A13F00F696BA /* GetAllPVPCFromLocalDBUseCaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllPVPCFromLocalDBUseCaseTest.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				8DF50E4D2C90A11B00F696BA /* AddPVPCToLocaDBUseCaseTest.swift */,
 				12AED8CC2C772EA600748EC4 /* ModelsTest.swift */,
 				12AED8D42C773CE600748EC4 /* PriceViewModelTest.swift */,
+				8DB777872C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 				8D20FBBD2C78C177007DBE4A /* GetAllPVPCFromLocalDBUseCase.swift */,
 				8D20FBBF2C78C1F8007DBE4A /* GetPVPCByDayFromLocalDBUseCase.swift */,
 				8D20FBC12C78C24B007DBE4A /* RemovePVPCByDayFromLocalDBUseCase.swift */,
+				8DB777852C9B1CFE00A4ADA7 /* UpdatePVPCLocalByIdUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -392,19 +398,18 @@
 			children = (
 				1ADDACE72C63743200797976 /* Model */,
 				1ADDACE42C636DAD00797976 /* Repository */,
-				8D20FBB82C78AC02007DBE4A /* DBContainers */,
+				8DB777892C9B20FF00A4ADA7 /* DBContainers */,
 			);
 			name = Data;
 			path = PVPCPlanner/Data;
 			sourceTree = SOURCE_ROOT;
 		};
-		8D20FBB82C78AC02007DBE4A /* DBContainers */ = {
+		8DB777892C9B20FF00A4ADA7 /* DBContainers */ = {
 			isa = PBXGroup;
 			children = (
 				8D20FBB92C78ACA2007DBE4A /* PVPCDatabaseContainer.swift */,
 			);
-			name = DBContainers;
-			path = PVPCPlanner/Data/DBContainers;
+			path = DBContainers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -568,6 +573,7 @@
 				12AED8CD2C772EA600748EC4 /* ModelsTest.swift in Sources */,
 				12AED8D32C773A1F00748EC4 /* Helpers.swift in Sources */,
 				12DB826F2C7B037B00A9CC82 /* PriceVMIntegrationTest.swift in Sources */,
+				8DB777882C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift in Sources */,
 				8DF50E542C90A14800F696BA /* GetPVPCByDayFromLocalDBUseCaseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,6 +594,7 @@
 				8D20FBBA2C78ACA2007DBE4A /* PVPCDatabaseContainer.swift in Sources */,
 				1ADDACF62C6379DD00797976 /* PreviewData.swift in Sources */,
 				8D20FBBC2C78B19D007DBE4A /* AddPVPCToLocaDBUseCase.swift in Sources */,
+				8DB777862C9B1CFE00A4ADA7 /* UpdatePVPCLocalByIdUseCase.swift in Sources */,
 				1A00362E2C69F27E00DC89C0 /* PVPCModel.swift in Sources */,
 				12C821842C3BE8A700717D4F /* ContentView.swift in Sources */,
 				1ADDACFE2C637C2A00797976 /* PricesView.swift in Sources */,

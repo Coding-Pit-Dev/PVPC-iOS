@@ -13,10 +13,11 @@ protocol PVPCLocalDataSourceProtocol {
     func addItem(dia: String, hora: String, pcb: String, cym: String) throws
     func getItemsByDay(dia: String) throws -> [PVPCModelLocal]
     func removeItemsByDay(dia: String) throws -> [PVPCModelLocal]
+    func updateItemById(id: UUID, dia: String, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal
 }
 
 class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
-
+    
     private let container: ModelContainer
 
     init(container: ModelContainer) {
@@ -82,5 +83,30 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
 
         // Return the removed elements
         return itemsToDelete
+    }
+    
+    @MainActor
+    func updateItemById(id: UUID, dia: String, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal {
+        
+        let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
+                predicate: #Predicate { $0.id == id }
+            )
+        
+        guard var itemToUpdate = try context.fetch(fetchDescriptor).first else {
+                throw PVPCDatabaseError.errorFetch
+            }
+        
+        itemToUpdate.dia = dia
+        itemToUpdate.hora = hora
+        itemToUpdate.pcb = pcb
+        itemToUpdate.cym = cym
+        
+        do {
+             try context.save()
+         } catch {
+             print("Error \(error.localizedDescription)")
+             throw PVPCDatabaseError.errorUpdate
+         }
+        return itemToUpdate
     }
 }
