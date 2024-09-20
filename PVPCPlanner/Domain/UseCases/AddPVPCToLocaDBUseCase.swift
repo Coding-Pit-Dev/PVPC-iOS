@@ -9,9 +9,8 @@ import Foundation
 
 @MainActor
 struct AddPVPCToLocaDBUseCase {
-
     // TODO: See how to refactor this, repeated in all the useCaseWith SwiftData
-    private var  databaseContainer = PVPCDatabaseContainer.shared.container
+    private var databaseContainer = PVPCDatabaseContainer.shared.container
     private var dataSource: PVPCLocalDataSource
 
     init(dataSource: PVPCLocalDataSource) {
