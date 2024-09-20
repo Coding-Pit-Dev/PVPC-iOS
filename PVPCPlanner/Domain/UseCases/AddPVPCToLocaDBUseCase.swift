@@ -1,10 +1,3 @@
-//
-//  AddPVPCToDBUseCase.swift
-//  PVPCPlanner
-//
-//  Created by Marcos on 23/8/24.
-//
-
 import Foundation
 
 @MainActor

@@ -1,15 +1,8 @@
-//
-//  UpdatePVPCLocalByIdUseCase.swift
-//  PVPCPlanner
-//
-//  Created by Marcos on 18/9/24.
-//
-
 import Foundation
 
 @MainActor
 struct UpdatePVPCLocalByIdUseCase {
-    private var  databaseContainer = PVPCDatabaseContainer.shared.container
+    private var databaseContainer = PVPCDatabaseContainer.shared.container
     private var dataSource: PVPCLocalDataSource
 
     init(dataSource: PVPCLocalDataSource) {

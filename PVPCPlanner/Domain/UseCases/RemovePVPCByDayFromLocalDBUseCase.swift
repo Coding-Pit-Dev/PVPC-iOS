@@ -1,15 +1,8 @@
-//
-//  RemovePVPCByDayFromLocalDBUseCase.swift
-//  PVPCPlanner
-//
-//  Created by Marcos on 23/8/24.
-//
-
 import Foundation
 
 @MainActor
-struct RemovePVPCByDayFromLocalDBUseCase {
-    private var  databaseContainer = PVPCDatabaseContainer.shared.container
+struct RemovePVPCByDayLocalDBUseCase {
+    private var databaseContainer = PVPCDatabaseContainer.shared.container
     private var dataSource: PVPCLocalDataSource
 
     init(dataSource: PVPCLocalDataSource) {

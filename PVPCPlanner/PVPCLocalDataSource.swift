@@ -1,10 +1,3 @@
-//
-//  PVPCLocalDataSource.swift
-//  PVPCPlanner
-//
-//  Created by Marcos on 23/8/24.
-//
-
 import Foundation
 import SwiftData
 
@@ -17,7 +10,6 @@ protocol PVPCLocalDataSourceProtocol {
 }
 
 class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
-    
     private let container: ModelContainer
 
     init(container: ModelContainer) {
@@ -54,17 +46,16 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
     @MainActor
     func getItemsByDay(dia: String) throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
-            predicate: #Predicate { $0.dia == dia},
+            predicate: #Predicate { $0.dia == dia },
             sortBy: [SortDescriptor(\.hora, order: .forward)])
 
         return try context.fetch(fetchDescriptor)
-
     }
 
     @MainActor
     func removeItemsByDay(dia: String) throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
-            predicate: #Predicate {$0.dia == dia})
+            predicate: #Predicate { $0.dia == dia })
 
         let itemsToDelete = try context.fetch(fetchDescriptor)
 
@@ -84,29 +75,27 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
         // Return the removed elements
         return itemsToDelete
     }
-    
+
     @MainActor
     func updateItemById(id: UUID, dia: String, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal {
-        
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
-                predicate: #Predicate { $0.id == id }
-            )
-        
-        guard var itemToUpdate = try context.fetch(fetchDescriptor).first else {
-                throw PVPCDatabaseError.errorFetch
-            }
-        
+            predicate: #Predicate { $0.id == id }
+        )
+        guard let itemToUpdate = try context.fetch(fetchDescriptor).first else {
+            throw PVPCDatabaseError.errorFetch
+        }
+
         itemToUpdate.dia = dia
         itemToUpdate.hora = hora
         itemToUpdate.pcb = pcb
         itemToUpdate.cym = cym
-        
+
         do {
-             try context.save()
-         } catch {
-             print("Error \(error.localizedDescription)")
-             throw PVPCDatabaseError.errorUpdate
-         }
+            try context.save()
+        } catch {
+            print("Error \(error.localizedDescription)")
+            throw PVPCDatabaseError.errorUpdate
+        }
         return itemToUpdate
     }
 }

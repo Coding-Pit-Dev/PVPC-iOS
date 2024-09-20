@@ -1,10 +1,3 @@
-//
-//  PVPCModelLocal.swift
-//  PVPCPlanner
-//
-//  Created by Marcos on 23/8/24.
-//
-
 import Foundation
 import SwiftData
 
@@ -19,9 +12,9 @@ class PVPCModelLocal: Identifiable, Hashable {
     var cym: String
 
     init(dia: String, hora: String, pcb: String, cym: String) {
-            self.dia = dia
-            self.hora = hora
-            self.pcb = pcb
-            self.cym = cym
-        }
+        self.dia = dia
+        self.hora = hora
+        self.pcb = pcb
+        self.cym = cym
+    }
 }
