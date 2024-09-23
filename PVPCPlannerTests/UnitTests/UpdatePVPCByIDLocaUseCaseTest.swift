@@ -1,10 +1,3 @@
-//
-//  UpdatePVPCByIDLocaUseCaseTest.swift
-//  PVPCPlannerTests
-//
-//  Created by Marcos on 18/9/24.
-//
-
 @testable import PVPCPlanner
 import SwiftData
 import XCTest

@@ -1,9 +1,3 @@
-//
-//  GetPVPCByDayFromLocalDBUseCaseTest.swift
-//  PVPCPlannerTests
-//
-//  Created by Marcos on 26/8/24.
-//
 
 @testable import PVPCPlanner
 import SwiftData

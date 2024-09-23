@@ -1,10 +1,3 @@
-//
-//  RemovePVPCByDayFromLocalDBUseCaseTest.swift
-//  PVPCPlannerTests
-//
-//  Created by Marcos on 28/8/24.
-//
-
 @testable import PVPCPlanner
 import SwiftData
 import XCTest
