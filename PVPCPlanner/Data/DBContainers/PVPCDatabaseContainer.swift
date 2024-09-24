@@ -1,12 +1,7 @@
 import Foundation
 import SwiftData
 
-enum PVPCDatabaseError: Error {
-    case errorInsert
-    case errorFetch
-    case errorDelete
-    case errorUpdate
-}
+
 
 class PVPCDatabaseContainer {
     static let shared: PVPCDatabaseContainer = .init()
