@@ -5,7 +5,7 @@ struct PreviewNetworkRepository: NetworkRepositoryPotocol {
         try getTestLocalData()
     }
 
-    /// Just a method to obtain data for canvas previews and avoid to do network calls every time view is redrawed
+    /// Obtain data for canvas previews and avoid to do network calls every time view is redrawed
     private func getTestLocalData() throws -> [PVPCModel] {
         let url = Bundle.main.url(forResource: "AllPricesTest1", withExtension: "json")!
         let data = try Data(contentsOf: url)

@@ -18,18 +18,18 @@ final class UpdatePVPCByIDLocaUseCaseTest: XCTestCase {
 
     func testUpdatePVPCByIdInLocalDatabase() throws {
         // GIVEN
-        try addUseCase.addPvpc(dia: "dia", hora: "hora", pcb: "pcb", cym: "CYM")
-        try addUseCase.addPvpc(dia: "dia1", hora: "hora1", pcb: "pcb1", cym: "CYM1")
-        try addUseCase.addPvpc(dia: "dia2", hora: "hora2", pcb: "pcb2", cym: "CYM2")
-        try addUseCase.addPvpc(dia: "dia3", hora: "hora3", pcb: "pcb3", cym: "CYM3")
-        try addUseCase.addPvpc(dia: "dia4", hora: "hora4", pcb: "pcb4", cym: "CYM4")
-        try addUseCase.addPvpc(dia: "dia5", hora: "hora5", pcb: "pcb5", cym: "CYM5")
+        try addUseCase.addPVPC(dia: "dia", hora: "hora", pcb: "pcb", cym: "CYM")
+        try addUseCase.addPVPC(dia: "dia1", hora: "hora1", pcb: "pcb1", cym: "CYM1")
+        try addUseCase.addPVPC(dia: "dia2", hora: "hora2", pcb: "pcb2", cym: "CYM2")
+        try addUseCase.addPVPC(dia: "dia3", hora: "hora3", pcb: "pcb3", cym: "CYM3")
+        try addUseCase.addPVPC(dia: "dia4", hora: "hora4", pcb: "pcb4", cym: "CYM4")
+        try addUseCase.addPVPC(dia: "dia5", hora: "hora5", pcb: "pcb5", cym: "CYM5")
 
-        let pvpcToUpdate = try getPVPCUseCase.getItemsByDay(dia: "dia")
+        let pvpcToUpdate = try getPVPCUseCase.getByDay(dia: "dia")
 
         // When
-        let pvpcUpdateResponse: PVPCModelLocal = try sut.updateItemById(id: pvpcToUpdate[0].id, dia: pvpcToUpdate[0].dia, hora: "horaCambiada", pcb: "PCBCambiada", cym: "CYMCambiado")
-        let pvpcAfterUpdate = try getPVPCUseCase.getItemsByDay(dia: "dia")[0]
+        let pvpcUpdateResponse: PVPCModelLocal = try sut.updateById(id: pvpcToUpdate[0].id, dia: pvpcToUpdate[0].dia, hora: "horaCambiada", pcb: "PCBCambiada", cym: "CYMCambiado")
+        let pvpcAfterUpdate = try getPVPCUseCase.getByDay(dia: "dia")[0]
 
         // Then
         XCTAssertNotNil(pvpcUpdateResponse)

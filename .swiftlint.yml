@@ -1,47 +1,132 @@
-disabled_rules: # rule identifiers to exclude from running
-  - identifier_name
-  - nesting
-  - function_parameter_count
-opt_in_rules: # some rules are only opt-in
-  - control_statement
-  - empty_count
-  - trailing_newline
+disabled_rules:
   - colon
   - comma
-included: # paths to include during linting. `--path` is ignored if present.
+  - control_statement
+opt_in_rules:
+  - empty_count
+
+  - vertical_whitespace
+
+analyzer_rules:
+  - explicit_self
+
+included:
   - PVPCPlanner
-  #- PVPCPlannerTests
-  #- PVPCPlannerUITests
-excluded: # paths to ignore during linting. Takes precedence over `included`.
+
+excluded:
   - Pods
   - Project/R.generated.swift
 
-# configurable rules can be customized from this configuration file
-# binary rules can set their severity level
-force_cast: warning # implicitly. Give warning only for force casting
+# Configuraciones para reglas básicas
 
+allow_zero_lintable_files: false
+strict: false
+
+force_cast: warning
 force_try:
-  severity: warning # explicitly. Give warning only for force try
-
-type_body_length:
-  - 300 # warning
-  - 400 # error
-
-# or they can set both explicitly
+  severity: warning
+# implicitly
+line_length: 110
 file_length:
   warning: 500
-  error: 800
-
-large_tuple: # warn user when using 3 values in tuple, give error if there are 4
-  - 3
-  - 4
-
-# naming rules can set warnings/errors for min_length and max_length
-# additionally they can set excluded names
+  error: 1200
 type_name:
   min_length: 4 # only warning
   max_length: # warning and error
-    warning: 30
-    error: 35
+    warning: 40
+    error: 50
   excluded: iPhone # excluded via string
+  allowed_symbols: ['_'] # these are allowed in type names
+identifier_name:
+  min_length: # only min_length
+    error: 3 # only error
+  excluded: # excluded via string array
+    - id
+    - URL
+    - GlobalAPIKey
 reporter: 'xcode'
+
+custom_rules:
+  function_name_length:
+    name: 'Function name length'
+    regex: 'func\s+[a-zA-Z]{1,3}\s*\('
+    message: 'Function names should be at least 4 characters long'
+    severity: error
+
+  multiple_spaces_in_code:
+    name: 'No Multiple Spaces in Code'
+    regex: "\\S  +" # Busca cualquier carácter no espacio seguido de dos o más espacios
+    message: 'Avoid multiple consecutive spaces within the code'
+    severity: warning
+
+  mvvm_view_controller_naming:
+    name: 'MVVM ViewController Naming'
+    regex: "class\\s+(?!.*ViewController)\\S+View\\s*:\\s*UIViewController"
+    message: "ViewController classes should end with 'ViewController'"
+    severity: error
+
+  mvvm_view_model_naming:
+    name: 'MVVM ViewModel Naming'
+    regex: "class\\s+(?!.*ViewModel)\\S+\\s*:\\s*\\S+ViewModelProtocol"
+    message: "ViewModel classes should end with 'ViewModel'"
+    severity: error
+
+  use_case_naming:
+    name: 'Use Case Naming'
+    regex: "class\\s+(?!.*UseCase)\\S+\\s*:\\s*\\S+UseCaseProtocol"
+    message: "Use Case classes should end with 'UseCase'"
+    severity: error
+
+  repository_naming:
+    name: 'Repository Naming'
+    regex: "class\\s+(?!.*Repository)\\S+\\s*:\\s*\\S+RepositoryProtocol"
+    message: "Repository classes should end with 'Repository'"
+    severity: error
+
+  view_model_protocol_conformance:
+    name: 'ViewModel Protocol Conformance'
+    regex: "class\\s+\\S+ViewModel\\s*(?!:\\s*\\S+ViewModelProtocol)"
+    message: 'ViewModel classes should conform to a ViewModelProtocol'
+    severity: warning
+
+  use_case_protocol_conformance:
+    name: 'Use Case Protocol Conformance'
+    regex: "class\\s+\\S+UseCase\\s*(?!:\\s*\\S+UseCaseProtocol)"
+    message: 'Use Case classes should conform to a UseCaseProtocol'
+    severity: warning
+
+  repository_protocol_conformance:
+    name: 'Repository Protocol Conformance'
+    regex: "class\\s+\\S+Repository\\s*(?!:\\s*\\S+RepositoryProtocol)"
+    message: 'Repository classes should conform to a RepositoryProtocol'
+    severity: warning
+
+  view_controller_dependencies:
+    name: 'ViewController Dependencies'
+    regex: "class\\s+\\S+ViewController[\\s\\S]*?\\{[\\s\\S]*?var\\s+viewModel\\s*:\\s*\\S+ViewModel"
+    message: 'ViewControllers should have a ViewModel dependency'
+    severity: warning
+
+  view_model_use_case_dependency:
+    name: 'ViewModel Use Case Dependency'
+    regex: "class\\s+\\S+ViewModel[\\s\\S]*?\\{[\\s\\S]*?var\\s+useCase\\s*:\\s*\\S+UseCase"
+    message: 'ViewModels should have a Use Case dependency'
+    severity: warning
+
+  use_case_repository_dependency:
+    name: 'Use Case Repository Dependency'
+    regex: "class\\s+\\S+UseCase[\\s\\S]*?\\{[\\s\\S]*?var\\s+repository\\s*:\\s*\\S+Repository"
+    message: 'Use Cases should have a Repository dependency'
+    severity: warning
+
+  avoid_swiftdata_in_view_models:
+    name: 'Avoid SwiftData in ViewModels'
+    regex: "import\\s+SwiftData[\\s\\S]*?class\\s+\\S+ViewModel"
+    message: 'ViewModels should not directly use SwiftData. Use Repositories instead.'
+    severity: warning
+
+  avoid_ui_kit_in_view_models:
+    name: 'Avoid UIKit in ViewModels'
+    regex: "import\\s+UIKit[\\s\\S]*?class\\s+\\S+ViewModel"
+    message: 'ViewModels should not import UIKit. They should be UI-independent.'
+    severity: warning

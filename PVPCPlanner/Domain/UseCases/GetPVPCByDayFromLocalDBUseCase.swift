@@ -9,7 +9,7 @@ struct GetPVPCByDayFromLocalDBUseCase {
         self.dataSource = PVPCLocalDataSource(container: databaseContainer)
     }
 
-    func getItemsByDay(dia: String) throws -> [PVPCModelLocal] {
-        try dataSource.getItemsByDay(dia: dia)
+    func getByDay(dia: String) throws -> [PVPCModelLocal] {
+        try dataSource.getByDay(dia: dia)
     }
 }

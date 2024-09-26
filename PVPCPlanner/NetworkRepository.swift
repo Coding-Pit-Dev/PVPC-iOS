@@ -10,7 +10,7 @@ struct NetworkRepository: NetworkRepositoryPotocol, NetworkInteractorProtocol {
 
     /// Obtain full prices list of the day
     func getDayPrices(date: Date) async throws -> [PVPCModel] {
-        try await getJSON(request: .get(url: .allPricesURL(date: date)),
+        try await getJSON(request: .getRequest(url: .allPricesURL(date: date)),
                           type: PVPCResponse.self).pvpc.map(\.toPresentation)
     }
 }

@@ -1,20 +1,20 @@
 import SwiftUI
 
 struct PricesView: View {
-    @State var vm = PricesVM()
+    @State var pricesViewModel = PricesVM()
 
     var body: some View {
         List {
-            ForEach(vm.prices, id: \.self) { price in
+            ForEach(pricesViewModel.prices, id: \.self) { price in
                 Text("\(price.hora)")
             }
         }
         .task {
-            await vm.getPricesList()
+            await pricesViewModel.getPricesList()
         }
     }
 }
 
 #Preview {
-    PricesView(vm: .previewVM)
+    PricesView(pricesViewModel: .previewVM)
 }

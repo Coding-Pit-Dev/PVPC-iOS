@@ -16,10 +16,10 @@ final class AddPVPCToLocaDBUseCaseTest: XCTestCase {
 
     func testCreatePVPC() throws {
         // GIVEN
-        try sut.addPvpc(dia: "dia", hora: "hora", pcb: "pcb", cym: "CYM")
+        try sut.addPVPC(dia: "dia", hora: "hora", pcb: "pcb", cym: "CYM")
 
         // When
-        let pvpc = try getAllUseCase.getAllItems().first
+        let pvpc = try getAllUseCase.getAll().first
         // Then
         XCTAssertNotNil(pvpc)
     }

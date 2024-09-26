@@ -30,7 +30,7 @@ final class GetPVPCByDayFromLocalDBUseCaseTest: XCTestCase {
         try addUseCase.addPvpc(dia: "dia2", hora: "hora3", pcb: "pcb5", cym: "CYM6")
 
         // When
-        let pvpcs: [PVPCModelLocal] = try sut.getItemsByDay(dia: "dia2")
+        let pvpcs: [PVPCModelLocal] = try sut.getByDay(dia: "dia2")
 
         // Then
         XCTAssertNotNil(pvpcs)
@@ -47,7 +47,7 @@ final class GetPVPCByDayFromLocalDBUseCaseTest: XCTestCase {
         try addUseCase.addPvpc(dia: "dia5", hora: "hora5", pcb: "pcb5", cym: "CYM5")
 
         // When
-        let pvpcs: [PVPCModelLocal] = try sut.getItemsByDay(dia: "DontExist")
+        let pvpcs: [PVPCModelLocal] = try sut.getByDay(dia: "DontExist")
         // Then
         XCTAssertNotNil(pvpcs)
         XCTAssertTrue(pvpcs.count == 0)

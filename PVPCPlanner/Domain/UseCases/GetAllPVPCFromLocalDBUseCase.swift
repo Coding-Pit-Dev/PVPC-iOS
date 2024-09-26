@@ -9,7 +9,7 @@ struct GetAllPVPCFromLocalDBUseCase {
         self.dataSource = PVPCLocalDataSource(container: databaseContainer)
     }
 
-    func getAllItems() throws -> [PVPCModelLocal] {
-        try dataSource.getAllItems()
+    func getAll() throws -> [PVPCModelLocal] {
+        try dataSource.getAll()
     }
 }

@@ -11,7 +11,7 @@ struct AddPVPCToLocaDBUseCase {
         self.dataSource = PVPCLocalDataSource(container: databaseContainer)
     }
 
-    func addPvpc(dia: String, hora: String, pcb: String, cym: String) throws {
-        try dataSource.addItem(dia: dia, hora: hora, pcb: pcb, cym: cym)
+    func addPVPC(dia: String, hora: String, pcb: String, cym: String) throws {
+        try dataSource.addPVPC(dia: dia, hora: hora, pcb: pcb, cym: cym)
     }
 }

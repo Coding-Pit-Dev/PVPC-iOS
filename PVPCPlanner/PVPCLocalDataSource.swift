@@ -2,11 +2,11 @@ import Foundation
 import SwiftData
 
 protocol PVPCLocalDataSourceProtocol {
-    func getAllItems() throws -> [PVPCModelLocal]
-    func addItem(dia: String, hora: String, pcb: String, cym: String) throws
-    func getItemsByDay(dia: String) throws -> [PVPCModelLocal]
-    func removeItemsByDay(dia: String) throws -> [PVPCModelLocal]
-    func updateItemById(id: UUID, dia: String, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal
+    func getAll() throws -> [PVPCModelLocal]
+    func addPVPC(dia: String, hora: String, pcb: String, cym: String) throws
+    func getByDay(dia: String) throws -> [PVPCModelLocal]
+    func removeByDay(dia: String) throws -> [PVPCModelLocal]
+    func updateById(id: UUID, dia: String, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal
 }
 
 class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
@@ -22,7 +22,7 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
     }
 
     @MainActor
-    func getAllItems() throws -> [PVPCModelLocal] {
+    func getAll() throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             // Get all ordered by 'dia' and 'hora'
             sortBy: [SortDescriptor(\.dia, order: .forward), SortDescriptor(\.hora, order: .forward)])
@@ -31,7 +31,7 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
 
     // Maybe send PVPCModelLocal instead of all the props
     @MainActor
-    func addItem(dia: String, hora: String, pcb: String, cym: String) throws {
+    func addPVPC(dia: String, hora: String, pcb: String, cym: String) throws {
         let newItem = PVPCModelLocal(dia: dia, hora: hora, pcb: pcb, cym: cym)
         context.insert(newItem)
 
@@ -44,7 +44,7 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
     }
 
     @MainActor
-    func getItemsByDay(dia: String) throws -> [PVPCModelLocal] {
+    func getByDay(dia: String) throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             predicate: #Predicate { $0.dia == dia },
             sortBy: [SortDescriptor(\.hora, order: .forward)])
@@ -53,7 +53,7 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
     }
 
     @MainActor
-    func removeItemsByDay(dia: String) throws -> [PVPCModelLocal] {
+    func removeByDay(dia: String) throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             predicate: #Predicate { $0.dia == dia })
 
@@ -77,7 +77,7 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
     }
 
     @MainActor
-    func updateItemById(id: UUID, dia: String, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal {
+    func updateById(id: UUID, dia: String, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             predicate: #Predicate { $0.id == id }
         )

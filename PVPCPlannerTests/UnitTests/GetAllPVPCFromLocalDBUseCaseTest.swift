@@ -23,7 +23,7 @@ final class GetAllPVPCFromLocalDBUseCaseTest: XCTestCase {
         try addUseCase.addPvpc(dia: "dia5", hora: "hora5", pcb: "pcb5", cym: "CYM5")
 
         // When
-        let pvpcs: [PVPCModelLocal] = try sut.getAllItems()
+        let pvpcs: [PVPCModelLocal] = try sut.getAll()
         // Then
         XCTAssertNotNil(pvpcs)
         XCTAssertTrue(pvpcs.count == 6)
