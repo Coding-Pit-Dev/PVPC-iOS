@@ -17,6 +17,10 @@
 		12C821842C3BE8A700717D4F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C821832C3BE8A700717D4F /* ContentView.swift */; };
 		12C821862C3BE8A800717D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C821852C3BE8A800717D4F /* Assets.xcassets */; };
 		12C821892C3BE8A800717D4F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C821882C3BE8A800717D4F /* Preview Assets.xcassets */; };
+		12D84F602CB3DC7400D291CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12D84F5F2CB3DC7400D291CF /* GoogleService-Info.plist */; };
+		12D84F632CB3DD3E00D291CF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 12D84F622CB3DD3E00D291CF /* FirebaseAnalytics */; };
+		12D84F652CB3DD3E00D291CF /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 12D84F642CB3DD3E00D291CF /* FirebaseAppCheck */; };
+		12D84F672CB3DE5300D291CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D84F662CB3DE4D00D291CF /* AppDelegate.swift */; };
 		12DB826F2C7B037B00A9CC82 /* PriceVMIntegrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB826E2C7B037B00A9CC82 /* PriceVMIntegrationTest.swift */; };
 		12DB82732C7B106000A9CC82 /* NetworkRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB82722C7B106000A9CC82 /* NetworkRepositoryMock.swift */; };
 		12DB82752C7B1A2800A9CC82 /* AllPricesTest2.json in Resources */ = {isa = PBXBuildFile; fileRef = 12DB82742C7B1A2800A9CC82 /* AllPricesTest2.json */; };
@@ -71,6 +75,9 @@
 		12C821832C3BE8A700717D4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		12C821852C3BE8A800717D4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12C821882C3BE8A800717D4F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		12D84F5F2CB3DC7400D291CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		12D84F662CB3DE4D00D291CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		12D84F682CB3E0EE00D291CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		12DB826E2C7B037B00A9CC82 /* PriceVMIntegrationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceVMIntegrationTest.swift; sourceTree = "<group>"; };
 		12DB82722C7B106000A9CC82 /* NetworkRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepositoryMock.swift; sourceTree = "<group>"; };
 		12DB82742C7B1A2800A9CC82 /* AllPricesTest2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AllPricesTest2.json; sourceTree = "<group>"; };
@@ -117,6 +124,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12D84F632CB3DD3E00D291CF /* FirebaseAnalytics in Frameworks */,
+				12D84F652CB3DD3E00D291CF /* FirebaseAppCheck in Frameworks */,
 				1ADDACED2C63750E00797976 /* PVPCNetwork in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +147,7 @@
 		129120B02C3BFA5C0037E939 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				12D84F662CB3DE4D00D291CF /* AppDelegate.swift */,
 				12C821812C3BE8A700717D4F /* PVPCPlannerApp.swift */,
 			);
 			name = App;
@@ -148,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				12C821852C3BE8A800717D4F /* Assets.xcassets */,
+				12D84F5F2CB3DC7400D291CF /* GoogleService-Info.plist */,
 			);
 			name = Resources;
 			path = PVPCPlanner/Resources;
@@ -200,6 +211,7 @@
 		12C821802C3BE8A700717D4F /* PVPCPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				12D84F682CB3E0EE00D291CF /* Info.plist */,
 				1ACBAB222C76296100269327 /* Domain */,
 				1ACBAB122C74CFE700269327 /* View */,
 				1ADDACF72C637AC500797976 /* ViewModel */,
@@ -456,6 +468,8 @@
 			name = PVPCPlanner;
 			packageProductDependencies = (
 				1ADDACEC2C63750E00797976 /* PVPCNetwork */,
+				12D84F622CB3DD3E00D291CF /* FirebaseAnalytics */,
+				12D84F642CB3DD3E00D291CF /* FirebaseAppCheck */,
 			);
 			productName = PVPCPlanner;
 			productReference = 1ACBAB1C2C74EAAB00269327 /* PVPCPlanner.app */;
@@ -491,6 +505,7 @@
 			mainGroup = 12C821752C3BE8A700717D4F;
 			packageReferences = (
 				1ADDACEA2C6374EF00797976 /* XCRemoteSwiftPackageReference "PVPCNetwork" */,
+				12D84F612CB3DD3E00D291CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 12C821752C3BE8A700717D4F;
 			projectDirPath = "";
@@ -515,6 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				12DB82752C7B1A2800A9CC82 /* AllPricesTest2.json in Resources */,
+				12D84F602CB3DC7400D291CF /* GoogleService-Info.plist in Resources */,
 				1ADDACF42C6379CF00797976 /* AllPricesTest1.json in Resources */,
 				129120CA2C3BFBA50037E939 /* README.md in Resources */,
 				8DB7778B2C9D988200A4ADA7 /* swiftlint.yml in Resources */,
@@ -611,6 +627,7 @@
 				8D20FBB52C78A4B3007DBE4A /* PVPCLocalDataSource.swift in Sources */,
 				8DC842242CA2B47500FB3C49 /* PVPCDatabaseError.swift in Sources */,
 				1ACBAB262C7629BD00269327 /* PricesUseCaseProtocols.swift in Sources */,
+				12D84F672CB3DE5300D291CF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,6 +812,8 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PVPCPlanner/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -828,6 +847,8 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PVPCPlanner/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -881,6 +902,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		12D84F612CB3DD3E00D291CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.3.0;
+			};
+		};
 		1ADDACEA2C6374EF00797976 /* XCRemoteSwiftPackageReference "PVPCNetwork" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Bitos88/PVPCNetwork";
@@ -892,6 +921,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		12D84F622CB3DD3E00D291CF /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12D84F612CB3DD3E00D291CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		12D84F642CB3DD3E00D291CF /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12D84F612CB3DD3E00D291CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
 		1ADDACEC2C63750E00797976 /* PVPCNetwork */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1ADDACEA2C6374EF00797976 /* XCRemoteSwiftPackageReference "PVPCNetwork" */;
