@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		124784652CCA607000FC2704 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 124784642CCA607000FC2704 /* FirebaseCrashlytics */; };
 		12726C4D2C3C00130020D35A /* ProjectStructure.md in Resources */ = {isa = PBXBuildFile; fileRef = 12726C4C2C3C00130020D35A /* ProjectStructure.md */; };
 		129120CA2C3BFBA50037E939 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 129120C92C3BFBA50037E939 /* README.md */; };
 		12AED8CD2C772EA600748EC4 /* ModelsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AED8CC2C772EA600748EC4 /* ModelsTest.swift */; };
@@ -125,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				12D84F632CB3DD3E00D291CF /* FirebaseAnalytics in Frameworks */,
+				124784652CCA607000FC2704 /* FirebaseCrashlytics in Frameworks */,
 				12D84F652CB3DD3E00D291CF /* FirebaseAppCheck in Frameworks */,
 				1ADDACED2C63750E00797976 /* PVPCNetwork in Frameworks */,
 			);
@@ -460,6 +462,7 @@
 				12C8217C2C3BE8A700717D4F /* Resources */,
 				128DEC352C3D168F003A1834 /* Swiftlint */,
 				12887C2C2C3D35E100AC462B /* Pre-Commit */,
+				124784632CCA5F7300FC2704 /* Crashlitics */,
 			);
 			buildRules = (
 			);
@@ -470,6 +473,7 @@
 				1ADDACEC2C63750E00797976 /* PVPCNetwork */,
 				12D84F622CB3DD3E00D291CF /* FirebaseAnalytics */,
 				12D84F642CB3DD3E00D291CF /* FirebaseAppCheck */,
+				124784642CCA607000FC2704 /* FirebaseCrashlytics */,
 			);
 			productName = PVPCPlanner;
 			productReference = 1ACBAB1C2C74EAAB00269327 /* PVPCPlanner.app */;
@@ -543,6 +547,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		124784632CCA5F7300FC2704 /* Crashlitics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = Crashlitics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
 		12887C2C2C3D35E100AC462B /* Pre-Commit */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -714,7 +738,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -921,6 +945,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		124784642CCA607000FC2704 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12D84F612CB3DD3E00D291CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		12D84F622CB3DD3E00D291CF /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 12D84F612CB3DD3E00D291CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
