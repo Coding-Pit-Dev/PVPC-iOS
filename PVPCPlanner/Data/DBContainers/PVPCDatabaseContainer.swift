@@ -1,8 +1,6 @@
 import Foundation
 import SwiftData
 
-
-
 class PVPCDatabaseContainer {
     static let shared: PVPCDatabaseContainer = .init()
 
