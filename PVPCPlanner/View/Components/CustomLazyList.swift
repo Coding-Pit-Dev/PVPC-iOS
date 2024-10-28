@@ -9,17 +9,17 @@ struct CustomLazyList<Content: View>: View {
     var spacing: CGFloat
     var listDirection: CustomLazyListDirection
     var backgroundColor: Color
-    var content: () -> Content
+    var listItem: () -> Content
 
     init(spacing: CGFloat = 10,
          listDirection: CustomLazyListDirection = CustomLazyListDirection.vertical,
          backgroundColor: Color = Color.white,
-         @ViewBuilder content: @escaping () -> Content) {
-
+         @ViewBuilder listItem: @escaping () -> Content)
+    {
         self.spacing = spacing
         self.listDirection = listDirection
         self.backgroundColor = backgroundColor
-        self.content = content
+        self.listItem = listItem
     }
 
     var body: some View {
@@ -27,12 +27,12 @@ struct CustomLazyList<Content: View>: View {
             Group {
                 if listDirection == .vertical {
                     LazyVStack(spacing: spacing) {
-                        content()
+                        listItem()
                     }
                     .padding()
                 } else {
                     LazyHStack(spacing: spacing) {
-                        content()
+                        listItem()
                     }
                     .padding()
                 }
