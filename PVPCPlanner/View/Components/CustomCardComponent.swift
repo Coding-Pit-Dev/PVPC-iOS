@@ -3,11 +3,14 @@ import SwiftUI
 struct CustomCardComponent<BodyContent: View, FooterContent: View>: View {
     var bodyContent: BodyContent
     var footerContent: FooterContent?
-
+    var backgroundColor: Color? = Color.white
     init(
+        backgroundColor: Color? = Color.white,
         @ViewBuilder bodyContent: () -> BodyContent,
         @ViewBuilder footerContent: @escaping () -> FooterContent
+
     ) {
+        self.backgroundColor = backgroundColor
         self.bodyContent = bodyContent()
         self.footerContent = footerContent()
     }
@@ -25,7 +28,7 @@ struct CustomCardComponent<BodyContent: View, FooterContent: View>: View {
                         .frame(maxWidth: .infinity)
                 }
             }
-            .background(Color.white)
+            .background(backgroundColor)
         }
         .cornerRadius(10)
         .shadow(radius: 5)
@@ -35,6 +38,7 @@ struct CustomCardComponent<BodyContent: View, FooterContent: View>: View {
 }
 
 // MARK: Extension makes the footer optional
+
 extension CustomCardComponent where FooterContent == EmptyView {
     init(
         @ViewBuilder bodyContent: () -> BodyContent
@@ -44,7 +48,21 @@ extension CustomCardComponent where FooterContent == EmptyView {
     }
 }
 
+// MARK: Just backgroundColor y bodyContent
+
+extension CustomCardComponent where FooterContent == EmptyView {
+    init(
+        backgroundColor: Color = Color.white,
+        @ViewBuilder bodyContent: () -> BodyContent
+    ) {
+        self.backgroundColor = backgroundColor
+        self.bodyContent = bodyContent()
+        self.footerContent = nil
+    }
+}
+
 // MARK: Exaple using the card without footer
+
 #Preview {
     CustomLazyList(spacing: 30, listDirection: .vertical) {
         ForEach(0 ..< 10, id: \.self) { index in
@@ -66,6 +84,7 @@ extension CustomCardComponent where FooterContent == EmptyView {
 }
 
 // MARK: Example Card with footer
+
 #Preview {
     CustomCardComponent(bodyContent: {
         HStack {
@@ -98,6 +117,7 @@ extension CustomCardComponent where FooterContent == EmptyView {
 }
 
 // MARK: Example of a list with the card with footer
+
 #Preview {
     CustomLazyList(spacing: 30, listDirection: .vertical) {
         ForEach(0 ..< 10, id: \.self) { _ in

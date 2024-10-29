@@ -1,11 +1,8 @@
 import Foundation
-
-enum PVPCCardLocation {
-    case pcb
-    case cym
-}
+import SwiftUI
 
 struct PVPCCardModel {
-    var pvpc: PVPCModel
-    var localization: PVPCCardLocation
+    var backgroundColor: Color
+    var price: String
+    var hour: String
 }
