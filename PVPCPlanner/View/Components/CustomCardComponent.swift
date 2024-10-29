@@ -16,7 +16,7 @@ struct CustomCardComponent<BodyContent: View, FooterContent: View>: View {
         VStack(spacing: 0) {
             Group {
                 bodyContent
-                    .padding() // Padding interno del cuerpo
+                    .padding()
 
                 if let footerContent = footerContent {
                     Divider()
@@ -34,7 +34,7 @@ struct CustomCardComponent<BodyContent: View, FooterContent: View>: View {
     }
 }
 
-// Extensión para hacer que FooterContent sea opcional
+// MARK: Extension makes the footer optional
 extension CustomCardComponent where FooterContent == EmptyView {
     init(
         @ViewBuilder bodyContent: () -> BodyContent
@@ -44,7 +44,7 @@ extension CustomCardComponent where FooterContent == EmptyView {
     }
 }
 
-//Exaple using the card without footer
+// MARK: Exaple using the card without footer
 #Preview {
     CustomLazyList(spacing: 30, listDirection: .vertical) {
         ForEach(0 ..< 10, id: \.self) { index in
@@ -65,7 +65,7 @@ extension CustomCardComponent where FooterContent == EmptyView {
     }
 }
 
-//Example Card with footer
+// MARK: Example Card with footer
 #Preview {
     CustomCardComponent(bodyContent: {
         HStack {
@@ -83,7 +83,7 @@ extension CustomCardComponent where FooterContent == EmptyView {
                 /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
             })
             .padding()
-            .multilineTextAlignment(.center) // Centra el texto del botón
+            .multilineTextAlignment(.center)
             .frame(maxWidth: .infinity)
             Divider()
                 .frame(height: 50)
@@ -91,13 +91,13 @@ extension CustomCardComponent where FooterContent == EmptyView {
                 /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
             })
             .padding()
-            .multilineTextAlignment(.center) // Centra el texto del botón
+            .multilineTextAlignment(.center)
             .frame(maxWidth: .infinity)
         }
     })
 }
 
-//Example of a list with the card with footer
+// MARK: Example of a list with the card with footer
 #Preview {
     CustomLazyList(spacing: 30, listDirection: .vertical) {
         ForEach(0 ..< 10, id: \.self) { _ in
@@ -117,7 +117,7 @@ extension CustomCardComponent where FooterContent == EmptyView {
                         /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
                     })
                     .padding()
-                    .multilineTextAlignment(.center) // Centra el texto del botón
+                    .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity)
                     Divider()
                         .frame(height: 50)
@@ -125,7 +125,7 @@ extension CustomCardComponent where FooterContent == EmptyView {
                         /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
                     })
                     .padding()
-                    .multilineTextAlignment(.center) // Centra el texto del botón
+                    .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity)
                 }
             })
