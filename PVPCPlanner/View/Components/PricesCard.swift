@@ -20,5 +20,21 @@ struct PricesCard: View {
 }
 
 #Preview {
-    PricesCard(pvpcModel: PVPCCardModel(backgroundColor: Color.red, price: "0.12", hour: "21:00"))
+    PricesCard(pvpcModel: PVPCCardModel(backgroundColor: Color.cRed, price: "0.12", hour: "21:00"))
+}
+
+#Preview {
+    CustomLazyList(spacing: 30, listDirection: .vertical, backgroundColor: Color.white) {
+        PricesCard(pvpcModel: PVPCCardModel(backgroundColor: Color.cGreen, price: "0.10", hour: "19:00"))
+        PricesCard(pvpcModel: PVPCCardModel(backgroundColor: Color.cRed, price: "0.10", hour: "21:00"))
+        PricesCard(pvpcModel: PVPCCardModel(backgroundColor: Color.cYellow, price: "0.10", hour: "21:30"))
+        PricesCard(pvpcModel: PVPCCardModel(backgroundColor: Color.cGreen, price: "0.10", hour: "21:40"))
+        PricesCard(pvpcModel: PVPCCardModel(backgroundColor: Color.cYellow, price: "0.10", hour: "22:00"))
+        PricesCard(pvpcModel: PVPCCardModel(backgroundColor: Color.cGreen, price: "0.10", hour: "23:00"))
+        PricesCard(pvpcModel: PVPCCardModel(backgroundColor: Color.cRed, price: "0.10", hour: "21:00"))
+        PricesCard(pvpcModel: PVPCCardModel(backgroundColor: Color.cYellow, price: "0.10", hour: "21:00"))
+        PricesCard(pvpcModel: PVPCCardModel(backgroundColor: Color.cGreen, price: "0.10", hour: "21:00"))
+        PricesCard(pvpcModel: PVPCCardModel(backgroundColor: Color.cRed, price: "0.10", hour: "21:00"))
+        PricesCard(pvpcModel: PVPCCardModel(backgroundColor: Color.cYellow, price: "0.10", hour: "21:00"))
+    }
 }

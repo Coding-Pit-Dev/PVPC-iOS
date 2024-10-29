@@ -6,16 +6,16 @@ enum PricesCardLocations {
     case pcb
 }
 
-struct PricesCardHelpers {
+enum PricesCardHelpers {
     static func setPriceColor(price: String) -> Color {
         if let priceValue = Double(price) {
             switch priceValue {
             case ..<0.10:
-                return Color.green
+                return Color.cGreen
             case 0.10 ..< 0.15:
-                return Color.yellow
+                return Color.cYellow
             case 0.15...:
-                return Color.red
+                return Color.cRed
             default:
                 return Color.clear
             }
@@ -23,7 +23,7 @@ struct PricesCardHelpers {
         return Color.clear
     }
 
-    static func getLocalizedPrice(pvpcModel:PVPCModel, location:  PricesCardLocations) -> String {
+    static func getLocalizedPrice(pvpcModel: PVPCModel, location: PricesCardLocations) -> String {
         switch location {
         case .cym:
             return pvpcModel.cym
