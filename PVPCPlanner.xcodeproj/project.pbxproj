@@ -50,6 +50,7 @@
 		8DB7778B2C9D988200A4ADA7 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8DB7778A2C9D988200A4ADA7 /* swiftlint.yml */; };
 		8DC842242CA2B47500FB3C49 /* PVPCDatabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC842232CA2B47500FB3C49 /* PVPCDatabaseError.swift */; };
 		8DF24CC82CC945AE00D4BAD7 /* CustomLazyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CC72CC945AE00D4BAD7 /* CustomLazyList.swift */; };
+		8DF24CCA2CCF93AE00D4BAD7 /* CustomCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CC92CCF93AE00D4BAD7 /* CustomCardComponent.swift */; };
 		8DF50E4E2C90A11B00F696BA /* AddPVPCToLocaDBUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF50E4D2C90A11B00F696BA /* AddPVPCToLocaDBUseCaseTest.swift */; };
 		8DF50E502C90A13300F696BA /* RemovePVPCByDayFromLocalDBUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF50E4F2C90A13300F696BA /* RemovePVPCByDayFromLocalDBUseCaseTest.swift */; };
 		8DF50E522C90A13F00F696BA /* GetAllPVPCFromLocalDBUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF50E512C90A13F00F696BA /* GetAllPVPCFromLocalDBUseCaseTest.swift */; };
@@ -109,6 +110,7 @@
 		8DB7778A2C9D988200A4ADA7 /* swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
 		8DC842232CA2B47500FB3C49 /* PVPCDatabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCDatabaseError.swift; sourceTree = "<group>"; };
 		8DF24CC72CC945AE00D4BAD7 /* CustomLazyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLazyList.swift; sourceTree = "<group>"; };
+		8DF24CC92CCF93AE00D4BAD7 /* CustomCardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardComponent.swift; sourceTree = "<group>"; };
 		8DF50E4D2C90A11B00F696BA /* AddPVPCToLocaDBUseCaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPVPCToLocaDBUseCaseTest.swift; sourceTree = "<group>"; };
 		8DF50E4F2C90A13300F696BA /* RemovePVPCByDayFromLocalDBUseCaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemovePVPCByDayFromLocalDBUseCaseTest.swift; sourceTree = "<group>"; };
 		8DF50E512C90A13F00F696BA /* GetAllPVPCFromLocalDBUseCaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllPVPCFromLocalDBUseCaseTest.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				8DF24CC72CC945AE00D4BAD7 /* CustomLazyList.swift */,
+				8DF24CC92CCF93AE00D4BAD7 /* CustomCardComponent.swift */,
 			);
 			name = Components;
 			path = PVPCPlanner/View/Components;
@@ -653,6 +656,7 @@
 				12C821822C3BE8A700717D4F /* PVPCPlannerApp.swift in Sources */,
 				8D20FBB52C78A4B3007DBE4A /* PVPCLocalDataSource.swift in Sources */,
 				8DC842242CA2B47500FB3C49 /* PVPCDatabaseError.swift in Sources */,
+				8DF24CCA2CCF93AE00D4BAD7 /* CustomCardComponent.swift in Sources */,
 				8DF24CC82CC945AE00D4BAD7 /* CustomLazyList.swift in Sources */,
 				1ACBAB262C7629BD00269327 /* PricesUseCaseProtocols.swift in Sources */,
 				12D84F672CB3DE5300D291CF /* AppDelegate.swift in Sources */,
