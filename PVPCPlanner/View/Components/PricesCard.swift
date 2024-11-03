@@ -19,9 +19,13 @@ struct PricesCard: View {
     }
 }
 
+// MARK: Simple example
+
 #Preview {
     PricesCard(pvpcModel: PVPCCardModel(backgroundColor: Color.cRed, price: "0.12", hour: "21:00"))
 }
+
+// MARK: List example
 
 #Preview {
     CustomLazyList(spacing: 30, listDirection: .vertical, backgroundColor: Color.white) {
