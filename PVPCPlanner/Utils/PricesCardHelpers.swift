@@ -1,19 +1,24 @@
 import SwiftUI
 
 enum PricesCardLocations {
-    case cym
-    case pcb
+    case priceCeutaMelilla
+    case priceMainlandAndIslands
+}
+
+enum PriceThreshold {
+    static let lowPrice: Double = 0.10
+    static let mediumPrice: Double = 0.15
 }
 
 enum PricesCardHelpers {
     static func setPriceColor(price: String) -> Color {
         if let priceValue = Double(price) {
             switch priceValue {
-            case ..<0.10:
+            case ..<PriceThreshold.lowPrice:
                 return Color.cGreen
-            case 0.10 ..< 0.15:
+            case PriceThreshold.lowPrice ..< PriceThreshold.mediumPrice:
                 return Color.cYellow
-            case 0.15...:
+            case PriceThreshold.mediumPrice...:
                 return Color.cRed
             default:
                 return Color.clear
@@ -24,9 +29,9 @@ enum PricesCardHelpers {
 
     static func getLocalizedPrice(pvpcModel: PVPCModel, location: PricesCardLocations) -> String {
         switch location {
-        case .cym:
+        case .priceCeutaMelilla:
             return pvpcModel.cym
-        case .pcb:
+        case .priceMainlandAndIslands:
             return pvpcModel.pcb
         }
     }
