@@ -10,7 +10,7 @@ enum PriceThreshold {
     static let mediumPrice: Double = 0.15
 }
 
-enum PricesCardHelpers {
+struct PricesCardHelpers {
     static func setPriceColor(price: String) -> Color {
         if let priceValue = Double(price) {
             switch priceValue {
