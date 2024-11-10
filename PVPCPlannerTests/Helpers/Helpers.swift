@@ -9,8 +9,8 @@ func makeInitPVPCModel(dia: String = "10-08-2024", hora: String = "12:00", pcb: 
     return PVPCModel(
         dia: dia,
         hora: hora,
-        pcb: pcb,
-        cym: cym
+        priceMainlandAndIslands: pcb,
+        priceCeutaMelilla: cym
     )
 }
 

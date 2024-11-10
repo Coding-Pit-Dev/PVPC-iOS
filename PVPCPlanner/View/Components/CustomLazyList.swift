@@ -41,7 +41,8 @@ struct CustomLazyList<Content: View>: View {
     }
 }
 
-// Example with Divider and custom settings
+// MARK: Example with Divider and custom settings
+
 #Preview {
     CustomLazyList(spacing: 30, listDirection: .vertical, backgroundColor: Color.cyan) {
         ForEach(0 ..< 10, id: \.self) { index in
@@ -57,7 +58,8 @@ struct CustomLazyList<Content: View>: View {
     }
 }
 
-// Example with defaults
+// MARK: Example with defaults
+
 #Preview {
     CustomLazyList {
         ForEach(0 ..< 10, id: \.self) { index in

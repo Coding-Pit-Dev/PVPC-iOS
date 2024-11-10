@@ -51,6 +51,12 @@
 		8DC842242CA2B47500FB3C49 /* PVPCDatabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC842232CA2B47500FB3C49 /* PVPCDatabaseError.swift */; };
 		8DF24CC82CC945AE00D4BAD7 /* CustomLazyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CC72CC945AE00D4BAD7 /* CustomLazyList.swift */; };
 		8DF24CCA2CCF93AE00D4BAD7 /* CustomCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CC92CCF93AE00D4BAD7 /* CustomCardComponent.swift */; };
+		8DF24CCC2CD1479D00D4BAD7 /* PricesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CCB2CD1479D00D4BAD7 /* PricesCard.swift */; };
+		8DF24CD12CD14B4700D4BAD7 /* PVPCCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CD02CD14B4700D4BAD7 /* PVPCCardModel.swift */; };
+		8DF24CD32CD15BBA00D4BAD7 /* PricesCardHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CD22CD15BBA00D4BAD7 /* PricesCardHelpers.swift */; };
+		8DF24CD52CD795C700D4BAD7 /* PVPCModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CD42CD795C700D4BAD7 /* PVPCModel+Extension.swift */; };
+		8DF24CDF2CDFE89800D4BAD7 /* PricesCardHelpersTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CDE2CDFE89800D4BAD7 /* PricesCardHelpersTest.swift */; };
+		8DF24CE12CE119D300D4BAD7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8DF24CE02CE119D300D4BAD7 /* Localizable.xcstrings */; };
 		8DF24CD92CD931F800D4BAD7 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CD82CD931F800D4BAD7 /* MainScreen.swift */; };
 		8DF24CDB2CDFC62B00D4BAD7 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CDA2CDFC62B00D4BAD7 /* NotificationsView.swift */; };
 		8DF24CDD2CDFC90E00D4BAD7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CDC2CDFC90E00D4BAD7 /* SettingsView.swift */; };
@@ -114,6 +120,12 @@
 		8DC842232CA2B47500FB3C49 /* PVPCDatabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCDatabaseError.swift; sourceTree = "<group>"; };
 		8DF24CC72CC945AE00D4BAD7 /* CustomLazyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLazyList.swift; sourceTree = "<group>"; };
 		8DF24CC92CCF93AE00D4BAD7 /* CustomCardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardComponent.swift; sourceTree = "<group>"; };
+		8DF24CCB2CD1479D00D4BAD7 /* PricesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesCard.swift; sourceTree = "<group>"; };
+		8DF24CD02CD14B4700D4BAD7 /* PVPCCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCCardModel.swift; sourceTree = "<group>"; };
+		8DF24CD22CD15BBA00D4BAD7 /* PricesCardHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesCardHelpers.swift; sourceTree = "<group>"; };
+		8DF24CD42CD795C700D4BAD7 /* PVPCModel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PVPCModel+Extension.swift"; sourceTree = "<group>"; };
+		8DF24CDE2CDFE89800D4BAD7 /* PricesCardHelpersTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesCardHelpersTest.swift; sourceTree = "<group>"; };
+		8DF24CE02CE119D300D4BAD7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		8DF24CD82CD931F800D4BAD7 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		8DF24CDA2CDFC62B00D4BAD7 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		8DF24CDC2CDFC90E00D4BAD7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -171,6 +183,7 @@
 			children = (
 				12C821852C3BE8A800717D4F /* Assets.xcassets */,
 				12D84F5F2CB3DC7400D291CF /* GoogleService-Info.plist */,
+				8DF24CE02CE119D300D4BAD7 /* Localizable.xcstrings */,
 			);
 			name = Resources;
 			path = PVPCPlanner/Resources;
@@ -186,6 +199,7 @@
 				12AED8CC2C772EA600748EC4 /* ModelsTest.swift */,
 				12AED8D42C773CE600748EC4 /* PriceViewModelTest.swift */,
 				8DB777872C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift */,
+				8DF24CDE2CDFE89800D4BAD7 /* PricesCardHelpersTest.swift */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -299,6 +313,7 @@
 		1ACBAB142C74D00600269327 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8DF24CCB2CD1479D00D4BAD7 /* PricesCard.swift */,
 				8DF24CC72CC945AE00D4BAD7 /* CustomLazyList.swift */,
 				8DF24CC92CCF93AE00D4BAD7 /* CustomCardComponent.swift */,
 			);
@@ -310,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				1A00362D2C69F27E00DC89C0 /* PVPCModel.swift */,
+				8DF24CD02CD14B4700D4BAD7 /* PVPCCardModel.swift */,
 			);
 			name = Presentation;
 			path = PVPCPlanner/Presentation;
@@ -339,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				1ACBAB1B2C74D09C00269327 /* Extensions */,
+				8DF24CD22CD15BBA00D4BAD7 /* PricesCardHelpers.swift */,
 			);
 			name = Utils;
 			path = PVPCPlanner/Utils;
@@ -348,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				1A0036312C69FE9B00DC89C0 /* DateFormatter+Extension.swift */,
+				8DF24CD42CD795C700D4BAD7 /* PVPCModel+Extension.swift */,
 			);
 			name = Extensions;
 			path = PVPCPlanner/Utils/Extensions;
@@ -520,6 +538,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 12C821752C3BE8A700717D4F;
 			packageReferences = (
@@ -556,6 +575,7 @@
 				12C821892C3BE8A800717D4F /* Preview Assets.xcassets in Resources */,
 				12726C4D2C3C00130020D35A /* ProjectStructure.md in Resources */,
 				12C821862C3BE8A800717D4F /* Assets.xcassets in Resources */,
+				8DF24CE12CE119D300D4BAD7 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +651,7 @@
 				12AED8D52C773CE600748EC4 /* PriceViewModelTest.swift in Sources */,
 				8DF50E4E2C90A11B00F696BA /* AddPVPCToLocaDBUseCaseTest.swift in Sources */,
 				12DB82732C7B106000A9CC82 /* NetworkRepositoryMock.swift in Sources */,
+				8DF24CDF2CDFE89800D4BAD7 /* PricesCardHelpersTest.swift in Sources */,
 				8DF50E522C90A13F00F696BA /* GetAllPVPCFromLocalDBUseCaseTest.swift in Sources */,
 				12AED8CD2C772EA600748EC4 /* ModelsTest.swift in Sources */,
 				12AED8D32C773A1F00748EC4 /* Helpers.swift in Sources */,
@@ -644,6 +665,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DF24CCC2CD1479D00D4BAD7 /* PricesCard.swift in Sources */,
 				1ADDACF02C6375B800797976 /* URL.swift in Sources */,
 				1ADDACE92C63745700797976 /* PVPCModelDTO.swift in Sources */,
 				1ACBAB282C762A1300269327 /* GetPricesUseCase.swift in Sources */,
@@ -661,16 +683,19 @@
 				1A00362E2C69F27E00DC89C0 /* PVPCModel.swift in Sources */,
 				12C821842C3BE8A700717D4F /* ContentView.swift in Sources */,
 				1ADDACFE2C637C2A00797976 /* PricesView.swift in Sources */,
+				8DF24CD12CD14B4700D4BAD7 /* PVPCCardModel.swift in Sources */,
 				1A0036322C69FE9B00DC89C0 /* DateFormatter+Extension.swift in Sources */,
 				8DF24CDD2CDFC90E00D4BAD7 /* SettingsView.swift in Sources */,
 				8D20FBC02C78C1F8007DBE4A /* GetPVPCByDayFromLocalDBUseCase.swift in Sources */,
 				12C821822C3BE8A700717D4F /* PVPCPlannerApp.swift in Sources */,
+				8DF24CD52CD795C700D4BAD7 /* PVPCModel+Extension.swift in Sources */,
 				8D20FBB52C78A4B3007DBE4A /* PVPCLocalDataSource.swift in Sources */,
 				8DC842242CA2B47500FB3C49 /* PVPCDatabaseError.swift in Sources */,
 				8DF24CCA2CCF93AE00D4BAD7 /* CustomCardComponent.swift in Sources */,
 				8DF24CC82CC945AE00D4BAD7 /* CustomLazyList.swift in Sources */,
 				1ACBAB262C7629BD00269327 /* PricesUseCaseProtocols.swift in Sources */,
 				12D84F672CB3DE5300D291CF /* AppDelegate.swift in Sources */,
+				8DF24CD32CD15BBA00D4BAD7 /* PricesCardHelpers.swift in Sources */,
 				8DF24CDB2CDFC62B00D4BAD7 /* NotificationsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
