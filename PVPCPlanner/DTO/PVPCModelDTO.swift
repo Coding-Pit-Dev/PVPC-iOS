@@ -66,7 +66,7 @@ struct PVPCDTO: Codable {
     var toPresentation: PVPCModel {
         PVPCModel(dia: dia,
                   hora: hora,
-                  pcb: pcb,
-                  cym: cym)
+                  priceMainlandAndIslands: pcb,
+                  priceCeutaMelilla: cym)
     }
 }

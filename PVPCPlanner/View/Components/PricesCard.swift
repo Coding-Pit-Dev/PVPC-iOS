@@ -12,7 +12,7 @@ struct PricesCard: View {
                     Divider()
                         .frame(height: 2)
                 }
-                Text(pvpcModel.price + "€")
+                Text("\(pvpcModel.price)€")
                     .padding()
             }
         })
@@ -21,8 +21,9 @@ struct PricesCard: View {
 
 // MARK: Simple example
 
-#Preview {
+#Preview("esp") {
     PricesCard(pvpcModel: PVPCCardModel(backgroundColor: Color.cRed, price: "0.12", hour: "21:00"))
+        .environment(\.locale, Locale(identifier: "ES"))
 }
 
 // MARK: List example

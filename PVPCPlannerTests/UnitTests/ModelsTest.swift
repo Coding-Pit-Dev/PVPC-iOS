@@ -11,8 +11,8 @@ final class ModelsTest: XCTestCase {
         
         XCTAssertEqual(pvpcModel.dia, "10-08-2024", "The value of 'dia' is not as expected")
         XCTAssertEqual(pvpcModel.hora, "12:00", "The value of 'hora' is not as expected")
-        XCTAssertEqual(pvpcModel.pcb, "100.0", "The value of 'pcb' is not as expected")
-        XCTAssertEqual(pvpcModel.cym, "200.0", "The value of 'cym' is not as expected")
+        XCTAssertEqual(pvpcModel.priceMainlandAndIslands, "100.0", "The value of 'pcb' is not as expected")
+        XCTAssertEqual(pvpcModel.priceCeutaMelilla, "200.0", "The value of 'cym' is not as expected")
     }
     
     func testPVPCModelToPresentation() {
@@ -22,7 +22,7 @@ final class ModelsTest: XCTestCase {
         
         XCTAssertEqual(presentationModel.dia, "10-08-2024", "The value of 'dia' is not as expected")
         XCTAssertEqual(presentationModel.hora, "12:00", "The value of 'hora' is not as expected")
-        XCTAssertEqual(presentationModel.pcb, "100.0", "The value of 'pcb' is not as expected")
-        XCTAssertEqual(presentationModel.cym, "200.0", "The value of 'cym' is not as expected")
+        XCTAssertEqual(presentationModel.priceMainlandAndIslands, "100.0", "The value of 'pcb' is not as expected")
+        XCTAssertEqual(presentationModel.priceCeutaMelilla, "200.0", "The value of 'cym' is not as expected")
     }
 }

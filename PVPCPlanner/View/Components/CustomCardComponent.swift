@@ -3,9 +3,9 @@ import SwiftUI
 struct CustomCardComponent<BodyContent: View, FooterContent: View>: View {
     var bodyContent: BodyContent
     var footerContent: FooterContent?
-    var backgroundColor: Color? = Color.white
+    var backgroundColor: Color = .white
     init(
-        backgroundColor: Color? = Color.white,
+        backgroundColor: Color = Color.white,
         @ViewBuilder bodyContent: () -> BodyContent,
         @ViewBuilder footerContent: @escaping () -> FooterContent
 

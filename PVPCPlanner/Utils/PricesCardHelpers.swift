@@ -10,7 +10,7 @@ enum PriceThreshold {
     static let mediumPrice: Double = 0.15
 }
 
-struct PricesCardHelpers {
+enum PricesCardHelpers {
     static func setPriceColor(price: String) -> Color {
         if let priceValue = Double(price) {
             switch priceValue {
@@ -30,9 +30,9 @@ struct PricesCardHelpers {
     static func getLocalizedPrice(pvpcModel: PVPCModel, location: PricesCardLocations) -> String {
         switch location {
         case .priceCeutaMelilla:
-            return pvpcModel.cym
+            return pvpcModel.priceCeutaMelilla
         case .priceMainlandAndIslands:
-            return pvpcModel.pcb
+            return pvpcModel.priceMainlandAndIslands
         }
     }
 }
