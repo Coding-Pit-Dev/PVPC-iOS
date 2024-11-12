@@ -1,6 +1,12 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
+    "%@" : {
+
+    },
     "%@€" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -18,6 +24,27 @@
         }
       }
     },
+    "5€" : {
+
+    },
+    "11/10" : {
+
+    },
+    "Button" : {
+
+    },
+    "Hello, world!" : {
+
+    },
+    "Item %lld" : {
+
+    },
+    "Notifications" : {
+
+    },
+    "Settings view" : {
+
+    },
     "test" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -34,6 +61,12 @@
           }
         }
       }
+    },
+    "Test Crash" : {
+
+    },
+    "Texto 2" : {
+
     }
   },
   "version" : "1.0"

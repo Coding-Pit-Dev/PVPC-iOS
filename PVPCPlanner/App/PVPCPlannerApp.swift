@@ -7,7 +7,11 @@ struct PVPCPlannerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            PricesView()
+            MainScreen()
         }
     }
+}
+
+#Preview {
+    MainScreen()
 }
