@@ -10,10 +10,8 @@ struct SettingsView: View {
     var body: some View {
         VStack {
             Spacer()
-
             Text("Select the theme")
                 .font(.headline)
-
             Picker("Theme color", selection: $viewModel.selectedMode) {
                 ForEach(AppearanceMode.allCases, id: \.self) { mode in
                     Text("\(mode.localized)").tag(mode)
