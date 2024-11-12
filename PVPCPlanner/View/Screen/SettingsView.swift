@@ -1,7 +1,11 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @StateObject private var viewModel = SettingsViewModel()
+    @Bindable private var viewModel: SettingsViewModel
+
+    init(viewModel: SettingsViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         VStack {
@@ -46,5 +50,8 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView()
+    SettingsView(viewModel:
+        SettingsViewModel(
+            setThemeUseCase: SetThemeUseCase(userDefaults: UserDefaults(suiteName: "com.test.userdefaults")!),
+            loadThemeUseCase: LoadThemeUseCase(userDefaults: UserDefaults(suiteName: "com.test.userdefaults")!)))
 }

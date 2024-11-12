@@ -1,4 +1,5 @@
 import Foundation
+import Observation
 
 enum AppearanceMode: String, CaseIterable {
     case light = "light mode"
@@ -10,20 +11,20 @@ enum AppearanceMode: String, CaseIterable {
     }
 }
 
-class SettingsViewModel: ObservableObject {
-    @Published var selectedMode: AppearanceMode {
+@Observable
+class SettingsViewModel {
+    private let setThemeUseCase: SetThemeUseCaseProtocol
+    private let loadThemeUseCase: LoadThemeUseCaseProtocol
+    var selectedMode: AppearanceMode {
         didSet {
             UserDefaults.standard.setValue(selectedMode.rawValue, forKey: UserDefaultsKeys.APPEARANCE_MODE.rawValue)
         }
     }
 
-    init() {
-        if let savedMode = UserDefaults.standard.string(forKey: UserDefaultsKeys.APPEARANCE_MODE.rawValue),
-           let mode = AppearanceMode(rawValue: savedMode)
-        {
-            selectedMode = mode
-        } else {
-            selectedMode = .system
-        }
+    init(setThemeUseCase: SetThemeUseCaseProtocol, loadThemeUseCase: LoadThemeUseCaseProtocol) {
+        self.setThemeUseCase = setThemeUseCase
+        self.loadThemeUseCase = loadThemeUseCase
+
+        selectedMode = loadThemeUseCase.LoadThemeMode()
     }
 }
