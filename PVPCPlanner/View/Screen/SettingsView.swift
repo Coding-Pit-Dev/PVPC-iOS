@@ -24,6 +24,9 @@ struct SettingsView: View {
             Spacer()
         }
         .padding()
+        .onAppear {
+            updateView()
+        }
     }
 
     func updateView() {
