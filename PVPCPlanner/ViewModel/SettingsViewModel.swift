@@ -1,42 +1,29 @@
 import Foundation
-import UIKit
 
 enum AppearanceMode: String, CaseIterable {
     case light = "light mode"
     case dark = "dark mode"
-    case system = "system"
+    case system
+
+    var localized: String {
+        NSLocalizedString(rawValue, comment: "")
+    }
 }
 
 class SettingsViewModel: ObservableObject {
     @Published var selectedMode: AppearanceMode {
         didSet {
-            UserDefaults.standard.setValue(selectedMode.rawValue, forKey: "appearanceMode")
-            updateAppearance()
+            UserDefaults.standard.setValue(selectedMode.rawValue, forKey: UserDefaultsKeys.APPEARANCE_MODE.rawValue)
         }
     }
 
     init() {
-        if let savedMode = UserDefaults.standard.string(forKey: "appearanceMode"),
+        if let savedMode = UserDefaults.standard.string(forKey: UserDefaultsKeys.APPEARANCE_MODE.rawValue),
            let mode = AppearanceMode(rawValue: savedMode)
         {
             selectedMode = mode
         } else {
             selectedMode = .system
-        }
-    }
-
-    func updateAppearance() {
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-            guard let window = windowScene.windows.first else { return }
-
-            switch selectedMode {
-            case .light:
-                window.overrideUserInterfaceStyle = .light
-            case .dark:
-                window.overrideUserInterfaceStyle = .dark
-            case .system:
-                window.overrideUserInterfaceStyle = .unspecified
-            }
         }
     }
 }

@@ -80,14 +80,21 @@
         }
       }
     },
-    "Modo de Interfaz" : {
-
-    },
     "Notifications" : {
-
-    },
-    "Selecciona el modo de interfaz:" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notificaciones"
+          }
+        }
+      }
     },
     "Select the theme" : {
       "extractionState" : "manual",
@@ -144,6 +151,9 @@
 
     },
     "Texto 2" : {
+
+    },
+    "Theme color" : {
 
     }
   },
