@@ -54,6 +54,9 @@
 		8DD069112CE3886500DA84D5 /* ThemeChangeUseCaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD069102CE3886500DA84D5 /* ThemeChangeUseCaseProtocols.swift */; };
 		8DD069132CE38A5000DA84D5 /* SetThemeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD069122CE38A5000DA84D5 /* SetThemeUseCase.swift */; };
 		8DD069152CE3914800DA84D5 /* LoadThemeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD069142CE3914800DA84D5 /* LoadThemeUseCase.swift */; };
+		8DD069192CE3DD1700DA84D5 /* SetThemeUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD069182CE3DD1700DA84D5 /* SetThemeUseCaseTest.swift */; };
+		8DD0691B2CE3E25900DA84D5 /* LoadThemeUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD0691A2CE3E25900DA84D5 /* LoadThemeUseCaseTest.swift */; };
+		8DD0691D2CE3E48300DA84D5 /* SettingsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD0691C2CE3E48300DA84D5 /* SettingsViewModelTest.swift */; };
 		8DF24CC82CC945AE00D4BAD7 /* CustomLazyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CC72CC945AE00D4BAD7 /* CustomLazyList.swift */; };
 		8DF24CCA2CCF93AE00D4BAD7 /* CustomCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CC92CCF93AE00D4BAD7 /* CustomCardComponent.swift */; };
 		8DF24CCC2CD1479D00D4BAD7 /* PricesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CCB2CD1479D00D4BAD7 /* PricesCard.swift */; };
@@ -128,6 +131,9 @@
 		8DD069102CE3886500DA84D5 /* ThemeChangeUseCaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChangeUseCaseProtocols.swift; sourceTree = "<group>"; };
 		8DD069122CE38A5000DA84D5 /* SetThemeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetThemeUseCase.swift; sourceTree = "<group>"; };
 		8DD069142CE3914800DA84D5 /* LoadThemeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadThemeUseCase.swift; sourceTree = "<group>"; };
+		8DD069182CE3DD1700DA84D5 /* SetThemeUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetThemeUseCaseTest.swift; sourceTree = "<group>"; };
+		8DD0691A2CE3E25900DA84D5 /* LoadThemeUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadThemeUseCaseTest.swift; sourceTree = "<group>"; };
+		8DD0691C2CE3E48300DA84D5 /* SettingsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTest.swift; sourceTree = "<group>"; };
 		8DF24CC72CC945AE00D4BAD7 /* CustomLazyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLazyList.swift; sourceTree = "<group>"; };
 		8DF24CC92CCF93AE00D4BAD7 /* CustomCardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardComponent.swift; sourceTree = "<group>"; };
 		8DF24CCB2CD1479D00D4BAD7 /* PricesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesCard.swift; sourceTree = "<group>"; };
@@ -210,6 +216,9 @@
 				12AED8D42C773CE600748EC4 /* PriceViewModelTest.swift */,
 				8DB777872C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift */,
 				8DF24CDE2CDFE89800D4BAD7 /* PricesCardHelpersTest.swift */,
+				8DD069182CE3DD1700DA84D5 /* SetThemeUseCaseTest.swift */,
+				8DD0691A2CE3E25900DA84D5 /* LoadThemeUseCaseTest.swift */,
+				8DD0691C2CE3E48300DA84D5 /* SettingsViewModelTest.swift */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -669,7 +678,10 @@
 				8DF24CDF2CDFE89800D4BAD7 /* PricesCardHelpersTest.swift in Sources */,
 				8DF50E522C90A13F00F696BA /* GetAllPVPCFromLocalDBUseCaseTest.swift in Sources */,
 				12AED8CD2C772EA600748EC4 /* ModelsTest.swift in Sources */,
+				8DD069192CE3DD1700DA84D5 /* SetThemeUseCaseTest.swift in Sources */,
+				8DD0691B2CE3E25900DA84D5 /* LoadThemeUseCaseTest.swift in Sources */,
 				12AED8D32C773A1F00748EC4 /* Helpers.swift in Sources */,
+				8DD0691D2CE3E48300DA84D5 /* SettingsViewModelTest.swift in Sources */,
 				12DB826F2C7B037B00A9CC82 /* PriceVMIntegrationTest.swift in Sources */,
 				8DB777882C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift in Sources */,
 				8DF50E542C90A14800F696BA /* GetPVPCByDayFromLocalDBUseCaseTest.swift in Sources */,
