@@ -10,6 +10,7 @@
 		124784652CCA607000FC2704 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 124784642CCA607000FC2704 /* FirebaseCrashlytics */; };
 		12726C4D2C3C00130020D35A /* ProjectStructure.md in Resources */ = {isa = PBXBuildFile; fileRef = 12726C4C2C3C00130020D35A /* ProjectStructure.md */; };
 		129120CA2C3BFBA50037E939 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 129120C92C3BFBA50037E939 /* README.md */; };
+		1291A7E72CE4A848001EBFF1 /* SettingsView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1291A7E62CE4A848001EBFF1 /* SettingsView2.swift */; };
 		12AED8CD2C772EA600748EC4 /* ModelsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AED8CC2C772EA600748EC4 /* ModelsTest.swift */; };
 		12AED8D02C7737DE00748EC4 /* GetPricesUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AED8CF2C7737DE00748EC4 /* GetPricesUseCaseMock.swift */; };
 		12AED8D32C773A1F00748EC4 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AED8D22C773A1F00748EC4 /* Helpers.swift */; };
@@ -87,6 +88,7 @@
 /* Begin PBXFileReference section */
 		12726C4C2C3C00130020D35A /* ProjectStructure.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ProjectStructure.md; sourceTree = "<group>"; };
 		129120C92C3BFBA50037E939 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1291A7E62CE4A848001EBFF1 /* SettingsView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView2.swift; sourceTree = "<group>"; };
 		12AED8CC2C772EA600748EC4 /* ModelsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsTest.swift; sourceTree = "<group>"; };
 		12AED8CF2C7737DE00748EC4 /* GetPricesUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPricesUseCaseMock.swift; sourceTree = "<group>"; };
 		12AED8D22C773A1F00748EC4 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				8DF24CD82CD931F800D4BAD7 /* MainScreen.swift */,
 				8DF24CDA2CDFC62B00D4BAD7 /* NotificationsView.swift */,
 				8DF24CDC2CDFC90E00D4BAD7 /* SettingsView.swift */,
+				1291A7E62CE4A848001EBFF1 /* SettingsView2.swift */,
 			);
 			name = Screen;
 			path = PVPCPlanner/View/Screen;
@@ -709,6 +712,7 @@
 				8D20FBC22C78C24B007DBE4A /* RemovePVPCByDayFromLocalDBUseCase.swift in Sources */,
 				8D20FBBA2C78ACA2007DBE4A /* PVPCDatabaseContainer.swift in Sources */,
 				8DD069112CE3886500DA84D5 /* ThemeChangeUseCaseProtocols.swift in Sources */,
+				1291A7E72CE4A848001EBFF1 /* SettingsView2.swift in Sources */,
 				1ADDACF62C6379DD00797976 /* PreviewData.swift in Sources */,
 				8D20FBBC2C78B19D007DBE4A /* AddPVPCToLocaDBUseCase.swift in Sources */,
 				8DB777862C9B1CFE00A4ADA7 /* UpdatePVPCLocalByIdUseCase.swift in Sources */,

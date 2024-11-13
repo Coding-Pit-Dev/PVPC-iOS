@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct MainScreen: View {
-    let settingsViewModel = SettingsViewModel(setThemeUseCase:
+   /* let settingsViewModel = SettingsViewModel(setThemeUseCase:
         SetThemeUseCase(userDefaults: UserDefaults.standard),
-        loadThemeUseCase: LoadThemeUseCase(userDefaults: UserDefaults.standard))
+        loadThemeUseCase: LoadThemeUseCase(userDefaults: UserDefaults.standard))*/
 
     var body: some View {
         TabView {
@@ -15,8 +15,7 @@ struct MainScreen: View {
                 .tabItem {
                     Label("", systemImage: "bell.circle")
                 }
-            SettingsView(viewModel: settingsViewModel
-            )
+            SettingsView2()
             .tabItem {
                 Label("", systemImage: "gear")
             }

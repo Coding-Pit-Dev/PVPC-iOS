@@ -11,6 +11,12 @@ enum AppearanceMode: String, CaseIterable {
     }
 }
 
+enum ThemeMode: String, CaseIterable, Identifiable {
+    case light, dark, auto
+    var id: Self { self }
+
+}
+
 @Observable
 class SettingsViewModel {
     private let setThemeUseCase: SetThemeUseCaseProtocol
