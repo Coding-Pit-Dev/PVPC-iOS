@@ -9,8 +9,7 @@ class LoadThemeUseCase: LoadThemeUseCaseProtocol {
 
     func LoadThemeMode() -> AppearanceMode {
         if let savedTheme = userDefaults.string(forKey: UserDefaultsKeys.APPEARANCE_MODE.rawValue),
-           let theme = AppearanceMode(rawValue: savedTheme)
-        {
+           let theme = AppearanceMode(rawValue: savedTheme) {
             theme
         } else {
             AppearanceMode.system
