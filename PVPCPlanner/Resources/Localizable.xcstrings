@@ -167,6 +167,22 @@
         }
       }
     },
+    "Selected location: " : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selected location"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localización seleccionada:"
+          }
+        }
+      }
+    },
     "test" : {
       "extractionState" : "manual",
       "localizations" : {
