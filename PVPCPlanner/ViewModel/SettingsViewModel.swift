@@ -9,5 +9,12 @@ enum ThemeMode: String, CaseIterable, Identifiable {
     var id: Self { self }
 }
 
+enum Locations: String, CaseIterable, Identifiable {
+    case CeutaMelilla = "cym"
+    case MainlandAndIslands = "pcb"
+
+    var id: Self { self }
+}
+
 @Observable
 class SettingsViewModel {}

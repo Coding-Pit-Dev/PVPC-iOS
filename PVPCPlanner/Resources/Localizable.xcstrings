@@ -57,6 +57,23 @@
     "Button" : {
 
     },
+    "cym" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ceuta/Melilla"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ceuta o Melilla"
+          }
+        }
+      }
+    },
     "dark mode" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -97,6 +114,9 @@
         }
       }
     },
+    "Location Picker" : {
+
+    },
     "Notifications" : {
       "localizations" : {
         "en" : {
@@ -109,6 +129,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notificaciones"
+          }
+        }
+      }
+    },
+    "pcb" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mainland And Islands"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Península e islas"
           }
         }
       }
