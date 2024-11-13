@@ -50,13 +50,7 @@
 		8DB777882C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB777872C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift */; };
 		8DB7778B2C9D988200A4ADA7 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8DB7778A2C9D988200A4ADA7 /* swiftlint.yml */; };
 		8DC842242CA2B47500FB3C49 /* PVPCDatabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC842232CA2B47500FB3C49 /* PVPCDatabaseError.swift */; };
-		8DD0690F2CE368A700DA84D5 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD0690E2CE368A700DA84D5 /* UserDefaultsKeys.swift */; };
-		8DD069112CE3886500DA84D5 /* ThemeChangeUseCaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD069102CE3886500DA84D5 /* ThemeChangeUseCaseProtocols.swift */; };
-		8DD069132CE38A5000DA84D5 /* SetThemeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD069122CE38A5000DA84D5 /* SetThemeUseCase.swift */; };
-		8DD069152CE3914800DA84D5 /* LoadThemeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD069142CE3914800DA84D5 /* LoadThemeUseCase.swift */; };
-		8DD069192CE3DD1700DA84D5 /* SetThemeUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD069182CE3DD1700DA84D5 /* SetThemeUseCaseTest.swift */; };
-		8DD0691B2CE3E25900DA84D5 /* LoadThemeUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD0691A2CE3E25900DA84D5 /* LoadThemeUseCaseTest.swift */; };
-		8DD0691D2CE3E48300DA84D5 /* SettingsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD0691C2CE3E48300DA84D5 /* SettingsViewModelTest.swift */; };
+		8DD0690F2CE368A700DA84D5 /* AppStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD0690E2CE368A700DA84D5 /* AppStorageKeys.swift */; };
 		8DF24CC82CC945AE00D4BAD7 /* CustomLazyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CC72CC945AE00D4BAD7 /* CustomLazyList.swift */; };
 		8DF24CCA2CCF93AE00D4BAD7 /* CustomCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CC92CCF93AE00D4BAD7 /* CustomCardComponent.swift */; };
 		8DF24CCC2CD1479D00D4BAD7 /* PricesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CCB2CD1479D00D4BAD7 /* PricesCard.swift */; };
@@ -127,13 +121,7 @@
 		8DB777872C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePVPCByIDLocaUseCaseTest.swift; sourceTree = "<group>"; };
 		8DB7778A2C9D988200A4ADA7 /* swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
 		8DC842232CA2B47500FB3C49 /* PVPCDatabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCDatabaseError.swift; sourceTree = "<group>"; };
-		8DD0690E2CE368A700DA84D5 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
-		8DD069102CE3886500DA84D5 /* ThemeChangeUseCaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChangeUseCaseProtocols.swift; sourceTree = "<group>"; };
-		8DD069122CE38A5000DA84D5 /* SetThemeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetThemeUseCase.swift; sourceTree = "<group>"; };
-		8DD069142CE3914800DA84D5 /* LoadThemeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadThemeUseCase.swift; sourceTree = "<group>"; };
-		8DD069182CE3DD1700DA84D5 /* SetThemeUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetThemeUseCaseTest.swift; sourceTree = "<group>"; };
-		8DD0691A2CE3E25900DA84D5 /* LoadThemeUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadThemeUseCaseTest.swift; sourceTree = "<group>"; };
-		8DD0691C2CE3E48300DA84D5 /* SettingsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTest.swift; sourceTree = "<group>"; };
+		8DD0690E2CE368A700DA84D5 /* AppStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKeys.swift; sourceTree = "<group>"; };
 		8DF24CC72CC945AE00D4BAD7 /* CustomLazyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLazyList.swift; sourceTree = "<group>"; };
 		8DF24CC92CCF93AE00D4BAD7 /* CustomCardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardComponent.swift; sourceTree = "<group>"; };
 		8DF24CCB2CD1479D00D4BAD7 /* PricesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesCard.swift; sourceTree = "<group>"; };
@@ -216,9 +204,6 @@
 				12AED8D42C773CE600748EC4 /* PriceViewModelTest.swift */,
 				8DB777872C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift */,
 				8DF24CDE2CDFE89800D4BAD7 /* PricesCardHelpersTest.swift */,
-				8DD069182CE3DD1700DA84D5 /* SetThemeUseCaseTest.swift */,
-				8DD0691A2CE3E25900DA84D5 /* LoadThemeUseCaseTest.swift */,
-				8DD0691C2CE3E48300DA84D5 /* SettingsViewModelTest.swift */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -375,7 +360,7 @@
 			children = (
 				1ACBAB1B2C74D09C00269327 /* Extensions */,
 				8DF24CD22CD15BBA00D4BAD7 /* PricesCardHelpers.swift */,
-				8DD0690E2CE368A700DA84D5 /* UserDefaultsKeys.swift */,
+				8DD0690E2CE368A700DA84D5 /* AppStorageKeys.swift */,
 			);
 			name = Utils;
 			path = PVPCPlanner/Utils;
@@ -409,8 +394,6 @@
 				8D20FBBF2C78C1F8007DBE4A /* GetPVPCByDayFromLocalDBUseCase.swift */,
 				8D20FBC12C78C24B007DBE4A /* RemovePVPCByDayFromLocalDBUseCase.swift */,
 				8DB777852C9B1CFE00A4ADA7 /* UpdatePVPCLocalByIdUseCase.swift */,
-				8DD069122CE38A5000DA84D5 /* SetThemeUseCase.swift */,
-				8DD069142CE3914800DA84D5 /* LoadThemeUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -419,7 +402,6 @@
 			isa = PBXGroup;
 			children = (
 				1ACBAB252C7629BD00269327 /* PricesUseCaseProtocols.swift */,
-				8DD069102CE3886500DA84D5 /* ThemeChangeUseCaseProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -678,10 +660,7 @@
 				8DF24CDF2CDFE89800D4BAD7 /* PricesCardHelpersTest.swift in Sources */,
 				8DF50E522C90A13F00F696BA /* GetAllPVPCFromLocalDBUseCaseTest.swift in Sources */,
 				12AED8CD2C772EA600748EC4 /* ModelsTest.swift in Sources */,
-				8DD069192CE3DD1700DA84D5 /* SetThemeUseCaseTest.swift in Sources */,
-				8DD0691B2CE3E25900DA84D5 /* LoadThemeUseCaseTest.swift in Sources */,
 				12AED8D32C773A1F00748EC4 /* Helpers.swift in Sources */,
-				8DD0691D2CE3E48300DA84D5 /* SettingsViewModelTest.swift in Sources */,
 				12DB826F2C7B037B00A9CC82 /* PriceVMIntegrationTest.swift in Sources */,
 				8DB777882C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift in Sources */,
 				8DF50E542C90A14800F696BA /* GetPVPCByDayFromLocalDBUseCaseTest.swift in Sources */,
@@ -692,14 +671,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DD069132CE38A5000DA84D5 /* SetThemeUseCase.swift in Sources */,
 				8DF24CCC2CD1479D00D4BAD7 /* PricesCard.swift in Sources */,
 				1ADDACF02C6375B800797976 /* URL.swift in Sources */,
 				1ADDACE92C63745700797976 /* PVPCModelDTO.swift in Sources */,
 				1ACBAB282C762A1300269327 /* GetPricesUseCase.swift in Sources */,
-				8DD0690F2CE368A700DA84D5 /* UserDefaultsKeys.swift in Sources */,
+				8DD0690F2CE368A700DA84D5 /* AppStorageKeys.swift in Sources */,
 				8D20FBBE2C78C178007DBE4A /* GetAllPVPCFromLocalDBUseCase.swift in Sources */,
-				8DD069152CE3914800DA84D5 /* LoadThemeUseCase.swift in Sources */,
 				1ADDACF92C637ADA00797976 /* PricesVM.swift in Sources */,
 				8D20FBB32C78A2CA007DBE4A /* PVPCModelLocal.swift in Sources */,
 				8DF24CD92CD931F800D4BAD7 /* MainScreen.swift in Sources */,
@@ -708,7 +685,6 @@
 				1ADDACF22C6377A700797976 /* URLRequest.swift in Sources */,
 				8D20FBC22C78C24B007DBE4A /* RemovePVPCByDayFromLocalDBUseCase.swift in Sources */,
 				8D20FBBA2C78ACA2007DBE4A /* PVPCDatabaseContainer.swift in Sources */,
-				8DD069112CE3886500DA84D5 /* ThemeChangeUseCaseProtocols.swift in Sources */,
 				1ADDACF62C6379DD00797976 /* PreviewData.swift in Sources */,
 				8D20FBBC2C78B19D007DBE4A /* AddPVPCToLocaDBUseCase.swift in Sources */,
 				8DB777862C9B1CFE00A4ADA7 /* UpdatePVPCLocalByIdUseCase.swift in Sources */,

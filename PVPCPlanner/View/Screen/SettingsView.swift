@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @Environment(\.colorScheme) private var colorScheme
+    @AppStorage(AppStorageKeys.THEME_MODE.rawValue) var selectedTheme: ThemeMode = .auto
+
     @Bindable private var viewModel: SettingsViewModel
 
     init(viewModel: SettingsViewModel) {
@@ -12,44 +15,24 @@ struct SettingsView: View {
             Spacer()
             Text("Select the theme")
                 .font(.headline)
-            Picker("Theme color", selection: $viewModel.selectedMode) {
-                ForEach(AppearanceMode.allCases, id: \.self) { mode in
+            Picker("Theme color", selection: $selectedTheme) {
+                ForEach(ThemeMode.allCases, id: \.self) { mode in
                     Text("\(mode.localized)").tag(mode)
                 }
             }
             .pickerStyle(SegmentedPickerStyle())
             .padding()
-            .onChange(of: viewModel.selectedMode) {
-                updateView()
-            }
-            Spacer()
             Spacer()
         }
         .padding()
         .onAppear {
-            updateView()
+            selectedTheme = colorScheme == .dark ? .dark : .light
         }
-    }
+        .preferredColorScheme(selectedTheme == .auto ? nil : (selectedTheme == .dark ? .dark : .light))
 
-    func updateView() {
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-            guard let window = windowScene.windows.first else { return }
-
-            switch viewModel.selectedMode {
-            case .light:
-                window.overrideUserInterfaceStyle = .light
-            case .dark:
-                window.overrideUserInterfaceStyle = .dark
-            case .system:
-                window.overrideUserInterfaceStyle = .unspecified
-            }
-        }
     }
 }
 
 #Preview {
-    SettingsView(viewModel:
-        SettingsViewModel(
-            setThemeUseCase: SetThemeUseCase(userDefaults: UserDefaults(suiteName: "com.test.userdefaults")!),
-            loadThemeUseCase: LoadThemeUseCase(userDefaults: UserDefaults(suiteName: "com.test.userdefaults")!)))
+    SettingsView(viewModel: SettingsViewModel())
 }

@@ -1,9 +1,7 @@
 import SwiftUI
 
 struct MainScreen: View {
-    let settingsViewModel = SettingsViewModel(setThemeUseCase:
-        SetThemeUseCase(userDefaults: UserDefaults.standard),
-        loadThemeUseCase: LoadThemeUseCase(userDefaults: UserDefaults.standard))
+    let settingsViewModel = SettingsViewModel()
 
     var body: some View {
         TabView {

@@ -37,6 +37,23 @@
     "11/10" : {
 
     },
+    "auto" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "System"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sistema"
+          }
+        }
+      }
+    },
     "Button" : {
 
     },
@@ -109,23 +126,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Selecciona el tema"
-          }
-        }
-      }
-    },
-    "system" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "System"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sistema"
           }
         }
       }
