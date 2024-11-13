@@ -7,9 +7,6 @@ enum ThemeMode: String, CaseIterable, Identifiable {
     case auto
 
     var id: Self { self }
-    var localized: String {
-        NSLocalizedString(rawValue, comment: "")
-    }
 }
 
 @Observable
