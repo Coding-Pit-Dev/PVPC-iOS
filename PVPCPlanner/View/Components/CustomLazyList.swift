@@ -14,8 +14,7 @@ struct CustomLazyList<Content: View>: View {
     init(spacing: CGFloat = 10,
          listDirection: CustomLazyListDirection = CustomLazyListDirection.vertical,
          backgroundColor: Color = Color.white,
-         @ViewBuilder listItem: @escaping () -> Content)
-    {
+         @ViewBuilder listItem: @escaping () -> Content) {
         self.spacing = spacing
         self.listDirection = listDirection
         self.backgroundColor = backgroundColor
