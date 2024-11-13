@@ -17,7 +17,7 @@ struct SettingsView: View {
                 .font(.headline)
             Picker("Theme color", selection: $selectedTheme) {
                 ForEach(ThemeMode.allCases, id: \.self) { mode in
-                    Text("\(mode.localized)").tag(mode)
+                    Text(LocalizedStringKey(mode.rawValue)).tag(mode)
                 }
             }
             .pickerStyle(SegmentedPickerStyle())
