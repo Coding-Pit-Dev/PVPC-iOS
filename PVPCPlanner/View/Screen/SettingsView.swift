@@ -16,14 +16,16 @@ struct SettingsView: View {
             Spacer()
             Text("Select the theme")
                 .font(.headline)
-            Picker("Theme color", selection: $selectedTheme) {
+            Picker("Select the theme", selection: $selectedTheme) {
                 ForEach(ThemeMode.allCases, id: \.self) { mode in
                     Text(LocalizedStringKey(mode.rawValue)).tag(mode)
                 }
             }
             .pickerStyle(SegmentedPickerStyle())
             .padding()
-            Picker("Location Picker", selection: $selectedLocation) {
+            Text("Select the localization")
+                .font(.headline)
+            Picker("Select the localization", selection: $selectedLocation) {
                 ForEach(Locations.allCases, id: \.self) { location in
                     Text(LocalizedStringKey(location.rawValue)).tag(location)
                 }
@@ -37,7 +39,6 @@ struct SettingsView: View {
             selectedTheme = colorScheme == .dark ? .dark : .light
         }
         .preferredColorScheme(selectedTheme == .auto ? nil : (selectedTheme == .dark ? .dark : .light))
-
     }
 }
 

@@ -150,6 +150,23 @@
         }
       }
     },
+    "Select the localization" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select the localization"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona la localización"
+          }
+        }
+      }
+    },
     "Select the theme" : {
       "extractionState" : "manual",
       "localizations" : {
