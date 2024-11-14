@@ -7,10 +7,6 @@ struct PricesView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Text("Selected location: ")
-                Text(LocalizedStringKey(selectedLocation.rawValue))
-            }
             List {
                 ForEach(vm.prices, id: \.self) { price in
                     Text("\(price.hora)")
