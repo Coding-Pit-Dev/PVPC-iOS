@@ -12,7 +12,7 @@ struct PricesCard: View {
                     Divider()
                         .frame(height: 2)
                 }
-                Text("\(pvpcModel.price)€")
+                Text("price_\(pvpcModel.price)€")
                     .padding()
             }
         })

@@ -1,63 +1,7 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
-    "%@" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        }
-      }
-    },
-    "%@€" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@€"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@€"
-          }
-        }
-      }
-    },
-    "5€" : {
-
-    },
-    "11/10" : {
-
-    },
-    "auto" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "System"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sistema"
-          }
-        }
-      }
-    },
-    "Button" : {
-
-    },
-    "cym" : {
+    "location_ceuta_melilla_text" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -74,48 +18,39 @@
         }
       }
     },
-    "dark mode" : {
+    "location_peninsular_islands_text" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dark"
+            "value" : "Mainland And Islands"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oscuro"
+            "value" : "Península e islas"
           }
         }
       }
     },
-    "Hello, world!" : {
-
-    },
-    "Item %lld" : {
-
-    },
-    "light mode" : {
+    "location_select_text" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Light"
+            "value" : "Select the localization"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Claro"
+            "value" : "Seleccionar localización"
           }
         }
       }
-    },
-    "Location Picker" : {
-
     },
     "Notifications" : {
       "localizations" : {
@@ -133,41 +68,75 @@
         }
       }
     },
-    "pcb" : {
+    "price_%@€" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mainland And Islands"
+            "value" : "%@€"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Península e islas"
+            "value" : "%@€"
           }
         }
       }
     },
-    "Select the localization" : {
+    "theme_auto_mode" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Select the localization"
+            "value" : "System"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona la localización"
+            "value" : "Sistema"
           }
         }
       }
     },
-    "Select the theme" : {
+    "theme_dark_mode" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dark"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oscuro"
+          }
+        }
+      }
+    },
+    "theme_light_mode" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Light"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Claro"
+          }
+        }
+      }
+    },
+    "theme_select_text" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -179,52 +148,10 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona el tema"
+            "value" : "Seleccionar modo"
           }
         }
       }
-    },
-    "Selected location: " : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Selected location"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Localización seleccionada:"
-          }
-        }
-      }
-    },
-    "test" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "test"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "test"
-          }
-        }
-      }
-    },
-    "Test Crash" : {
-
-    },
-    "Texto 2" : {
-
-    },
-    "Theme color" : {
-
     }
   },
   "version" : "1.0"

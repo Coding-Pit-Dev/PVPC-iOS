@@ -14,18 +14,18 @@ struct SettingsView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("Select the theme")
+            Text("theme_select_text")
                 .font(.headline)
-            Picker("Select the theme", selection: $selectedTheme) {
+            Picker("theme_select_text", selection: $selectedTheme) {
                 ForEach(ThemeMode.allCases, id: \.self) { mode in
                     Text(LocalizedStringKey(mode.rawValue)).tag(mode)
                 }
             }
             .pickerStyle(SegmentedPickerStyle())
             .padding()
-            Text("Select the localization")
+            Text("location_select_text")
                 .font(.headline)
-            Picker("Select the localization", selection: $selectedLocation) {
+            Picker("location_select_text", selection: $selectedLocation) {
                 ForEach(Locations.allCases, id: \.self) { location in
                     Text(LocalizedStringKey(location.rawValue)).tag(location)
                 }

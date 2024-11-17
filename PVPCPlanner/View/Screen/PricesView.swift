@@ -15,9 +15,6 @@ struct PricesView: View {
             .task {
                 await vm.getPricesList()
             }
-            Button("Test Crash") {
-                fatalError("Crash was triggered")
-            }
         }
     }
 }
