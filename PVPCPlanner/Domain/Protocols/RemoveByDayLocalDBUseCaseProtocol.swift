@@ -1,5 +1,5 @@
 import Foundation
 
 protocol RemoveByDayLocalDBUseCaseProtocol {
-    func removeItemsByDay(dia: String) throws -> [PVPCModelLocal]
+    func removeItemsByDay(dia: Date) throws -> [PVPCModelLocal]
 }

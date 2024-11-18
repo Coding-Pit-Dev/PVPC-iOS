@@ -1,6 +1,24 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
+    "5€" : {
+
+    },
+    "11/10" : {
+
+    },
+    "Button" : {
+
+    },
+    "Hello, world!" : {
+
+    },
+    "Item %lld" : {
+
+    },
     "location_ceuta_melilla_text" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -84,6 +102,9 @@
           }
         }
       }
+    },
+    "Texto 2" : {
+
     },
     "theme_auto_mode" : {
       "extractionState" : "manual",

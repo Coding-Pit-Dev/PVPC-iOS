@@ -1,7 +1,7 @@
 import Foundation
 
 @MainActor
-struct UpdatePVPCLocalByIdUseCase {
+struct UpdatePVPCLocalByIdUseCase: UpdateLocalByIdUseCaseProtocol {
     private var databaseContainer = PVPCDatabaseContainer.shared.container
     private var dataSource: PVPCLocalDataSource
 
@@ -9,7 +9,7 @@ struct UpdatePVPCLocalByIdUseCase {
         self.dataSource = PVPCLocalDataSource(container: databaseContainer)
     }
 
-    func updateItemById(id: UUID, dia: String, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal {
+    func updateItemById(id: UUID, dia: Date, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal {
         try dataSource.updateItemById(id: id, dia: dia, hora: hora, pcb: pcb, cym: cym)
     }
 }

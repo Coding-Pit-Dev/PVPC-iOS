@@ -1,14 +1,21 @@
 import Foundation
 
 extension PVPCModel {
-    func toPVPCCardModel(location: PricesCardLocations) -> PVPCCardModel {
-        let price = PricesCardHelpers.getLocalizedPrice(pvpcModel: self, location: location)
+    func toPVPCCardModel(location: Locations) -> PVPCCardModel {
+        var price = PricesCardHelpers.getLocalizedPrice(pvpcModel: self, location: location)
         let backgroundColor = PricesCardHelpers.setPriceColor(price: price)
 
         return PVPCCardModel(
             backgroundColor: backgroundColor,
-            price: price,
+            price: priceFormater(price: price),
             hour: hora
         )
+    }
+    
+    private func priceFormater(price: String) -> String{
+        if let doublePrice = Double(price.replacingOccurrences(of: ",", with: ".")){
+            return String(format: "%.5f", (doublePrice/1000))
+        }
+        return price
     }
 }

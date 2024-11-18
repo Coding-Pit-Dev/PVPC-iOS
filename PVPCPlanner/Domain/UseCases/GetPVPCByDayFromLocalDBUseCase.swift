@@ -1,15 +1,15 @@
 import Foundation
 
-@MainActor
-struct GetPVPCByDayFromLocalDBUseCase {
+struct GetPVPCByDayFromLocalDBUseCase: GetByDayFromLocalDBUseCaseProtocol {
     private var databaseContainer = PVPCDatabaseContainer.shared.container
     private var dataSource: PVPCLocalDataSource
+    static let shared = GetPVPCByDayFromLocalDBUseCase()
 
-    init(dataSource: PVPCLocalDataSource) {
-        self.dataSource = PVPCLocalDataSource(container: databaseContainer)
+    init(dataSource: PVPCLocalDataSource = PVPCLocalDataSource(container: PVPCDatabaseContainer.shared.container)) {
+        self.dataSource = dataSource
     }
 
-    func getItemsByDay(dia: String) throws -> [PVPCModelLocal] {
-        try dataSource.getItemsByDay(dia: dia)
+    func getItemsByDay(dia: Date) async throws -> [PVPCModelLocal] {
+        try await dataSource.getItemsByDay(dia: dia)
     }
 }

@@ -15,12 +15,12 @@ final class GetAllPVPCFromLocalDBUseCaseTest: XCTestCase {
 
     func testGetAllThePVPCsFromLocalDB() throws {
         // GIVEN
-        try addUseCase.addPvpc(dia: "dia", hora: "hora", pcb: "pcb", cym: "CYM")
-        try addUseCase.addPvpc(dia: "dia1", hora: "hora1", pcb: "pcb1", cym: "CYM1")
-        try addUseCase.addPvpc(dia: "dia2", hora: "hora2", pcb: "pcb2", cym: "CYM2")
-        try addUseCase.addPvpc(dia: "dia3", hora: "hora3", pcb: "pcb3", cym: "CYM3")
-        try addUseCase.addPvpc(dia: "dia4", hora: "hora4", pcb: "pcb4", cym: "CYM4")
-        try addUseCase.addPvpc(dia: "dia5", hora: "hora5", pcb: "pcb5", cym: "CYM5")
+        try addUseCase.addPvpc(dia: .now, hora: "hora", pcb: "pcb", cym: "CYM")
+        try addUseCase.addPvpc(dia: .now+1, hora: "hora1", pcb: "pcb1", cym: "CYM1")
+        try addUseCase.addPvpc(dia: .now+2, hora: "hora2", pcb: "pcb2", cym: "CYM2")
+        try addUseCase.addPvpc(dia: .now+3, hora: "hora3", pcb: "pcb3", cym: "CYM3")
+        try addUseCase.addPvpc(dia: .now+4, hora: "hora4", pcb: "pcb4", cym: "CYM4")
+        try addUseCase.addPvpc(dia: .now+5, hora: "hora5", pcb: "pcb5", cym: "CYM5")
 
         // When
         let pvpcs: [PVPCModelLocal] = try sut.getAllItems()

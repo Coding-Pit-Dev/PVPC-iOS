@@ -1,5 +1,5 @@
 import Foundation
 
 protocol GetByDayFromLocalDBUseCaseProtocol {
-    func getItemsByDay(dia: String) throws -> [PVPCModelLocal]
+    func getItemsByDay(dia: Date) async throws -> [PVPCModelLocal]
 }
