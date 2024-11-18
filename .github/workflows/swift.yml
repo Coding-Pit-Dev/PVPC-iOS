@@ -77,8 +77,9 @@ jobs:
       - name: Generate Code Coverage Report
         run: |
           xcrun xccov view --report --json TestResults.xcresult > coverage.json
+
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage.json
@@ -122,15 +123,16 @@ jobs:
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device" -only-testing:PVPCPlannerTests/IntegrationTest/PriceVMIntegrationTest -enableCodeCoverage YES -resultBundlePath TestResults
           
-        name: Generate Code Coverage Report
+      - name: Generate Code Coverage Report
         run: |
-          xcrun xccov view --report --json TestResults.xcresult > coverage.json
+            xcrun xccov view --report --json TestResults.xcresult > coverage.json
+  
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage.json
-          flags: unittests
-          name: codecov-umbrella
-          fail_ci_if_error: true
-          verbose: true
+            token: ${{ secrets.CODECOV_TOKEN }}
+            files: ./coverage.json
+            flags: unittests
+            name: codecov-umbrella
+            fail_ci_if_error: true
+            verbose: true
