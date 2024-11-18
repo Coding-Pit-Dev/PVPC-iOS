@@ -11,10 +11,10 @@ extension PVPCModel {
             hour: hora
         )
     }
-    
-    private func priceFormater(price: String) -> String{
-        if let doublePrice = Double(price.replacingOccurrences(of: ",", with: ".")){
-            return String(format: "%.5f", (doublePrice/1000))
+
+    private func priceFormater(price: String) -> String {
+        if let doublePrice = Double(price.replacingOccurrences(of: ",", with: ".")) {
+            return String(format: "%.5f", doublePrice / 1000)
         }
         return price
     }

@@ -13,6 +13,23 @@
     "Button" : {
 
     },
+    "error_date_formatter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error formatting the date"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error al formatear la fecha"
+          }
+        }
+      }
+    },
     "Hello, world!" : {
 
     },

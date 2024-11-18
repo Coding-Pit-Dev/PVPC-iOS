@@ -20,7 +20,7 @@ final class PricesVM {
     }
 
     func getPricesList() async {
-        do{
+        do {
             prices = try await getPricesUseCase.fetchDayPrices(date: .now)
         } catch {
             print("\(error.localizedDescription)")
@@ -28,18 +28,18 @@ final class PricesVM {
             errorMsg = error.localizedDescription
         }
     }
-    
+
     func setPrices() async {
         var temporalPrices: [PVPCModel] = []
-        do{
+        do {
             temporalPrices = try await getPricesLocal()
             if temporalPrices.isEmpty {
                 await getPricesList()
                 savePricesToLocal(prices: prices)
-            }else{
+            } else {
                 prices = temporalPrices
             }
-        }catch {
+        } catch {
             print("\(error.localizedDescription)")
             showError.toggle()
             errorMsg = error.localizedDescription
@@ -49,7 +49,6 @@ final class PricesVM {
     private func getPricesLocal() async throws -> [PVPCModel] {
         var temporalPrices: [PVPCModelLocal] = []
         do {
-            // print("DATE .NOW ->: \(DateFormatter.convertDate(inputDateString: date))")
             if let formattedDate = DateFormatter.convertDateToFormattedDate(date: date) {
                 temporalPrices = try await getPVPCByDayFromLocalDBUseCase.getItemsByDay(dia: formattedDate)
                 return temporalPrices.map { localModel in
@@ -67,19 +66,19 @@ final class PricesVM {
 
     private func savePricesToLocal(prices: [PVPCModel]) {
         for modelToSave in prices {
-            // Intentar convertir el String a Date usando la extensión
             if let diaDate = DateFormatter.convertDate(inputDateString: modelToSave.dia) {
-                // Llamar al método addPvpc con el Date convertido
                 do {
                     try addPVPCTOLocalDBUseCase.addPvpc(dia: diaDate, hora: modelToSave.hora, pcb: modelToSave.priceMainlandAndIslands, cym: modelToSave.priceCeutaMelilla)
                 } catch {
-                    print("Error guardando los datos")
+                    print(error)
+                    showError.toggle()
+                    errorMsg = error.localizedDescription
                 }
             } else {
-                // Manejo del error en caso de que la conversión falle
-                print("Error: No se pudo convertir el string \(modelToSave.dia) en una fecha.")
+                print("Error: Failed with the date formatter")
+                errorMsg = "error_date_formatter"
+                showError.toggle()
             }
         }
-        print("Todo guardado")
     }
 }

@@ -24,9 +24,11 @@ extension DateFormatter {
         }
         return nil
     }
+
     static func convertDateToString(date: Date) -> String {
         return dateFormatter.string(from: date)
     }
+
     static func convertDateToFormattedDate(date: Date) -> Date? {
         let dateString = dateFormatter.string(from: date)
         return dateFormatter.date(from: dateString)

@@ -5,7 +5,7 @@ protocol PVPCLocalDataSourceProtocol {
     func getAllItems() async throws -> [PVPCModelLocal]
     func addItem(dia: Date, hora: String, pcb: String, cym: String) throws
     func getItemsByDay(dia: Date) async throws -> [PVPCModelLocal]
-    func removeItemsByDay(dia: Date)async throws -> [PVPCModelLocal]
+    func removeItemsByDay(dia: Date) async throws -> [PVPCModelLocal]
     func updateItemById(id: UUID, dia: Date, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal
 }
 
@@ -57,7 +57,7 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
     func removeItemsByDay(dia: Date) async throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             predicate: #Predicate { $0.dia == dia })
-        return try await Task{ @MainActor in
+        return try await Task { @MainActor in
             let itemsToDelete = try context.fetch(fetchDescriptor)
             // Remove the elements
             for item in itemsToDelete {

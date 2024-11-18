@@ -18,7 +18,7 @@ struct PricesView: View {
                 }
             }
             .task {
-                await vm.getPricesList()
+                await vm.setPrices()
             }
         }
     }
