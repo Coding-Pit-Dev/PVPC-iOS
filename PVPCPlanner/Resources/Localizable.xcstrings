@@ -1,98 +1,53 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
-    "%@" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        }
-      }
-    },
-    "%@€" : {
+    "location_ceuta_melilla_text" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@€"
+            "value" : "Ceuta/Melilla"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@€"
+            "value" : "Ceuta o Melilla"
           }
         }
       }
     },
-    "5€" : {
-
-    },
-    "11/10" : {
-
-    },
-    "auto" : {
+    "location_peninsular_islands_text" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "System"
+            "value" : "Mainland And Islands"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sistema"
+            "value" : "Península e islas"
           }
         }
       }
     },
-    "Button" : {
-
-    },
-    "dark mode" : {
+    "location_select_text" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dark"
+            "value" : "Select the localization"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oscuro"
-          }
-        }
-      }
-    },
-    "Hello, world!" : {
-
-    },
-    "Item %lld" : {
-
-    },
-    "light mode" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Light"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Claro"
+            "value" : "Seleccionar localización"
           }
         }
       }
@@ -113,7 +68,75 @@
         }
       }
     },
-    "Select the theme" : {
+    "price_%@€" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@€"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@€"
+          }
+        }
+      }
+    },
+    "theme_auto_mode" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "System"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sistema"
+          }
+        }
+      }
+    },
+    "theme_dark_mode" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dark"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oscuro"
+          }
+        }
+      }
+    },
+    "theme_light_mode" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Light"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Claro"
+          }
+        }
+      }
+    },
+    "theme_select_text" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -125,36 +148,10 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona el tema"
+            "value" : "Seleccionar modo"
           }
         }
       }
-    },
-    "test" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "test"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "test"
-          }
-        }
-      }
-    },
-    "Test Crash" : {
-
-    },
-    "Texto 2" : {
-
-    },
-    "Theme color" : {
-
     }
   },
   "version" : "1.0"

@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct PricesView: View {
+    @AppStorage(AppStorageKeys.LOCATION.rawValue) var selectedLocation: Locations = .MainlandAndIslands
+
     @State var vm = PricesVM()
 
     var body: some View {
@@ -12,9 +14,6 @@ struct PricesView: View {
             }
             .task {
                 await vm.getPricesList()
-            }
-            Button("Test Crash") {
-                fatalError("Crash was triggered")
             }
         }
     }

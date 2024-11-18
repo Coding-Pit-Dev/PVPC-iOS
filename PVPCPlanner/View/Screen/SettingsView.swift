@@ -3,6 +3,7 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.colorScheme) private var colorScheme
     @AppStorage(AppStorageKeys.THEME_MODE.rawValue) var selectedTheme: ThemeMode = .auto
+    @AppStorage(AppStorageKeys.LOCATION.rawValue) var selectedLocation: Locations = .MainlandAndIslands
 
     @Bindable private var viewModel: SettingsViewModel
 
@@ -13,11 +14,20 @@ struct SettingsView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("Select the theme")
+            Text("theme_select_text")
                 .font(.headline)
-            Picker("Theme color", selection: $selectedTheme) {
+            Picker("theme_select_text", selection: $selectedTheme) {
                 ForEach(ThemeMode.allCases, id: \.self) { mode in
                     Text(LocalizedStringKey(mode.rawValue)).tag(mode)
+                }
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding()
+            Text("location_select_text")
+                .font(.headline)
+            Picker("location_select_text", selection: $selectedLocation) {
+                ForEach(Locations.allCases, id: \.self) { location in
+                    Text(LocalizedStringKey(location.rawValue)).tag(location)
                 }
             }
             .pickerStyle(SegmentedPickerStyle())
@@ -29,7 +39,6 @@ struct SettingsView: View {
             selectedTheme = colorScheme == .dark ? .dark : .light
         }
         .preferredColorScheme(selectedTheme == .auto ? nil : (selectedTheme == .dark ? .dark : .light))
-
     }
 }
 
