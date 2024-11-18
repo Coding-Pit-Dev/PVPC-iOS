@@ -16,9 +16,10 @@ final class RemovePVPCByDayLocalDBUseCaseTest: XCTestCase {
         getPVPCUseCase = GetAllPVPCFromLocalDBUseCase(dataSource: PVPCLocalDataSource(container: database.container))
     }
 
-    func testRemoveThePVPCsByDayFromLocalDB() throws {
+    func testRemoveThePVPCsByDayFromLocalDB() async throws {
+        let date: Date = .now
         // GIVEN
-        try addUseCase.addPvpc(dia: .now, hora: "hora", pcb: "pcb", cym: "CYM")
+        try addUseCase.addPvpc(dia: date, hora: "hora", pcb: "pcb", cym: "CYM")
         try addUseCase.addPvpc(dia: .now-1, hora: "hora1", pcb: "pcb1", cym: "CYM1")
         try addUseCase.addPvpc(dia: .now-2, hora: "hora2", pcb: "pcb2", cym: "CYM2")
         try addUseCase.addPvpc(dia: .now-3, hora: "hora3", pcb: "pcb3", cym: "CYM3")
@@ -26,9 +27,12 @@ final class RemovePVPCByDayLocalDBUseCaseTest: XCTestCase {
         try addUseCase.addPvpc(dia: .now-5, hora: "hora5", pcb: "pcb5", cym: "CYM5")
 
         // When
-        let pvpcRemoveResponse: [PVPCModelLocal] = try  sut.removeItemsByDay(dia: .now)
-        let pvpcs: [PVPCModelLocal] = try getPVPCUseCase.getAllItems()
+        let pvpcRemoveResponse: [PVPCModelLocal] = try await sut.removeItemsByDay(dia: date)
+        let pvpcs: [PVPCModelLocal] = try await getPVPCUseCase.getAllItems()
         // Then
+        print(pvpcRemoveResponse)
+        print(pvpcs)
+
         XCTAssertNotNil(pvpcRemoveResponse)
         XCTAssertTrue(pvpcRemoveResponse.count == 1)
         XCTAssertTrue(pvpcs.count == 5)

@@ -2,10 +2,10 @@ import Foundation
 import SwiftData
 
 protocol PVPCLocalDataSourceProtocol {
-    func getAllItems() throws -> [PVPCModelLocal]
+    func getAllItems() async throws -> [PVPCModelLocal]
     func addItem(dia: Date, hora: String, pcb: String, cym: String) throws
     func getItemsByDay(dia: Date) async throws -> [PVPCModelLocal]
-    func removeItemsByDay(dia: Date) throws -> [PVPCModelLocal]
+    func removeItemsByDay(dia: Date)async throws -> [PVPCModelLocal]
     func updateItemById(id: UUID, dia: Date, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal
 }
 
@@ -21,12 +21,13 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
         container.mainContext
     }
 
-    @MainActor
-    func getAllItems() throws -> [PVPCModelLocal] {
+    func getAllItems() async throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             // Get all ordered by 'dia' and 'hora'
             sortBy: [SortDescriptor(\.dia, order: .forward), SortDescriptor(\.hora, order: .forward)])
-        return try context.fetch(fetchDescriptor)
+        return try await Task { @MainActor in
+            return try context.fetch(fetchDescriptor)
+        }.value
     }
 
     // Maybe send PVPCModelLocal instead of all the props
@@ -53,28 +54,26 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
         }.value
     }
 
-    @MainActor
-    func removeItemsByDay(dia: Date) throws -> [PVPCModelLocal] {
+    func removeItemsByDay(dia: Date) async throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             predicate: #Predicate { $0.dia == dia })
+        return try await Task{ @MainActor in
+            let itemsToDelete = try context.fetch(fetchDescriptor)
+            // Remove the elements
+            for item in itemsToDelete {
+                context.delete(item)
+            }
+            // Commit the changes
+            do {
+                try context.save()
+            } catch {
+                print("Error \(error.localizedDescription)")
+                throw PVPCDatabaseError.errorDelete
+            }
 
-        let itemsToDelete = try context.fetch(fetchDescriptor)
-
-        // Remove the elements
-        for item in itemsToDelete {
-            context.delete(item)
-        }
-
-        // Commit the changes
-        do {
-            try context.save()
-        } catch {
-            print("Error \(error.localizedDescription)")
-            throw PVPCDatabaseError.errorDelete
-        }
-
-        // Return the removed elements
-        return itemsToDelete
+            // Return the removed elements
+            return itemsToDelete
+        }.value
     }
 
     @MainActor

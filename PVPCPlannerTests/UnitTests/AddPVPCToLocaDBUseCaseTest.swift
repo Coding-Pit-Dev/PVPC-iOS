@@ -14,12 +14,12 @@ final class AddPVPCToLocaDBUseCaseTest: XCTestCase {
         getAllUseCase = GetAllPVPCFromLocalDBUseCase(dataSource: PVPCLocalDataSource(container: database.container))
     }
 
-    func testCreatePVPC() throws {
+    func testCreatePVPC() async throws {
         // GIVEN
         try sut.addPvpc(dia: .now, hora: "hora", pcb: "pcb", cym: "CYM")
 
         // When
-        let pvpc = try getAllUseCase.getAllItems().first
+        let pvpc = try await getAllUseCase.getAllItems().first
         // Then
         XCTAssertNotNil(pvpc)
     }
