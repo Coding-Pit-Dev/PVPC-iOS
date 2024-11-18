@@ -20,18 +20,26 @@ final class PricesVM {
     }
 
     func getPricesList() async {
+        do{
+            prices = try await getPricesUseCase.fetchDayPrices(date: .now)
+        } catch {
+            print("\(error.localizedDescription)")
+            showError.toggle()
+            errorMsg = error.localizedDescription
+        }
+    }
+    
+    func setPrices() async {
         var temporalPrices: [PVPCModel] = []
-        do {
+        do{
             temporalPrices = try await getPricesLocal()
             if temporalPrices.isEmpty {
-                print("--------Entra en empty --------")
-                prices = try await getPricesUseCase.fetchDayPrices(date: .now)
+                await getPricesList()
                 savePricesToLocal(prices: prices)
-            } else {
-                print("-------Carga local--------")
+            }else{
                 prices = temporalPrices
             }
-        } catch {
+        }catch {
             print("\(error.localizedDescription)")
             showError.toggle()
             errorMsg = error.localizedDescription
