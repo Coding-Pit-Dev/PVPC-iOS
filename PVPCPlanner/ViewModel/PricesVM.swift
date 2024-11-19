@@ -12,7 +12,7 @@ final class PricesVM {
 
     init(getPricesUseCase: PricesUseCaseProtocol = GetPricesUseCase.shared,
          addPVPCTOLocalDBUseCase: AddToLocalDBUseCaseProtocol = AddPVPCToLocaDBUseCase.shared,
-         getPVPCByDayFromLocalDBUseCase: GetByDayFromLocalDBUseCaseProtocol = GetPVPCByDayFromLocalDBUseCase())
+         getPVPCByDayFromLocalDBUseCase: GetByDayFromLocalDBUseCaseProtocol = GetPVPCByDayFromLocalDBUseCase.shared)
     {
         self.getPricesUseCase = getPricesUseCase
         self.addPVPCTOLocalDBUseCase = addPVPCTOLocalDBUseCase

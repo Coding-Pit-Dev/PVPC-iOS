@@ -12,21 +12,16 @@ protocol PVPCLocalDataSourceProtocol {
 class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
     private let container: ModelContainer
     private let context: ModelContext
+    
     @MainActor
-    init(container: ModelContainer) {
-        self.container = container
+    init(isTest: Bool = false) {
+        self.container = try! ModelContainer(for: PVPCModelLocal.self, configurations: ModelConfiguration(isStoredInMemoryOnly: isTest))
         self.context = container.mainContext
     }
-
+    
     @MainActor
-    static let shared: PVPCLocalDataSource = {
-        do {
-            let container = try ModelContainer()
-            return PVPCLocalDataSource(container: container)
-        } catch {
-            fatalError("Failed to initialize ModelContainer: \(error.localizedDescription)")
-        }
-    }()
+    static let shared = PVPCLocalDataSource()
+
 
     func getAllItems() async throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
