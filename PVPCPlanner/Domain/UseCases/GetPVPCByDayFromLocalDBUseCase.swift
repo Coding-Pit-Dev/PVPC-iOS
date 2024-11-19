@@ -5,7 +5,7 @@ struct GetPVPCByDayFromLocalDBUseCase: GetByDayFromLocalDBUseCaseProtocol {
     private var dataSource: PVPCLocalDataSource
     static let shared = GetPVPCByDayFromLocalDBUseCase()
 
-    init(dataSource: PVPCLocalDataSource = PVPCLocalDataSource(container: PVPCDatabaseContainer.shared.container)) {
+    init(dataSource: PVPCLocalDataSource = .shared) {
         self.dataSource = dataSource
     }
 

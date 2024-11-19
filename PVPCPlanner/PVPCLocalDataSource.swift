@@ -11,15 +11,22 @@ protocol PVPCLocalDataSourceProtocol {
 
 class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
     private let container: ModelContainer
-
+    private let context: ModelContext
+    @MainActor
     init(container: ModelContainer) {
         self.container = container
+        self.context = container.mainContext
     }
 
     @MainActor
-    private var context: ModelContext {
-        container.mainContext
-    }
+    static let shared: PVPCLocalDataSource = {
+        do {
+            let container = try ModelContainer()
+            return PVPCLocalDataSource(container: container)
+        } catch {
+            fatalError("Failed to initialize ModelContainer: \(error.localizedDescription)")
+        }
+    }()
 
     func getAllItems() async throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
@@ -32,7 +39,6 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
 
     // Maybe send PVPCModelLocal instead of all the props
     func addItem(dia: Date, hora: String, pcb: String, cym: String) throws {
-        Task { @MainActor in
             let newItem = PVPCModelLocal(dia: dia, hora: hora, pcb: pcb, cym: cym)
             context.insert(newItem)
             do {
@@ -41,23 +47,19 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
                 print("Error \(error.localizedDescription)")
                 throw PVPCDatabaseError.errorInsert
             }
-        }
+        
     }
 
     func getItemsByDay(dia: Date) async throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             predicate: #Predicate { $0.dia == dia },
             sortBy: [SortDescriptor(\.hora, order: .forward)])
-
-        return try await Task { @MainActor in
             return try context.fetch(fetchDescriptor)
-        }.value
     }
 
     func removeItemsByDay(dia: Date) async throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             predicate: #Predicate { $0.dia == dia })
-        return try await Task { @MainActor in
             let itemsToDelete = try context.fetch(fetchDescriptor)
             // Remove the elements
             for item in itemsToDelete {
@@ -73,10 +75,8 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
 
             // Return the removed elements
             return itemsToDelete
-        }.value
     }
 
-    @MainActor
     func updateItemById(id: UUID, dia: Date, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             predicate: #Predicate { $0.id == id }

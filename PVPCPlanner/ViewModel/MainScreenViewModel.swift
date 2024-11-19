@@ -2,13 +2,12 @@ import Foundation
 
 @Observable
 class MainScreenViewModel {
-    func createPricesVM() -> PricesVM {
-        let container = PVPCDatabaseContainer.shared.container
-        let dataSource = PVPCLocalDataSource(container: container)
+    @MainActor
+     func createPricesVM() -> PricesVM {
         return PricesVM(
             getPricesUseCase: GetPricesUseCase(repository: NetworkRepository()),
-            addPVPCTOLocalDBUseCase: AddPVPCToLocaDBUseCase(dataSource: dataSource),
-            getPVPCByDayFromLocalDBUseCase: GetPVPCByDayFromLocalDBUseCase(dataSource: dataSource)
+            addPVPCTOLocalDBUseCase: AddPVPCToLocaDBUseCase(dataSource: .shared),
+            getPVPCByDayFromLocalDBUseCase: GetPVPCByDayFromLocalDBUseCase(dataSource: .shared)
         )
     }
 }

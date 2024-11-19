@@ -4,8 +4,8 @@ struct GetAllPVPCFromLocalDBUseCase {
     private var databaseContainer = PVPCDatabaseContainer.shared.container
     private var dataSource: PVPCLocalDataSource
 
-    init(dataSource: PVPCLocalDataSource) {
-        self.dataSource = PVPCLocalDataSource(container: databaseContainer)
+    init(dataSource: PVPCLocalDataSource = .shared) {
+        self.dataSource = dataSource
     }
 
     func getAllItems()async throws -> [PVPCModelLocal] {
