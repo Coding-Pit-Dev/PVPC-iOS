@@ -50,6 +50,7 @@
 		8D48E6112CEB601100B1CBE0 /* GetByDayFromLocalDBUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D48E6102CEB601100B1CBE0 /* GetByDayFromLocalDBUseCaseProtocol.swift */; };
 		8D48E6132CEB60EC00B1CBE0 /* RemoveByDayLocalDBUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D48E6122CEB60EC00B1CBE0 /* RemoveByDayLocalDBUseCaseProtocol.swift */; };
 		8D48E6152CEB611100B1CBE0 /* UpdateLocalByIdUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D48E6142CEB611100B1CBE0 /* UpdateLocalByIdUseCaseProtocol.swift */; };
+		8D48E6172CEBDB0800B1CBE0 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D48E6162CEBDB0800B1CBE0 /* MainScreenViewModel.swift */; };
 		8D95E8912CE29559006C213E /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E8902CE29559006C213E /* SettingsViewModel.swift */; };
 		8DB777862C9B1CFE00A4ADA7 /* UpdatePVPCLocalByIdUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB777852C9B1CFE00A4ADA7 /* UpdatePVPCLocalByIdUseCase.swift */; };
 		8DB777882C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB777872C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift */; };
@@ -126,6 +127,7 @@
 		8D48E6102CEB601100B1CBE0 /* GetByDayFromLocalDBUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetByDayFromLocalDBUseCaseProtocol.swift; sourceTree = "<group>"; };
 		8D48E6122CEB60EC00B1CBE0 /* RemoveByDayLocalDBUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveByDayLocalDBUseCaseProtocol.swift; sourceTree = "<group>"; };
 		8D48E6142CEB611100B1CBE0 /* UpdateLocalByIdUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLocalByIdUseCaseProtocol.swift; sourceTree = "<group>"; };
+		8D48E6162CEBDB0800B1CBE0 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		8D95E8902CE29559006C213E /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		8DB777852C9B1CFE00A4ADA7 /* UpdatePVPCLocalByIdUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePVPCLocalByIdUseCase.swift; sourceTree = "<group>"; };
 		8DB777872C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePVPCByIDLocaUseCaseTest.swift; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 			children = (
 				1ADDACF82C637ADA00797976 /* PricesVM.swift */,
 				8D95E8902CE29559006C213E /* SettingsViewModel.swift */,
+				8D48E6162CEBDB0800B1CBE0 /* MainScreenViewModel.swift */,
 			);
 			name = ViewModel;
 			path = PVPCPlanner/ViewModel;
@@ -707,6 +710,7 @@
 				8DB777862C9B1CFE00A4ADA7 /* UpdatePVPCLocalByIdUseCase.swift in Sources */,
 				1A00362E2C69F27E00DC89C0 /* PVPCModel.swift in Sources */,
 				12C821842C3BE8A700717D4F /* ContentView.swift in Sources */,
+				8D48E6172CEBDB0800B1CBE0 /* MainScreenViewModel.swift in Sources */,
 				1ADDACFE2C637C2A00797976 /* PricesView.swift in Sources */,
 				8DF24CD12CD14B4700D4BAD7 /* PVPCCardModel.swift in Sources */,
 				1A0036322C69FE9B00DC89C0 /* DateFormatter+Extension.swift in Sources */,

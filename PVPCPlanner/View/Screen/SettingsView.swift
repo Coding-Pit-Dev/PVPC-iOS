@@ -5,11 +5,7 @@ struct SettingsView: View {
     @AppStorage(AppStorageKeys.THEME_MODE.rawValue) var selectedTheme: ThemeMode = .auto
     @AppStorage(AppStorageKeys.LOCATION.rawValue) var selectedLocation: Locations = .MainlandAndIslands
 
-    @Bindable private var viewModel: SettingsViewModel
-
-    init(viewModel: SettingsViewModel) {
-        self.viewModel = viewModel
-    }
+    @Bindable var viewModel: SettingsViewModel
 
     var body: some View {
         VStack {
