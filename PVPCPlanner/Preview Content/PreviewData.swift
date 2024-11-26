@@ -15,5 +15,17 @@ struct PreviewNetworkRepository: NetworkRepositoryPotocol {
 }
 
 extension PricesVM {
-    static let previewVM = PricesVM()
+    static let previewVM: PricesVM = {
+        let previewNetworkRepository = PreviewNetworkRepository()
+        let mockAddToLocalDBUseCase = MockAddToLocalDBUseCase()
+        let mockGetByDayFromLocalDBUseCase = MockGetByDayFromLocalDBUseCase()
+
+        let getPricesUseCase = GetPricesUseCase(repository: previewNetworkRepository)
+
+        return PricesVM(
+            getPricesUseCase: getPricesUseCase,
+            addPVPCTOLocalDBUseCase: mockAddToLocalDBUseCase,
+            getPVPCByDayFromLocalDBUseCase: mockGetByDayFromLocalDBUseCase
+        )
+    }()
 }

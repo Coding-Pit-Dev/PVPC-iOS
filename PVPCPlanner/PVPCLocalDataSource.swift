@@ -3,73 +3,67 @@ import SwiftData
 
 protocol PVPCLocalDataSourceProtocol {
     func getAllItems() async throws -> [PVPCModelLocal]
-    func addItem(dia: Date, hora: String, pcb: String, cym: String) throws
+    func addItem(dia: Date, hora: String, pcb: String, cym: String) async throws
     func getItemsByDay(dia: Date) async throws -> [PVPCModelLocal]
     func removeItemsByDay(dia: Date) async throws -> [PVPCModelLocal]
     func updateItemById(id: UUID, dia: Date, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal
 }
 
-class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
+@MainActor
+final class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
     private let container: ModelContainer
     private let context: ModelContext
-    
-    @MainActor
+
     init(isTest: Bool = false) {
         self.container = try! ModelContainer(for: PVPCModelLocal.self, configurations: ModelConfiguration(isStoredInMemoryOnly: isTest))
         self.context = container.mainContext
     }
-    
-    @MainActor
     static let shared = PVPCLocalDataSource()
-
 
     func getAllItems() async throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             // Get all ordered by 'dia' and 'hora'
             sortBy: [SortDescriptor(\.dia, order: .forward), SortDescriptor(\.hora, order: .forward)])
-        return try await Task { @MainActor in
-            return try context.fetch(fetchDescriptor)
-        }.value
+        return try context.fetch(fetchDescriptor)
     }
 
     // Maybe send PVPCModelLocal instead of all the props
-    func addItem(dia: Date, hora: String, pcb: String, cym: String) throws {
-            let newItem = PVPCModelLocal(dia: dia, hora: hora, pcb: pcb, cym: cym)
-            context.insert(newItem)
-            do {
-                try context.save()
-            } catch {
-                print("Error \(error.localizedDescription)")
-                throw PVPCDatabaseError.errorInsert
-            }
-        
+    func addItem(dia: Date, hora: String, pcb: String, cym: String) async throws {
+        let newItem = PVPCModelLocal(dia: dia, hora: hora, pcb: pcb, cym: cym)
+        context.insert(newItem)
+        do {
+            try context.save()
+        } catch {
+            print("Error \(error.localizedDescription)")
+            throw PVPCDatabaseError.errorInsert
+        }
     }
 
     func getItemsByDay(dia: Date) async throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             predicate: #Predicate { $0.dia == dia },
             sortBy: [SortDescriptor(\.hora, order: .forward)])
-            return try context.fetch(fetchDescriptor)
+        return try context.fetch(fetchDescriptor)
     }
 
     func removeItemsByDay(dia: Date) async throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             predicate: #Predicate { $0.dia == dia })
-            let itemsToDelete = try context.fetch(fetchDescriptor)
-            // Remove the elements
-            for item in itemsToDelete {
-                context.delete(item)
-            }
-            // Commit the changes
-            do {
-                try context.save()
-            } catch {
-                print("Error \(error.localizedDescription)")
-                throw PVPCDatabaseError.errorDelete
-            }
+        let itemsToDelete = try context.fetch(fetchDescriptor)
+        // Remove the elements
+        for item in itemsToDelete {
+            context.delete(item)
+        }
+        // Commit the changes
+        do {
+            try context.save()
+        } catch {
+            print("Error \(error.localizedDescription)")
+            throw PVPCDatabaseError.errorDelete
+        }
 
-            // Return the removed elements
-            return itemsToDelete
+        // Return the removed elements
+        return itemsToDelete
     }
 
     func updateItemById(id: UUID, dia: Date, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal {

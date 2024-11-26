@@ -4,7 +4,7 @@ struct GetAllPVPCFromLocalDBUseCase {
     private var databaseContainer = PVPCDatabaseContainer.shared.container
     private var dataSource: PVPCLocalDataSource
 
-    init(dataSource: PVPCLocalDataSource = .shared) {
+    init(dataSource: PVPCLocalDataSource) {
         self.dataSource = dataSource
     }
 

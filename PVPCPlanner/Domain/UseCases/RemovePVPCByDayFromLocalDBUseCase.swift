@@ -1,6 +1,5 @@
 import Foundation
 
-@MainActor
 struct RemovePVPCByDayLocalDBUseCase {
     private var databaseContainer = PVPCDatabaseContainer.shared.container
     private var dataSource: PVPCLocalDataSource

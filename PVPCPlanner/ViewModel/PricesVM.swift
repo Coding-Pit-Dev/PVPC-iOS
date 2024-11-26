@@ -10,9 +10,9 @@ final class PricesVM {
     var errorMsg = ""
     var showError = false
 
-    init(getPricesUseCase: PricesUseCaseProtocol = GetPricesUseCase.shared,
-         addPVPCTOLocalDBUseCase: AddToLocalDBUseCaseProtocol = AddPVPCToLocaDBUseCase.shared,
-         getPVPCByDayFromLocalDBUseCase: GetByDayFromLocalDBUseCaseProtocol = GetPVPCByDayFromLocalDBUseCase.shared)
+    init(getPricesUseCase: PricesUseCaseProtocol,
+         addPVPCTOLocalDBUseCase: AddToLocalDBUseCaseProtocol,
+         getPVPCByDayFromLocalDBUseCase: GetByDayFromLocalDBUseCaseProtocol)
     {
         self.getPricesUseCase = getPricesUseCase
         self.addPVPCTOLocalDBUseCase = addPVPCTOLocalDBUseCase
@@ -34,9 +34,11 @@ final class PricesVM {
         do {
             temporalPrices = try await getPricesLocal()
             if temporalPrices.isEmpty {
+                print("Está vacio")
                 await getPricesList()
-                savePricesToLocal(prices: prices)
+                await savePricesToLocal(prices: prices)
             } else {
+                print("Está guardado")
                 prices = temporalPrices
             }
         } catch {
@@ -49,6 +51,7 @@ final class PricesVM {
     private func getPricesLocal() async throws -> [PVPCModel] {
         var temporalPrices: [PVPCModelLocal] = []
         do {
+            print("Entra en el local")
             if let formattedDate = DateFormatter.convertDateToFormattedDate(date: date) {
                 temporalPrices = try await getPVPCByDayFromLocalDBUseCase.getItemsByDay(dia: formattedDate)
                 return temporalPrices.map { localModel in
@@ -64,11 +67,11 @@ final class PricesVM {
         return []
     }
 
-    private func savePricesToLocal(prices: [PVPCModel]) {
+    private func savePricesToLocal(prices: [PVPCModel]) async {
         for modelToSave in prices {
             if let diaDate = DateFormatter.convertDate(inputDateString: modelToSave.dia) {
                 do {
-                    try addPVPCTOLocalDBUseCase.addPvpc(dia: diaDate, hora: modelToSave.hora, pcb: modelToSave.priceMainlandAndIslands, cym: modelToSave.priceCeutaMelilla)
+                    try await addPVPCTOLocalDBUseCase.addPvpc(dia: diaDate, hora: modelToSave.hora, pcb: modelToSave.priceMainlandAndIslands, cym: modelToSave.priceCeutaMelilla)
                 } catch {
                     print(error)
                     showError.toggle()

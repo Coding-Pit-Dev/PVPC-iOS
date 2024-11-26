@@ -13,10 +13,12 @@ enum PriceThreshold {
 enum PricesCardHelpers {
     static func setPriceColor(price: String) -> Color {
         if let priceValue = Double(price.replacingOccurrences(of: ",", with: ".")) {
-            switch priceValue {
+            switch priceValue / 1000 {
             case ..<PriceThreshold.lowPrice:
+                print(" Price, entra green? \(priceValue/1000)")
                 return Color.cGreen
             case PriceThreshold.lowPrice ..< PriceThreshold.mediumPrice:
+                print(" Price, entra Amarillo? \(priceValue)")
                 return Color.cYellow
             case PriceThreshold.mediumPrice...:
                 return Color.cRed

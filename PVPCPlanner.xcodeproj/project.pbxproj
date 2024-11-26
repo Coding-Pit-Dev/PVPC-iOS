@@ -57,6 +57,8 @@
 		8DB7778B2C9D988200A4ADA7 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8DB7778A2C9D988200A4ADA7 /* swiftlint.yml */; };
 		8DC842242CA2B47500FB3C49 /* PVPCDatabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC842232CA2B47500FB3C49 /* PVPCDatabaseError.swift */; };
 		8DD0690F2CE368A700DA84D5 /* AppStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD0690E2CE368A700DA84D5 /* AppStorageKeys.swift */; };
+		8DE736542CF50D0100EE135D /* MockGetByDayFromLocalDBUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE736532CF50D0100EE135D /* MockGetByDayFromLocalDBUseCase.swift */; };
+		8DE736562CF50D7700EE135D /* MockAddToLocalDBUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE736552CF50D7700EE135D /* MockAddToLocalDBUseCase.swift */; };
 		8DF24CC82CC945AE00D4BAD7 /* CustomLazyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CC72CC945AE00D4BAD7 /* CustomLazyList.swift */; };
 		8DF24CCA2CCF93AE00D4BAD7 /* CustomCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CC92CCF93AE00D4BAD7 /* CustomCardComponent.swift */; };
 		8DF24CCC2CD1479D00D4BAD7 /* PricesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF24CCB2CD1479D00D4BAD7 /* PricesCard.swift */; };
@@ -134,6 +136,8 @@
 		8DB7778A2C9D988200A4ADA7 /* swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
 		8DC842232CA2B47500FB3C49 /* PVPCDatabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCDatabaseError.swift; sourceTree = "<group>"; };
 		8DD0690E2CE368A700DA84D5 /* AppStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKeys.swift; sourceTree = "<group>"; };
+		8DE736532CF50D0100EE135D /* MockGetByDayFromLocalDBUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetByDayFromLocalDBUseCase.swift; sourceTree = "<group>"; };
+		8DE736552CF50D7700EE135D /* MockAddToLocalDBUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAddToLocalDBUseCase.swift; sourceTree = "<group>"; };
 		8DF24CC72CC945AE00D4BAD7 /* CustomLazyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLazyList.swift; sourceTree = "<group>"; };
 		8DF24CC92CCF93AE00D4BAD7 /* CustomCardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardComponent.swift; sourceTree = "<group>"; };
 		8DF24CCB2CD1479D00D4BAD7 /* PricesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesCard.swift; sourceTree = "<group>"; };
@@ -271,6 +275,7 @@
 		12C821872C3BE8A800717D4F /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				8DE736522CF50CE600EE135D /* Mocks */,
 				1ADDACFF2C64C11D00797976 /* RepositoryPreview */,
 				1ADDACF32C6379CF00797976 /* AllPricesTest1.json */,
 				12DB82742C7B1A2800A9CC82 /* AllPricesTest2.json */,
@@ -489,6 +494,15 @@
 			path = DBContainers;
 			sourceTree = "<group>";
 		};
+		8DE736522CF50CE600EE135D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8DE736532CF50D0100EE135D /* MockGetByDayFromLocalDBUseCase.swift */,
+				8DE736552CF50D7700EE135D /* MockAddToLocalDBUseCase.swift */,
+			);
+			name = Mocks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -699,9 +713,11 @@
 				1ADDACF92C637ADA00797976 /* PricesVM.swift in Sources */,
 				8D48E60F2CEB5F8B00B1CBE0 /* GetAllFromLocalDBUseCaseProtocol.swift in Sources */,
 				8D20FBB32C78A2CA007DBE4A /* PVPCModelLocal.swift in Sources */,
+				8DE736562CF50D7700EE135D /* MockAddToLocalDBUseCase.swift in Sources */,
 				8DF24CD92CD931F800D4BAD7 /* MainScreen.swift in Sources */,
 				8D95E8912CE29559006C213E /* SettingsViewModel.swift in Sources */,
 				1ADDACE62C636DBA00797976 /* NetworkRepository.swift in Sources */,
+				8DE736542CF50D0100EE135D /* MockGetByDayFromLocalDBUseCase.swift in Sources */,
 				1ADDACF22C6377A700797976 /* URLRequest.swift in Sources */,
 				8D20FBC22C78C24B007DBE4A /* RemovePVPCByDayFromLocalDBUseCase.swift in Sources */,
 				8D20FBBA2C78ACA2007DBE4A /* PVPCDatabaseContainer.swift in Sources */,
