@@ -2,7 +2,7 @@ import Foundation
 
 extension PVPCModel {
     func toPVPCCardModel(location: Locations) -> PVPCCardModel {
-        var price = PricesCardHelpers.getLocalizedPrice(pvpcModel: self, location: location)
+        let price = PricesCardHelpers.getLocalizedPrice(pvpcModel: self, location: location)
         let backgroundColor = PricesCardHelpers.setPriceColor(price: price)
 
         return PVPCCardModel(

@@ -84,12 +84,12 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
             guard let itemToUpdate = try context.fetch(fetchDescriptor).first else {
                 throw PVPCDatabaseError.errorFetch
             }
-            
+
             itemToUpdate.day = day
             itemToUpdate.hour = hour
             itemToUpdate.pcb = pcb
             itemToUpdate.cym = cym
-            
+
             do {
                 try context.save()
             } catch {
