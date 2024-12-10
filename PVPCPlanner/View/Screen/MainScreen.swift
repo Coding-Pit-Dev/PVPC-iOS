@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MainScreen: View {
     let settingsViewModel = SettingsViewModel()
-    @State let mainScreenViewModel: MainScreenViewModel = MainScreenViewModel()
+    @State private let mainScreenViewModel: MainScreenViewModel = MainScreenViewModel()
 
     var body: some View {
         TabView {
