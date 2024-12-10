@@ -50,9 +50,9 @@ final class PricesVM {
         var temporalPrices: [PVPCModelLocal] = []
         do {
             if let formattedDate = DateFormatter.convertDateToFormattedDate(date: date) {
-                temporalPrices = try await getPVPCByDayFromLocalDBUseCase.getItemsByDay(dia: formattedDate)
+                temporalPrices = try await getPVPCByDayFromLocalDBUseCase.getItemsByDay(day: formattedDate)
                 return temporalPrices.map { localModel in
-                    PVPCModel(dia: DateFormatter.convertDateToString(date: localModel.dia), hora: localModel.hora, priceMainlandAndIslands: localModel.pcb, priceCeutaMelilla: localModel.cym)
+                    PVPCModel(day: DateFormatter.convertDateToString(date: localModel.day), hour: localModel.hour, priceMainlandAndIslands: localModel.pcb, priceCeutaMelilla: localModel.cym)
                 }
             }
 
@@ -66,9 +66,9 @@ final class PricesVM {
 
     private func savePricesToLocal(prices: [PVPCModel]) {
         for modelToSave in prices {
-            if let diaDate = DateFormatter.convertDate(inputDateString: modelToSave.dia) {
+            if let dayDate = DateFormatter.convertDate(inputDateString: modelToSave.day) {
                 do {
-                    try addPVPCTOLocalDBUseCase.addPvpc(dia: diaDate, hora: modelToSave.hora, pcb: modelToSave.priceMainlandAndIslands, cym: modelToSave.priceCeutaMelilla)
+                    try addPVPCTOLocalDBUseCase.addPvpc(day: dayDate, hour: modelToSave.hour, pcb: modelToSave.priceMainlandAndIslands, cym: modelToSave.priceCeutaMelilla)
                 } catch {
                     print(error)
                     showError.toggle()

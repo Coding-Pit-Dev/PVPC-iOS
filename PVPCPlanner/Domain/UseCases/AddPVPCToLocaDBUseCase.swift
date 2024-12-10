@@ -9,7 +9,7 @@ struct AddPVPCToLocaDBUseCase: AddToLocalDBUseCaseProtocol {
         self.dataSource = dataSource
     }
 
-    func addPvpc(dia: Date, hora: String, pcb: String, cym: String) throws {
-        try dataSource.addItem(dia: dia, hora: hora, pcb: pcb, cym: cym)
+    func addPvpc(day: Date, hour: String, pcb: String, cym: String) throws {
+        try dataSource.addItem(day: day, hour: hour, pcb: pcb, cym: cym)
     }
 }

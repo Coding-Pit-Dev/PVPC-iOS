@@ -9,7 +9,7 @@ struct UpdatePVPCLocalByIdUseCase: UpdateLocalByIdUseCaseProtocol {
         self.dataSource = PVPCLocalDataSource(container: databaseContainer)
     }
 
-    func updateItemById(id: UUID, dia: Date, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal {
-        try dataSource.updateItemById(id: id, dia: dia, hora: hora, pcb: pcb, cym: cym)
+    func updateItemById(id: UUID, day: Date, hour: String, pcb: String, cym: String) async throws -> PVPCModelLocal {
+        try await dataSource.updateItemById(id: id, day: day, hour: hour, pcb: pcb, cym: cym)
     }
 }

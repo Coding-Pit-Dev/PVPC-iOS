@@ -10,6 +10,6 @@ struct RemovePVPCByDayLocalDBUseCase {
     }
 
     func removeItemsByDay(dia: Date) async throws -> [PVPCModelLocal] {
-        try await dataSource.removeItemsByDay(dia: dia)
+        try await dataSource.removeItemsByDay(day: dia)
     }
 }

@@ -8,7 +8,7 @@ extension PVPCModel {
         return PVPCCardModel(
             backgroundColor: backgroundColor,
             price: priceFormater(price: price),
-            hour: hora
+            hour: hour
         )
     }
 

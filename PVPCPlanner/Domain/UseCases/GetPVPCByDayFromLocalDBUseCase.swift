@@ -9,7 +9,7 @@ struct GetPVPCByDayFromLocalDBUseCase: GetByDayFromLocalDBUseCaseProtocol {
         self.dataSource = dataSource
     }
 
-    func getItemsByDay(dia: Date) async throws -> [PVPCModelLocal] {
-        try await dataSource.getItemsByDay(dia: dia)
+    func getItemsByDay(day: Date) async throws -> [PVPCModelLocal] {
+        try await dataSource.getItemsByDay(day: day)
     }
 }

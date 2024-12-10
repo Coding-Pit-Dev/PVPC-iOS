@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MainScreen: View {
     let settingsViewModel = SettingsViewModel()
-    @State private let mainScreenViewModel: MainScreenViewModel = MainScreenViewModel()
+    @State private var mainScreenViewModel = MainScreenViewModel()
 
     var body: some View {
         TabView {
@@ -25,5 +25,5 @@ struct MainScreen: View {
 }
 
 #Preview {
-    MainScreen(mainScreenViewModel: MainScreenViewModel())
+    MainScreen()
 }
