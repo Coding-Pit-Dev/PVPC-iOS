@@ -38,7 +38,7 @@ final class PriceViewModelTest: XCTestCase {
         let toUpdate = priceViewModel?.prices
         
         pvpcModelMock.removeAll()
-        pvpcModelMock.append(makeInitPVPCModel(dia: "22-08-2024"))
+        pvpcModelMock.append(makeInitPVPCModel(day: "22-08-2024"))
         await priceViewModel?.getPricesList()
         
         XCTAssertNotEqual(priceViewModel?.prices, toUpdate, "The data should not be equal")

@@ -16,7 +16,7 @@ final class AddPVPCToLocaDBUseCaseTest: XCTestCase {
 
     func testCreatePVPC() async throws {
         // GIVEN
-        try sut.addPvpc(dia: .now, hora: "hora", pcb: "pcb", cym: "CYM")
+        try sut.addPvpc(day: .now, hour: "hora", pcb: "pcb", cym: "CYM")
 
         // When
         let pvpc = try await getAllUseCase.getAllItems().first
