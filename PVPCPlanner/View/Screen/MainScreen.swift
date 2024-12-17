@@ -2,13 +2,15 @@ import SwiftUI
 
 struct MainScreen: View {
     let settingsViewModel = SettingsViewModel()
+    @State private var mainScreenViewModel = MainScreenViewModel()
 
     var body: some View {
         TabView {
-            PricesView()
+            PricesView(vm: mainScreenViewModel.createPricesVM())
                 .tabItem {
                     Label("", systemImage: "eurosign.circle")
                 }
+
             NotificationsView()
                 .tabItem {
                     Label("", systemImage: "bell.circle")
@@ -19,7 +21,6 @@ struct MainScreen: View {
                 Label("", systemImage: "gear")
             }
         }
-        .background(Color.cDarkBlue)
     }
 }
 

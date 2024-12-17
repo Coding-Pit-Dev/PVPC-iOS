@@ -1,6 +1,5 @@
 import Foundation
 
-@MainActor
 struct GetAllPVPCFromLocalDBUseCase {
     private var databaseContainer = PVPCDatabaseContainer.shared.container
     private var dataSource: PVPCLocalDataSource
@@ -9,7 +8,7 @@ struct GetAllPVPCFromLocalDBUseCase {
         self.dataSource = PVPCLocalDataSource(container: databaseContainer)
     }
 
-    func getAllItems() throws -> [PVPCModelLocal] {
-        try dataSource.getAllItems()
+    func getAllItems()async throws -> [PVPCModelLocal] {
+        try await dataSource.getAllItems()
     }
 }

@@ -2,11 +2,11 @@ import Foundation
 import SwiftData
 
 protocol PVPCLocalDataSourceProtocol {
-    func getAllItems() throws -> [PVPCModelLocal]
-    func addItem(dia: String, hora: String, pcb: String, cym: String) throws
-    func getItemsByDay(dia: String) throws -> [PVPCModelLocal]
-    func removeItemsByDay(dia: String) throws -> [PVPCModelLocal]
-    func updateItemById(id: UUID, dia: String, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal
+    func getAllItems() async throws -> [PVPCModelLocal]
+    func addItem(day: Date, hour: String, pcb: String, cym: String) throws
+    func getItemsByDay(day: Date) async throws -> [PVPCModelLocal]
+    func removeItemsByDay(day: Date) async throws -> [PVPCModelLocal]
+    func updateItemById(id: UUID, day: Date, hour: String, pcb: String, cym: String) async throws -> PVPCModelLocal
 }
 
 class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
@@ -21,81 +21,82 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
         container.mainContext
     }
 
-    @MainActor
-    func getAllItems() throws -> [PVPCModelLocal] {
+    func getAllItems() async throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             // Get all ordered by 'dia' and 'hora'
-            sortBy: [SortDescriptor(\.dia, order: .forward), SortDescriptor(\.hora, order: .forward)])
-        return try context.fetch(fetchDescriptor)
+            sortBy: [SortDescriptor(\.day, order: .forward), SortDescriptor(\.hour, order: .forward)])
+        return try await Task { @MainActor in
+            return try context.fetch(fetchDescriptor)
+        }.value
     }
 
     // Maybe send PVPCModelLocal instead of all the props
-    @MainActor
-    func addItem(dia: String, hora: String, pcb: String, cym: String) throws {
-        let newItem = PVPCModelLocal(dia: dia, hora: hora, pcb: pcb, cym: cym)
-        context.insert(newItem)
-
-        do {
-            try context.save()
-        } catch {
-            print("Error \(error.localizedDescription)")
-            throw PVPCDatabaseError.errorInsert
+    func addItem(day: Date, hour: String, pcb: String, cym: String) throws {
+        Task { @MainActor in
+            let newItem = PVPCModelLocal(day: day, hour: hour, pcb: pcb, cym: cym)
+            context.insert(newItem)
+            do {
+                try context.save()
+            } catch {
+                print("Error \(error.localizedDescription)")
+                throw PVPCDatabaseError.errorInsert
+            }
         }
     }
 
-    @MainActor
-    func getItemsByDay(dia: String) throws -> [PVPCModelLocal] {
+    func getItemsByDay(day: Date) async throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
-            predicate: #Predicate { $0.dia == dia },
-            sortBy: [SortDescriptor(\.hora, order: .forward)])
+            predicate: #Predicate { $0.day == day },
+            sortBy: [SortDescriptor(\.hour, order: .forward)])
 
-        return try context.fetch(fetchDescriptor)
+        return try await Task { @MainActor in
+            return try context.fetch(fetchDescriptor)
+        }.value
     }
 
-    @MainActor
-    func removeItemsByDay(dia: String) throws -> [PVPCModelLocal] {
+    func removeItemsByDay(day: Date) async throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
-            predicate: #Predicate { $0.dia == dia })
+            predicate: #Predicate { $0.day == day })
+        return try await Task { @MainActor in
+            let itemsToDelete = try context.fetch(fetchDescriptor)
+            // Remove the elements
+            for item in itemsToDelete {
+                context.delete(item)
+            }
+            // Commit the changes
+            do {
+                try context.save()
+            } catch {
+                print("Error \(error.localizedDescription)")
+                throw PVPCDatabaseError.errorDelete
+            }
 
-        let itemsToDelete = try context.fetch(fetchDescriptor)
-
-        // Remove the elements
-        for item in itemsToDelete {
-            context.delete(item)
-        }
-
-        // Commit the changes
-        do {
-            try context.save()
-        } catch {
-            print("Error \(error.localizedDescription)")
-            throw PVPCDatabaseError.errorDelete
-        }
-
-        // Return the removed elements
-        return itemsToDelete
+            // Return the removed elements
+            return itemsToDelete
+        }.value
     }
 
-    @MainActor
-    func updateItemById(id: UUID, dia: String, hora: String, pcb: String, cym: String) throws -> PVPCModelLocal {
-        let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
-            predicate: #Predicate { $0.id == id }
-        )
-        guard let itemToUpdate = try context.fetch(fetchDescriptor).first else {
-            throw PVPCDatabaseError.errorFetch
-        }
+    func updateItemById(id: UUID, day: Date, hour: String, pcb: String, cym: String) async throws -> PVPCModelLocal {
+        return try await Task { @MainActor in
+            let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
+                predicate: #Predicate { $0.id == id }
+            )
+            guard let itemToUpdate = try context.fetch(fetchDescriptor).first else {
+                throw PVPCDatabaseError.errorFetch
+            }
 
-        itemToUpdate.dia = dia
-        itemToUpdate.hora = hora
-        itemToUpdate.pcb = pcb
-        itemToUpdate.cym = cym
+            itemToUpdate.day = day
+            itemToUpdate.hour = hour
+            itemToUpdate.pcb = pcb
+            itemToUpdate.cym = cym
 
-        do {
-            try context.save()
-        } catch {
-            print("Error \(error.localizedDescription)")
-            throw PVPCDatabaseError.errorUpdate
-        }
-        return itemToUpdate
+            do {
+                try context.save()
+            } catch {
+                print("Error \(error.localizedDescription)")
+                throw PVPCDatabaseError.errorUpdate
+            }
+            return itemToUpdate
+        }.value
     }
 }

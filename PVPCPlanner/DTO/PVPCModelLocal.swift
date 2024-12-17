@@ -6,14 +6,14 @@ import SwiftData
 @Model
 class PVPCModelLocal: Identifiable, Hashable {
     @Attribute(.unique) var id: UUID = UUID() // Adds the uuid automatically
-    var dia: String
-    var hora: String
+    var day: Date
+    var hour: String
     var pcb: String
     var cym: String
 
-    init(dia: String, hora: String, pcb: String, cym: String) {
-        self.dia = dia
-        self.hora = hora
+    init(day: Date, hour: String, pcb: String, cym: String) {
+        self.day = day
+        self.hour = hour
         self.pcb = pcb
         self.cym = cym
     }

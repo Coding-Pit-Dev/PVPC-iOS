@@ -1,6 +1,41 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
+    "5€" : {
+
+    },
+    "11/10" : {
+
+    },
+    "Button" : {
+
+    },
+    "error_date_formatter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error formatting the date"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error al formatear la fecha"
+          }
+        }
+      }
+    },
+    "Hello, world!" : {
+
+    },
+    "Item %lld" : {
+
+    },
     "location_ceuta_melilla_text" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -84,6 +119,9 @@
           }
         }
       }
+    },
+    "Texto 2" : {
+
     },
     "theme_auto_mode" : {
       "extractionState" : "manual",

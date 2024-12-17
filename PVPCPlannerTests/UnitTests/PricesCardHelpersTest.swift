@@ -30,16 +30,16 @@ final class PricesCardHelpersTest: XCTestCase {
     }
 
     func testLocalizedPriceCYM() throws {
-        let testModel = PVPCModel(dia: "1", hora: "2", priceMainlandAndIslands: "0.10", priceCeutaMelilla: "0.15")
+        let testModel = PVPCModel(day: "1", hour: "2", priceMainlandAndIslands: "0.10", priceCeutaMelilla: "0.15")
 
-        let pcbPrice = PricesCardHelpers.getLocalizedPrice(pvpcModel: testModel, location: .priceCeutaMelilla)
+        let pcbPrice = PricesCardHelpers.getLocalizedPrice(pvpcModel: testModel, location: Locations.CeutaMelilla)
         XCTAssertEqual(pcbPrice, "0.15", "The price should be 0.15 as we send in the testModel for CYM")
     }
 
     func testLocalizedPricepcb() throws {
-        let testModel = PVPCModel(dia: "1", hora: "2", priceMainlandAndIslands: "0.10", priceCeutaMelilla: "0.15")
+        let testModel = PVPCModel(day: "1", hour: "2", priceMainlandAndIslands: "0.10", priceCeutaMelilla: "0.15")
 
-        let pcbPrice = PricesCardHelpers.getLocalizedPrice(pvpcModel: testModel, location: .priceMainlandAndIslands)
+        let pcbPrice = PricesCardHelpers.getLocalizedPrice(pvpcModel: testModel, location: Locations.MainlandAndIslands)
         XCTAssertEqual(pcbPrice, "0.10", "The price should be 0.10 as we send in the testModel for PCB")
     }
 }

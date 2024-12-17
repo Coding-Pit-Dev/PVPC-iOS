@@ -12,7 +12,7 @@ enum PriceThreshold {
 
 enum PricesCardHelpers {
     static func setPriceColor(price: String) -> Color {
-        if let priceValue = Double(price) {
+        if let priceValue = Double(price.replacingOccurrences(of: ",", with: ".")) {
             switch priceValue {
             case ..<PriceThreshold.lowPrice:
                 return Color.cGreen
@@ -27,11 +27,11 @@ enum PricesCardHelpers {
         return Color.clear
     }
 
-    static func getLocalizedPrice(pvpcModel: PVPCModel, location: PricesCardLocations) -> String {
+    static func getLocalizedPrice(pvpcModel: PVPCModel, location: Locations) -> String {
         switch location {
-        case .priceCeutaMelilla:
+        case .CeutaMelilla:
             return pvpcModel.priceCeutaMelilla
-        case .priceMainlandAndIslands:
+        case .MainlandAndIslands:
             return pvpcModel.priceMainlandAndIslands
         }
     }

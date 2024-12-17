@@ -9,8 +9,8 @@ struct PVPCResponse: Codable {
 }
 
 struct PVPCDTO: Codable {
-    let dia: String
-    let hora: String
+    let day: String
+    let hour: String
     let pcb: String
     let cym: String
     let cof2td: String
@@ -36,8 +36,8 @@ struct PVPCDTO: Codable {
     let tahcym: String
 
     enum CodingKeys: String, CodingKey {
-        case dia = "Dia"
-        case hora = "Hora"
+        case day = "Dia"
+        case hour = "Hora"
         case pcb = "PCB"
         case cym = "CYM"
         case cof2td = "COF2TD"
@@ -64,8 +64,8 @@ struct PVPCDTO: Codable {
     }
 
     var toPresentation: PVPCModel {
-        PVPCModel(dia: dia,
-                  hora: hora,
+        PVPCModel(day: day,
+                  hour: hour,
                   priceMainlandAndIslands: pcb,
                   priceCeutaMelilla: cym)
     }
