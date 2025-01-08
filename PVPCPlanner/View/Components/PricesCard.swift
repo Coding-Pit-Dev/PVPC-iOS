@@ -7,14 +7,17 @@ struct PricesCard: View {
         CustomCardComponent(backgroundColor: pvpcCardModel.backgroundColor, bodyContent: {
             HStack {
                 Text(pvpcCardModel.hour)
-                    .padding()
+                    .padding(.horizontal)
+
                 VStack {
                     Divider()
                         .frame(width: 90, height: 2)
                 }
-                Text("price_\(pvpcCardModel.price)€")
-                    .padding()
+                Text("price_\(pvpcCardModel.price) €")
+
+                    .padding(.horizontal)
             }
+            .padding(.vertical, 8)
         })
     }
 }
@@ -29,7 +32,7 @@ struct PricesCard: View {
 // MARK: List example
 
 #Preview {
-    CustomLazyList(spacing: 30, listDirection: .vertical, backgroundColor: Color.white) {
+    CustomLazyList(spacing: 0, listDirection: .vertical, backgroundColor: Color.white) {
         PricesCard(pvpcCardModel: PVPCCardModel(backgroundColor: Color.cGreen, price: "0.10", hour: "19:00"))
         PricesCard(pvpcCardModel: PVPCCardModel(backgroundColor: Color.cRed, price: "0.10", hour: "21:00"))
         PricesCard(pvpcCardModel: PVPCCardModel(backgroundColor: Color.cYellow, price: "0.10", hour: "21:30"))

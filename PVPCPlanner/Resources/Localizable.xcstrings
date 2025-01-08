@@ -4,15 +4,6 @@
     "" : {
 
     },
-    "5€" : {
-
-    },
-    "11/10" : {
-
-    },
-    "Button" : {
-
-    },
     "error_date_formatter" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -31,9 +22,6 @@
       }
     },
     "Hello, world!" : {
-
-    },
-    "Item %lld" : {
 
     },
     "location_ceuta_melilla_text" : {
@@ -103,25 +91,22 @@
         }
       }
     },
-    "price_%@€" : {
+    "price_%@ €" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@€"
+            "value" : "%@ €"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%@€"
           }
         }
       }
-    },
-    "Texto 2" : {
-
     },
     "theme_auto_mode" : {
       "extractionState" : "manual",

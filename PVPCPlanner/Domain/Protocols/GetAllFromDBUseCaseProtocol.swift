@@ -1,5 +1,5 @@
 import Foundation
 
-protocol GetAllFromLocalDBUseCaseProtocol {
+protocol GetAllFromDBUseCaseProtocol {
     func getAllItems() throws -> [PVPCModelLocal]
 }

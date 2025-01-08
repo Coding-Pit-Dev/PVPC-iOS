@@ -2,9 +2,13 @@ import Foundation
 
 @Observable
 final class PricesVM {
+    @ObservationIgnored
     let getPricesUseCase: PricesUseCaseProtocol
+    @ObservationIgnored
     let addPVPCTOLocalDBUseCase: AddToLocalDBUseCaseProtocol
-    let getPVPCByDayFromLocalDBUseCase: GetByDayFromLocalDBUseCaseProtocol
+    @ObservationIgnored
+    let getPVPCByDayFromLocalDBUseCase: GetByDayFromDBUseCaseProtocol
+
     var prices: [PVPCModel] = []
     let date: Date = .now
     var errorMsg = ""
@@ -12,8 +16,8 @@ final class PricesVM {
 
     init(getPricesUseCase: PricesUseCaseProtocol = GetPricesUseCase.shared,
          addPVPCTOLocalDBUseCase: AddToLocalDBUseCaseProtocol = AddPVPCToLocaDBUseCase.shared,
-         getPVPCByDayFromLocalDBUseCase: GetByDayFromLocalDBUseCaseProtocol = GetPVPCByDayFromLocalDBUseCase())
-    {
+         getPVPCByDayFromLocalDBUseCase: GetByDayFromDBUseCaseProtocol = GetPVPCByDayFromLocalDBUseCase()
+    ) {
         self.getPricesUseCase = getPricesUseCase
         self.addPVPCTOLocalDBUseCase = addPVPCTOLocalDBUseCase
         self.getPVPCByDayFromLocalDBUseCase = getPVPCByDayFromLocalDBUseCase
@@ -34,9 +38,11 @@ final class PricesVM {
         do {
             temporalPrices = try await getPricesLocal()
             if temporalPrices.isEmpty {
+                print("Cacheo API")
                 await getPricesList()
                 savePricesToLocal(prices: prices)
             } else {
+                print("Cacheo Local")
                 prices = temporalPrices
             }
         } catch {
@@ -52,7 +58,10 @@ final class PricesVM {
             if let formattedDate = DateFormatter.convertDateToFormattedDate(date: date) {
                 temporalPrices = try await getPVPCByDayFromLocalDBUseCase.getItemsByDay(day: formattedDate)
                 return temporalPrices.map { localModel in
-                    PVPCModel(day: DateFormatter.convertDateToString(date: localModel.day), hour: localModel.hour, priceMainlandAndIslands: localModel.pcb, priceCeutaMelilla: localModel.cym)
+                    PVPCModel(day: DateFormatter.convertDateToString(date: localModel.day),
+                              hour: localModel.hour,
+                              priceMainlandAndIslands: localModel.pcb,
+                              priceCeutaMelilla: localModel.cym)
                 }
             }
 
@@ -68,7 +77,10 @@ final class PricesVM {
         for modelToSave in prices {
             if let dayDate = DateFormatter.convertDate(inputDateString: modelToSave.day) {
                 do {
-                    try addPVPCTOLocalDBUseCase.addPvpc(day: dayDate, hour: modelToSave.hour, pcb: modelToSave.priceMainlandAndIslands, cym: modelToSave.priceCeutaMelilla)
+                    try addPVPCTOLocalDBUseCase.addPvpc(day: dayDate,
+                                                        hour: modelToSave.hour,
+                                                        pcb: modelToSave.priceMainlandAndIslands,
+                                                        cym: modelToSave.priceCeutaMelilla)
                 } catch {
                     print(error)
                     showError.toggle()
