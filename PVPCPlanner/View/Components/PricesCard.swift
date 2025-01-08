@@ -7,6 +7,7 @@ struct PricesCard: View {
         CustomCardComponent(backgroundColor: pvpcCardModel.backgroundColor, bodyContent: {
             HStack {
                 Text(pvpcCardModel.hour)
+                    .foregroundStyle(Color.black)
                     .padding(.horizontal)
 
                 VStack {
@@ -14,7 +15,7 @@ struct PricesCard: View {
                         .frame(width: 90, height: 2)
                 }
                 Text("price_\(pvpcCardModel.price) €")
-
+                    .foregroundStyle(Color.black)
                     .padding(.horizontal)
             }
             .padding(.vertical, 8)
