@@ -10,16 +10,14 @@ struct MainScreen: View {
                 .tabItem {
                     Label("", systemImage: "eurosign.circle")
                 }
-
             NotificationsView()
                 .tabItem {
                     Label("", systemImage: "bell.circle")
                 }
-            SettingsView(viewModel: settingsViewModel
-            )
-            .tabItem {
-                Label("", systemImage: "gear")
-            }
+            SettingsView(viewModel: settingsViewModel)
+                .tabItem {
+                    Label("", systemImage: "gear")
+                }
         }
     }
 }

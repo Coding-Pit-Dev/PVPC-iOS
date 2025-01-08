@@ -7,7 +7,7 @@ struct PricesView: View {
 
     var body: some View {
         VStack {
-            CustomLazyList(spacing: 30, listDirection: .vertical, backgroundColor: Color.clear) {
+            CustomLazyList(listDirection: .vertical, backgroundColor: Color.clear) {
                 ForEach(vm.prices, id: \.self) { price in
                     PricesCard(pvpcCardModel: price.toPVPCCardModel(location: selectedLocation))
                 }

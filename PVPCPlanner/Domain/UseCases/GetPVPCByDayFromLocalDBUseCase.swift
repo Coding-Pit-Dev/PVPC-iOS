@@ -1,6 +1,6 @@
 import Foundation
 
-struct GetPVPCByDayFromLocalDBUseCase: GetByDayFromLocalDBUseCaseProtocol {
+struct GetPVPCByDayFromLocalDBUseCase: GetByDayFromDBUseCaseProtocol {
     private var databaseContainer = PVPCDatabaseContainer.shared.container
     private var dataSource: PVPCLocalDataSource
     static let shared = GetPVPCByDayFromLocalDBUseCase()
