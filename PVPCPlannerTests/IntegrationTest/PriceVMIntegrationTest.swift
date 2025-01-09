@@ -1,6 +1,7 @@
 @testable import PVPCPlanner
 import XCTest
 
+@MainActor
 final class PriceVMIntegrationTest: XCTestCase {
     var sut: PricesVM?
 

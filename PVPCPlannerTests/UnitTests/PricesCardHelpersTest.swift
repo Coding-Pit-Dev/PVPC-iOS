@@ -5,17 +5,17 @@ import XCTest
 
 final class PricesCardHelpersTest: XCTestCase {
     func testSetLowPriceColor() throws {
-        let color = PricesCardHelpers.setPriceColor(price: "0.05")
+        let color = PricesCardHelpers.setPriceColor(price: "99,58")
         XCTAssertEqual(color, Color.cGreen, "The color should be GREEN for the LOWER prices")
     }
 
     func testSetMediumPriceColor() throws {
-        let color = PricesCardHelpers.setPriceColor(price: "0.11")
+        let color = PricesCardHelpers.setPriceColor(price: "135,58")
         XCTAssertEqual(color, Color.cYellow, "The color should be YELLOW for the MEDIUM prices")
     }
 
     func testSetHighPriceColor() throws {
-        let color = PricesCardHelpers.setPriceColor(price: "0.20")
+        let color = PricesCardHelpers.setPriceColor(price: "165,58")
         XCTAssertEqual(color, Color.cRed, "The color should be RED for the HIGHER prices")
     }
 

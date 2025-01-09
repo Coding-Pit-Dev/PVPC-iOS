@@ -5,8 +5,6 @@ struct SettingsView: View {
     @AppStorage(AppStorageKeys.THEME_MODE.rawValue) var selectedTheme: ThemeMode = .auto
     @AppStorage(AppStorageKeys.LOCATION.rawValue) var selectedLocation: Locations = .MainlandAndIslands
 
-    @Bindable var viewModel: SettingsViewModel
-
     var body: some View {
         VStack {
             Spacer()
@@ -39,5 +37,5 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView(viewModel: SettingsViewModel())
+    SettingsView()
 }
