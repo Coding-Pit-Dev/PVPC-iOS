@@ -27,7 +27,7 @@ jobs:
       - name: Run Tests on iPhone 14 Simulator (iOS 18.0)
         run: |
           xcodebuild test \
-            -scheme 'PVPC-iOs' \
+            -scheme 'PVPCPlanner' \
             -destination 'platform=iOS Simulator,name=iPhone 14,OS=18.0'
 
   unit_tests:
@@ -42,7 +42,7 @@ jobs:
       - name: Run Unit Tests on iPhone 14 Simulator (iOS 18.0)
         run: |
           xcodebuild test \
-            -scheme 'PVPC-iOs' \
+            -scheme 'PVPCPlanner' \
             -destination 'platform=iOS Simulator,name=iPhone 14,OS=18.0' \
             -only-testing:PVPCPlannerTests/UnitTests/ModelsTests \
             -only-testing:PVPCPlannerTests/UnitTests/PriceViewModelTest \
@@ -75,7 +75,7 @@ jobs:
       - name: Run Integration Tests on iPhone 14 Simulator (iOS 18.0)
         run: |
           xcodebuild test \
-            -scheme 'PVPC-iOs' \
+            -scheme 'PVPCPlanner' \
             -destination 'platform=iOS Simulator,name=iPhone 14,OS=18.0' \
             -destination "platform=$platform,name=$device" \
             -only-testing:PVPCPlannerTests/IntegrationTest/PriceVMIntegrationTest \
