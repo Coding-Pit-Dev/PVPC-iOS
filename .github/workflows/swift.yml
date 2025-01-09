@@ -48,6 +48,7 @@ jobs:
             -only-testing:PVPCPlannerTests/UnitTests/PriceViewModelTest \
             -enableCodeCoverage YES \
             -resultBundlePath TestResults
+            -allowProvisioningUpdates
 
       - name: Generate Code Coverage Report
         run: |
@@ -81,6 +82,7 @@ jobs:
             -only-testing:PVPCPlannerTests/IntegrationTest/PriceVMIntegrationTest \
             -enableCodeCoverage YES \
             -resultBundlePath TestResults   
+            -allowProvisioningUpdates
 
       - name: Generate Code Coverage Report
         run: |
