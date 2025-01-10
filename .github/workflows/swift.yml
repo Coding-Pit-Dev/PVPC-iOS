@@ -28,8 +28,10 @@ jobs:
         run: |
           xcodebuild test \
             -scheme 'PVPCPlanner' \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=18.0'
-            -allowProvisioningUpdates
+            -destination 'platform=iOS Simulator,name=iPhone 14,OS=18.0' \
+            -allowProvisioningUpdates \
+            CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+
 
   unit_tests:
     name: Run Unit Tests
