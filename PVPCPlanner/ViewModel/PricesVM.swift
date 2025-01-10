@@ -15,6 +15,7 @@ final class PricesVM {
     var errorMsg = ""
     var showError = false
 
+    @MainActor
     init(getPricesUseCase: PricesUseCaseProtocol = GetPricesUseCase.shared,
          addPVPCTOLocalDBUseCase: AddToLocalDBUseCaseProtocol = AddPVPCToLocaDBUseCase.shared,
          getPVPCByDayFromLocalDBUseCase: GetByDayFromDBUseCaseProtocol = GetPVPCByDayFromLocalDBUseCase()
