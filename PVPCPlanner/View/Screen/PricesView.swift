@@ -1,7 +1,9 @@
 import SwiftUI
 
 struct PricesView: View {
-    @State private var priceViewModel = PricesVM()
+    @State private var priceViewModel: PricesVM = { @MainActor in
+        return PricesVM()
+    }()
     @AppStorage(AppStorageKeys.LOCATION.rawValue) var selectedLocation: Locations = .MainlandAndIslands
 
     var body: some View {
