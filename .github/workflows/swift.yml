@@ -15,23 +15,29 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-         # Install SwiftLint
       - name: Install SwiftLint
         run: brew install swiftlint
 
-         # Exceute SwiftLint
       - name: Run SwiftLint
         run: swiftlint lint --config .swiftlint.yml
-        
-        # Run tests on iPhone 14 Simulator with iOS 16.0
-      - name: Run Tests on iPhone 14 Simulator (iOS 18.0)
+      
+      - name: Set Default Scheme
         run: |
-          xcodebuild test \
-            -scheme 'PVPCPlanner' \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=18.0' \
-            -allowProvisioningUpdates \
-            CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+          scheme_list=$(xcodebuild -list -json | tr -d "\n")
+          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
+          echo $default | cat >default
+          echo Using default scheme: $default
 
+      - name: Build
+        env:
+          scheme: ${{ 'default' }}
+          platform: ${{ 'iOS Simulator' }}
+        run: |
+          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
+          if [ $scheme = default ]; then scheme=$(cat default); fi
+          if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
+          file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
+          xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
 
   unit_tests:
     name: Run Unit Tests
@@ -41,18 +47,33 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Run Unit Tests on iPhone 14 Simulator (iOS 18.0)
+      - name: Set Default Scheme
         run: |
-          xcodebuild test \
-            -scheme 'PVPCPlanner' \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=18.0' \
-            -allowProvisioningUpdates \
-            -only-testing:PVPCPlannerTests/UnitTests/ModelsTests \
-            -only-testing:PVPCPlannerTests/UnitTests/PriceViewModelTest \
-            -enableCodeCoverage YES \
-            -resultBundlePath TestResults
-
+          scheme_list=$(xcodebuild -list -json | tr -d "\n")
+          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
+          echo $default | cat >default
+          echo Using default scheme: $default
+      - name: Build
+        env:
+          scheme: ${{ 'default' }}
+          platform: ${{ 'iOS Simulator' }}
+        run: |
+          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
+          if [ $scheme = default ]; then scheme=$(cat default); fi
+          if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
+          file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
+          xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
+      - name: Unit Test
+        env:
+          scheme: ${{ 'default' }}
+          platform: ${{ 'iOS Simulator' }}
+        run: |
+          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
+          if [ $scheme = default ]; then scheme=$(cat default); fi
+          if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
+          file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
+          xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device" -only-testing:PVPCPlannerTests/UnitTests/ModelsTests -only-testing:PVPCPlannerTests/UnitTests/PriceViewModelTest -enableCodeCoverage YES -resultBundlePath TestResults
+          
       - name: Generate Code Coverage Report
         run: |
           xcrun xccov view --report --json TestResults.xcresult > coverage.json
@@ -75,18 +96,33 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
-      - name: Run Integration Tests on iPhone 14 Simulator (iOS 18.0)
+      - name: Set Default Scheme
         run: |
-          xcodebuild test \
-            -scheme 'PVPCPlanner' \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=18.0' \
-            -allowProvisioningUpdates \
-            -destination "platform=$platform,name=$device" \
-            -only-testing:PVPCPlannerTests/IntegrationTest/PriceVMIntegrationTest \
-            -enableCodeCoverage YES \
-            -resultBundlePath TestResults   
-
+          scheme_list=$(xcodebuild -list -json | tr -d "\n")
+          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
+          echo $default | cat >default
+          echo Using default scheme: $default
+      - name: Build
+        env:
+          scheme: ${{ 'default' }}
+          platform: ${{ 'iOS Simulator' }}
+        run: |
+          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
+          if [ $scheme = default ]; then scheme=$(cat default); fi
+          if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
+          file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
+          xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
+      - name: Integration Test
+        env:
+          scheme: ${{ 'default' }}
+          platform: ${{ 'iOS Simulator' }}
+        run: |
+          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
+          if [ $scheme = default ]; then scheme=$(cat default); fi
+          if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
+          file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
+          xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device" -only-testing:PVPCPlannerTests/IntegrationTest/PriceVMIntegrationTest -enableCodeCoverage YES -resultBundlePath TestResults
+          
       - name: Generate Code Coverage Report
         run: |
             xcrun xccov view --report --json TestResults.xcresult > coverage.json
