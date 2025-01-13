@@ -51,6 +51,9 @@
 		8D48E6132CEB60EC00B1CBE0 /* RemoveByDayLocalDBUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D48E6122CEB60EC00B1CBE0 /* RemoveByDayLocalDBUseCaseProtocol.swift */; };
 		8D48E6152CEB611100B1CBE0 /* UpdateLocalByIdUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D48E6142CEB611100B1CBE0 /* UpdateLocalByIdUseCaseProtocol.swift */; };
 		8D48E6172CEBDB0800B1CBE0 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D48E6162CEBDB0800B1CBE0 /* MainScreenViewModel.swift */; };
+		8D5C565D2D358796003819C7 /* DaySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5C565C2D358796003819C7 /* DaySelector.swift */; };
+		8D5C565F2D3587FC003819C7 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5C565E2D3587FC003819C7 /* Week.swift */; };
+		8D5C56612D358835003819C7 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5C56602D358835003819C7 /* Date+Extension.swift */; };
 		8D95E8912CE29559006C213E /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95E8902CE29559006C213E /* SettingsViewModel.swift */; };
 		8DB777862C9B1CFE00A4ADA7 /* UpdatePVPCLocalByIdUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB777852C9B1CFE00A4ADA7 /* UpdatePVPCLocalByIdUseCase.swift */; };
 		8DB777882C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB777872C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift */; };
@@ -128,6 +131,9 @@
 		8D48E6122CEB60EC00B1CBE0 /* RemoveByDayLocalDBUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveByDayLocalDBUseCaseProtocol.swift; sourceTree = "<group>"; };
 		8D48E6142CEB611100B1CBE0 /* UpdateLocalByIdUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLocalByIdUseCaseProtocol.swift; sourceTree = "<group>"; };
 		8D48E6162CEBDB0800B1CBE0 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
+		8D5C565C2D358796003819C7 /* DaySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelector.swift; sourceTree = "<group>"; };
+		8D5C565E2D3587FC003819C7 /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
+		8D5C56602D358835003819C7 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		8D95E8902CE29559006C213E /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		8DB777852C9B1CFE00A4ADA7 /* UpdatePVPCLocalByIdUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePVPCLocalByIdUseCase.swift; sourceTree = "<group>"; };
 		8DB777872C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePVPCByIDLocaUseCaseTest.swift; sourceTree = "<group>"; };
@@ -332,6 +338,7 @@
 				8DF24CCB2CD1479D00D4BAD7 /* PricesCard.swift */,
 				8DF24CC72CC945AE00D4BAD7 /* CustomLazyList.swift */,
 				8DF24CC92CCF93AE00D4BAD7 /* CustomCardComponent.swift */,
+				8D5C565C2D358796003819C7 /* DaySelector.swift */,
 			);
 			name = Components;
 			path = PVPCPlanner/View/Components;
@@ -342,6 +349,7 @@
 			children = (
 				1A00362D2C69F27E00DC89C0 /* PVPCModel.swift */,
 				8DF24CD02CD14B4700D4BAD7 /* PVPCCardModel.swift */,
+				8D5C565E2D3587FC003819C7 /* Week.swift */,
 			);
 			name = Presentation;
 			path = PVPCPlanner/Presentation;
@@ -383,6 +391,7 @@
 			children = (
 				1A0036312C69FE9B00DC89C0 /* DateFormatter+Extension.swift */,
 				8DF24CD42CD795C700D4BAD7 /* PVPCModel+Extension.swift */,
+				8D5C56602D358835003819C7 /* Date+Extension.swift */,
 			);
 			name = Extensions;
 			path = PVPCPlanner/Utils/Extensions;
@@ -712,12 +721,15 @@
 				12C821842C3BE8A700717D4F /* ContentView.swift in Sources */,
 				8D48E6172CEBDB0800B1CBE0 /* MainScreenViewModel.swift in Sources */,
 				1ADDACFE2C637C2A00797976 /* PricesView.swift in Sources */,
+				8D5C565F2D3587FC003819C7 /* Week.swift in Sources */,
 				8DF24CD12CD14B4700D4BAD7 /* PVPCCardModel.swift in Sources */,
 				1A0036322C69FE9B00DC89C0 /* DateFormatter+Extension.swift in Sources */,
 				8DF24CDD2CDFC90E00D4BAD7 /* SettingsView.swift in Sources */,
+				8D5C56612D358835003819C7 /* Date+Extension.swift in Sources */,
 				8D20FBC02C78C1F8007DBE4A /* GetPVPCByDayFromLocalDBUseCase.swift in Sources */,
 				8D48E6152CEB611100B1CBE0 /* UpdateLocalByIdUseCaseProtocol.swift in Sources */,
 				12C821822C3BE8A700717D4F /* PVPCPlannerApp.swift in Sources */,
+				8D5C565D2D358796003819C7 /* DaySelector.swift in Sources */,
 				8DF24CD52CD795C700D4BAD7 /* PVPCModel+Extension.swift in Sources */,
 				8D20FBB52C78A4B3007DBE4A /* PVPCLocalDataSource.swift in Sources */,
 				8DC842242CA2B47500FB3C49 /* PVPCDatabaseError.swift in Sources */,
