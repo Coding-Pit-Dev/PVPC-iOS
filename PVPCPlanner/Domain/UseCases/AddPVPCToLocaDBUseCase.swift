@@ -1,6 +1,6 @@
 import Foundation
 
-struct AddPVPCToLocaDBUseCase: AddToLocalDBUseCaseProtocol {
+final class AddPVPCToLocaDBUseCase: AddToLocalDBUseCaseProtocol {
 
     private var dataSource: PVPCLocalDataSource
 
