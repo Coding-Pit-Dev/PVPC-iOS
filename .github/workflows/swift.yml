@@ -15,10 +15,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Swift
-        uses: swift-actions/setup-swift@v1
-        with:
-          swift-version: "5.9"
+      - name: Check Swift version
+        run: swift --version
 
       - name: Install SwiftLint
         run: brew install swiftlint
@@ -53,10 +51,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Swift
-        uses: swift-actions/setup-swift@v1
-        with:
-          swift-version: "5.9"
+      - name: Check Swift version
+        run: swift --version
+
 
       - name: Set Default Scheme
         run: |
@@ -108,10 +105,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Swift
-        uses: swift-actions/setup-swift@v1
-        with:
-          swift-version: "5.9"
+      - name: Check Swift version
+        run: swift --version
+
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
