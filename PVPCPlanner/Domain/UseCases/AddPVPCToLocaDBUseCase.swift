@@ -1,9 +1,8 @@
 import Foundation
 
 struct AddPVPCToLocaDBUseCase: AddToLocalDBUseCaseProtocol {
-    private var databaseContainer = PVPCDatabaseContainer.shared.container
+
     private var dataSource: PVPCLocalDataSource
-    static let shared = AddPVPCToLocaDBUseCase()
 
     init(dataSource: PVPCLocalDataSource = PVPCLocalDataSource(container: PVPCDatabaseContainer.shared.container)) {
         self.dataSource = dataSource

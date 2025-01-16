@@ -15,8 +15,8 @@ final class PricesVM {
     var errorMsg = ""
     var showError = false
 
-    init(getPricesUseCase: PricesUseCaseProtocol = GetPricesUseCase.shared,
-         addPVPCTOLocalDBUseCase: AddToLocalDBUseCaseProtocol = AddPVPCToLocaDBUseCase.shared,
+    init(getPricesUseCase: PricesUseCaseProtocol = GetPricesUseCase(),
+         addPVPCTOLocalDBUseCase: AddToLocalDBUseCaseProtocol = AddPVPCToLocaDBUseCase(),
          getPVPCByDayFromLocalDBUseCase: GetByDayFromDBUseCaseProtocol = GetPVPCByDayFromLocalDBUseCase()
     ) {
         self.getPricesUseCase = getPricesUseCase
