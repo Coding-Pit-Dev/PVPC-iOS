@@ -29,9 +29,6 @@ struct SettingsView: View {
             Spacer()
         }
         .padding()
-        .onAppear {
-            selectedTheme = colorScheme == .dark ? .dark : .light
-        }
         .preferredColorScheme(selectedTheme == .auto ? nil : (selectedTheme == .dark ? .dark : .light))
     }
 }
