@@ -1,24 +1,33 @@
-import SwiftData
 import SwiftUI
 
 struct PricesView: View {
+
+    // @State private var priceViewModel: PricesVM = PricesVM()
+    @State private var priceViewModel: PricesVM?
     @AppStorage(AppStorageKeys.LOCATION.rawValue) var selectedLocation: Locations = .MainlandAndIslands
-    var vm: PricesVM
 
     var body: some View {
         VStack {
-            CustomLazyList(spacing: 30, listDirection: .vertical, backgroundColor: Color.clear) {
-                ForEach(vm.prices, id: \.self) { price in
-                    PricesCard(pvpcCardModel: price.toPVPCCardModel(location: selectedLocation))
+            CustomLazyList(listDirection: .vertical, backgroundColor: Color.clear) {
+                if let priceViewModel = priceViewModel {
+                    ForEach(priceViewModel.prices, id: \.self) { price in
+                        PricesCard(pvpcCardModel: price.toPVPCCardModel(location: selectedLocation))
+                    }
                 }
             }
             .task {
-                await vm.setPrices()
+                await MainActor.run {
+                    self.priceViewModel = PricesVM()
+                }
+
+                if let priceViewModel = priceViewModel {
+                    await priceViewModel.setPrices()
+                }
             }
         }
     }
 }
 
 #Preview {
-    PricesView(vm: .previewVM)
+    PricesView()
 }

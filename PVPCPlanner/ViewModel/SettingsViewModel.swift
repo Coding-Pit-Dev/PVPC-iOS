@@ -1,5 +1,4 @@
 import Foundation
-import Observation
 
 enum ThemeMode: String, CaseIterable, Identifiable {
     case light = "theme_light_mode"

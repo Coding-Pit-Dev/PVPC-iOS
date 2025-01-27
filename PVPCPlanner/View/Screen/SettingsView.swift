@@ -5,8 +5,6 @@ struct SettingsView: View {
     @AppStorage(AppStorageKeys.THEME_MODE.rawValue) var selectedTheme: ThemeMode = .auto
     @AppStorage(AppStorageKeys.LOCATION.rawValue) var selectedLocation: Locations = .MainlandAndIslands
 
-    @Bindable var viewModel: SettingsViewModel
-
     var body: some View {
         VStack {
             Spacer()
@@ -31,13 +29,10 @@ struct SettingsView: View {
             Spacer()
         }
         .padding()
-        .onAppear {
-            selectedTheme = colorScheme == .dark ? .dark : .light
-        }
         .preferredColorScheme(selectedTheme == .auto ? nil : (selectedTheme == .dark ? .dark : .light))
     }
 }
 
 #Preview {
-    SettingsView(viewModel: SettingsViewModel())
+    SettingsView()
 }

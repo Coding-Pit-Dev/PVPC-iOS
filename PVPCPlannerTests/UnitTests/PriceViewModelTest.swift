@@ -1,6 +1,7 @@
 @testable import PVPCPlanner
 import XCTest
 
+@MainActor
 final class PriceViewModelTest: XCTestCase {
     var priceViewModel: PricesVM?
     

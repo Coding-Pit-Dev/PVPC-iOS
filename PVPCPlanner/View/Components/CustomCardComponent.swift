@@ -64,18 +64,18 @@ extension CustomCardComponent where FooterContent == EmptyView {
 // MARK: Exaple using the card without footer
 
 #Preview {
-    CustomLazyList(spacing: 30, listDirection: .vertical) {
+    CustomLazyList(spacing: 0, listDirection: .vertical) {
         ForEach(0 ..< 10, id: \.self) { index in
             CustomCardComponent {
                 HStack {
                     Text("Item \(index + 1)")
-                        .padding()
+                        .padding(.horizontal)
                     VStack {
                         Divider()
                             .frame(height: 2)
                     }
                     Text("5€")
-                        .padding()
+                        .padding(.horizontal)
                 }
                 .padding()
             }
@@ -89,19 +89,19 @@ extension CustomCardComponent where FooterContent == EmptyView {
     CustomCardComponent(bodyContent: {
         HStack {
             Text("11/10")
-                .padding()
+                .padding(.horizontal)
             VStack {
                 Divider()
             }
             Text("Texto 2")
-                .padding()
+                .padding(.horizontal)
         }
     }, footerContent: {
         HStack {
             Button(action: {}, label: {
                 /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
             })
-            .padding()
+            .padding(.horizontal)
             .multilineTextAlignment(.center)
             .frame(maxWidth: .infinity)
             Divider()
@@ -109,7 +109,7 @@ extension CustomCardComponent where FooterContent == EmptyView {
             Button(action: /*@START_MENU_TOKEN@*/ {}/*@END_MENU_TOKEN@*/, label: {
                 /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
             })
-            .padding()
+            .padding(.horizontal)
             .multilineTextAlignment(.center)
             .frame(maxWidth: .infinity)
         }
@@ -124,12 +124,12 @@ extension CustomCardComponent where FooterContent == EmptyView {
             CustomCardComponent(bodyContent: {
                 HStack {
                     Text("11/10")
-                        .padding()
+                        .padding(.horizontal)
                     VStack {
                         Divider()
                     }
                     Text("Texto 2")
-                        .padding()
+                        .padding(.horizontal)
                 }
             }, footerContent: {
                 HStack {
