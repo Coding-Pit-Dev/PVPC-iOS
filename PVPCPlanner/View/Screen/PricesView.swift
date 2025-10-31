@@ -8,6 +8,8 @@ struct PricesView: View {
 
     var body: some View {
         VStack {
+            ChartComponent(chartData: ChartComponentHelpers.pvpcDataToChartData(pvpcList: priceViewModel?.prices ?? [], location: selectedLocation))
+            Spacer()
             CustomLazyList(listDirection: .vertical, backgroundColor: Color.clear) {
                 if let priceViewModel = priceViewModel {
                     ForEach(priceViewModel.prices, id: \.self) { price in

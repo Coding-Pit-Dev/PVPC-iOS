@@ -47,6 +47,7 @@
 		8D20FBC22C78C24B007DBE4A /* RemovePVPCByDayFromLocalDBUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D20FBC12C78C24B007DBE4A /* RemovePVPCByDayFromLocalDBUseCase.swift */; };
 		8D3E92002EB51A3D00C2C180 /* ChartComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E91FF2EB51A3000C2C180 /* ChartComponent.swift */; };
 		8D3E92022EB5234B00C2C180 /* PVPCChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E92012EB5232E00C2C180 /* PVPCChartModel.swift */; };
+		8D3E92042EB5283200C2C180 /* ChartComponentHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E92032EB5280A00C2C180 /* ChartComponentHelpers.swift */; };
 		8D48E60D2CEB5F1D00B1CBE0 /* AddToLocalDBUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D48E60C2CEB5F1D00B1CBE0 /* AddToLocalDBUseCaseProtocol.swift */; };
 		8D48E60F2CEB5F8B00B1CBE0 /* GetAllFromDBUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D48E60E2CEB5F8B00B1CBE0 /* GetAllFromDBUseCaseProtocol.swift */; };
 		8D48E6112CEB601100B1CBE0 /* GetByDayFromDBUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D48E6102CEB601100B1CBE0 /* GetByDayFromDBUseCaseProtocol.swift */; };
@@ -126,6 +127,7 @@
 		8D20FBC12C78C24B007DBE4A /* RemovePVPCByDayFromLocalDBUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePVPCByDayFromLocalDBUseCase.swift; sourceTree = "<group>"; };
 		8D3E91FF2EB51A3000C2C180 /* ChartComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartComponent.swift; sourceTree = "<group>"; };
 		8D3E92012EB5232E00C2C180 /* PVPCChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCChartModel.swift; sourceTree = "<group>"; };
+		8D3E92032EB5280A00C2C180 /* ChartComponentHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartComponentHelpers.swift; sourceTree = "<group>"; };
 		8D48E60C2CEB5F1D00B1CBE0 /* AddToLocalDBUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToLocalDBUseCaseProtocol.swift; sourceTree = "<group>"; };
 		8D48E60E2CEB5F8B00B1CBE0 /* GetAllFromDBUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllFromDBUseCaseProtocol.swift; sourceTree = "<group>"; };
 		8D48E6102CEB601100B1CBE0 /* GetByDayFromDBUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetByDayFromDBUseCaseProtocol.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 		1ACBAB1A2C74D09400269327 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8D3E92032EB5280A00C2C180 /* ChartComponentHelpers.swift */,
 				1ACBAB1B2C74D09C00269327 /* Extensions */,
 				8DF24CD22CD15BBA00D4BAD7 /* PricesCardHelpers.swift */,
 				8DD0690E2CE368A700DA84D5 /* AppStorageKeys.swift */,
@@ -700,6 +703,7 @@
 				8D48E6132CEB60EC00B1CBE0 /* RemoveByDayDBUseCaseProtocol.swift in Sources */,
 				8DF24CCC2CD1479D00D4BAD7 /* PricesCard.swift in Sources */,
 				1ADDACF02C6375B800797976 /* URL.swift in Sources */,
+				8D3E92042EB5283200C2C180 /* ChartComponentHelpers.swift in Sources */,
 				1ADDACE92C63745700797976 /* PVPCModelDTO.swift in Sources */,
 				1ACBAB282C762A1300269327 /* GetPricesUseCase.swift in Sources */,
 				8DD0690F2CE368A700DA84D5 /* AppStorageKeys.swift in Sources */,
