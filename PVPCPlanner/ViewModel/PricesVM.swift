@@ -11,7 +11,6 @@ final class PricesVM {
     let getPVPCByDayFromLocalDBUseCase: GetByDayFromDBUseCaseProtocol
 
     var prices: [PVPCModel] = []
-    let date: Date = .now
     var errorMsg = ""
     var showError = false
 
@@ -24,9 +23,9 @@ final class PricesVM {
         self.getPVPCByDayFromLocalDBUseCase = getPVPCByDayFromLocalDBUseCase
     }
 
-    func getPricesList() async {
+    func getPricesList(on date: Date = .now) async {
         do {
-            prices = try await getPricesUseCase.fetchDayPrices(date: .now)
+            prices = try await getPricesUseCase.fetchDayPrices(date: date)
         } catch {
             print("\(error.localizedDescription)")
             showError.toggle()
@@ -34,13 +33,13 @@ final class PricesVM {
         }
     }
 
-    func setPrices() async {
+    func setPrices(with date: Date = .now) async {
         var temporalPrices: [PVPCModel] = []
         do {
-            temporalPrices = try await getPricesLocal()
+            temporalPrices = try await getPricesLocal(for: date)
             if temporalPrices.isEmpty {
                 print("Cacheo API")
-                await getPricesList()
+                await getPricesList(on: date)
                 savePricesToLocal(prices: prices)
             } else {
                 print("Cacheo Local")
@@ -53,7 +52,7 @@ final class PricesVM {
         }
     }
 
-    private func getPricesLocal() async throws -> [PVPCModel] {
+    private func getPricesLocal(for date: Date = .now) async throws -> [PVPCModel] {
         var temporalPrices: [PVPCModelLocal] = []
         do {
             if let formattedDate = DateFormatter.convertDateToFormattedDate(date: date) {

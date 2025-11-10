@@ -13,8 +13,30 @@ struct ChartComponent: View {
                             x: .value("Hour", Int($0.hour) ?? 0),
                             y: .value("Cost", Float($0.value) ?? 0)
                         )
-                    }.chartXAxis {
-                        AxisMarks(values: .stride(by: 2))
+                    }
+                    .chartXAxis {
+                        AxisMarks(values: .stride(by: 5)) { value in
+                            AxisGridLine()
+                            AxisTick()
+                            AxisValueLabel {
+                                if let hour = value.as(Int.self) {
+                                    Text(ChartComponentHelpers.formatHourWithAMPM(hour: hour))
+                                        .font(.caption2)
+                                }
+                            }
+                        }
+                    }
+                    .chartYAxis {
+                        AxisMarks(position: .leading, values: .automatic(desiredCount: 5)) { value in
+                            AxisGridLine()
+                            AxisTick()
+                            AxisValueLabel {
+                                if let cost = value.as(Float.self) {
+                                    Text(String(format: "%.2f €", cost))
+                                        .font(.caption2)
+                                }
+                            }
+                        }
                     }
                 } else {
                     Text("No hay datos disponibles para la grafica")
@@ -53,7 +75,7 @@ struct ChartComponent: View {
         PVPCChartModel(hour: "20", value: "1.2"),
         PVPCChartModel(hour: "21", value: "1.5"),
         PVPCChartModel(hour: "22", value: "1.0"),
-        PVPCChartModel(hour: "23", value: "1.5"),
+        PVPCChartModel(hour: "23", value: "1.5")
 
     ])
 }
