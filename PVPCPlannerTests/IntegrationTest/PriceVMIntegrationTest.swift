@@ -8,7 +8,9 @@ final class PriceVMIntegrationTest: XCTestCase {
     override func setUpWithError() throws {
         let repository = NetworkRepositoryMock()
         let getPriceUseCase = GetPricesUseCase(repository: repository)
-        sut = PricesVM(getPricesUseCase: getPriceUseCase)
+        sut = PricesVM(getPricesUseCase: getPriceUseCase,
+                       addPVPCTOLocalDBUseCase: AddToLocalDBUseCaseMock(),
+                       getPVPCByDayFromLocalDBUseCase: GetPVPCByDayFromLocalDBUseCaseMock())
     }
 
     override func tearDownWithError() throws {

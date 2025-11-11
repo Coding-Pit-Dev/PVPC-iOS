@@ -19,12 +19,12 @@ final class UpdatePVPCByIDLocaUseCaseTest: XCTestCase {
     func testUpdatePVPCByIdInLocalDatabase() async throws {
         let date: Date = .now
         // GIVEN
-        try addUseCase.addPvpc(day: date, hour: "hora", pcb: "pcb", cym: "CYM")
-        try addUseCase.addPvpc(day: .now-1, hour: "hora1", pcb: "pcb1", cym: "CYM1")
-        try addUseCase.addPvpc(day: .now-2, hour: "hora2", pcb: "pcb2", cym: "CYM2")
-        try addUseCase.addPvpc(day: .now-3, hour: "hora3", pcb: "pcb3", cym: "CYM3")
-        try addUseCase.addPvpc(day: .now-4, hour: "hora4", pcb: "pcb4", cym: "CYM4")
-        try addUseCase.addPvpc(day: .now-5, hour: "hora5", pcb: "pcb5", cym: "CYM5")
+        try await addUseCase.addPvpc(day: date, hour: "hora", pcb: "pcb", cym: "CYM")
+        try await addUseCase.addPvpc(day: .now-1, hour: "hora1", pcb: "pcb1", cym: "CYM1")
+        try await addUseCase.addPvpc(day: .now-2, hour: "hora2", pcb: "pcb2", cym: "CYM2")
+        try await addUseCase.addPvpc(day: .now-3, hour: "hora3", pcb: "pcb3", cym: "CYM3")
+        try await addUseCase.addPvpc(day: .now-4, hour: "hora4", pcb: "pcb4", cym: "CYM4")
+        try await addUseCase.addPvpc(day: .now-5, hour: "hora5", pcb: "pcb5", cym: "CYM5")
 
         let pvpcToUpdate = try await getPVPCUseCase.getItemsByDay(day: date)
 

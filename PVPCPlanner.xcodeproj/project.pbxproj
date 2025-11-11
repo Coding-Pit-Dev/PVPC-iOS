@@ -20,6 +20,10 @@
 		12C821892C3BE8A800717D4F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C821882C3BE8A800717D4F /* Preview Assets.xcassets */; };
 		12CD04892EC22A0500FED6EC /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD04882EC22A0500FED6EC /* CustomDatePicker.swift */; };
 		12CD048B2EC22F6B00FED6EC /* CustomDatePickerHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD048A2EC22F6B00FED6EC /* CustomDatePickerHelpers.swift */; };
+		12D322A02EC3847A00E1EA28 /* RemoveByDayDBUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D3229F2EC3847A00E1EA28 /* RemoveByDayDBUseCaseMock.swift */; };
+		12D322A12EC3847A00E1EA28 /* AddToLocalDBUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D3229D2EC3847A00E1EA28 /* AddToLocalDBUseCaseMock.swift */; };
+		12D322A22EC3847A00E1EA28 /* GetByDayFromDBUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D3229E2EC3847A00E1EA28 /* GetByDayFromDBUseCaseMock.swift */; };
+		12D322A42EC384BD00E1EA28 /* GetPVPCByDayFromLocalDBUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D322A32EC384BD00E1EA28 /* GetPVPCByDayFromLocalDBUseCaseMock.swift */; };
 		12D84F602CB3DC7400D291CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12D84F5F2CB3DC7400D291CF /* GoogleService-Info.plist */; };
 		12D84F632CB3DD3E00D291CF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 12D84F622CB3DD3E00D291CF /* FirebaseAnalytics */; };
 		12D84F652CB3DD3E00D291CF /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 12D84F642CB3DD3E00D291CF /* FirebaseAppCheck */; };
@@ -102,6 +106,10 @@
 		12C821882C3BE8A800717D4F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		12CD04882EC22A0500FED6EC /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		12CD048A2EC22F6B00FED6EC /* CustomDatePickerHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerHelpers.swift; sourceTree = "<group>"; };
+		12D3229D2EC3847A00E1EA28 /* AddToLocalDBUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToLocalDBUseCaseMock.swift; sourceTree = "<group>"; };
+		12D3229E2EC3847A00E1EA28 /* GetByDayFromDBUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetByDayFromDBUseCaseMock.swift; sourceTree = "<group>"; };
+		12D3229F2EC3847A00E1EA28 /* RemoveByDayDBUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveByDayDBUseCaseMock.swift; sourceTree = "<group>"; };
+		12D322A32EC384BD00E1EA28 /* GetPVPCByDayFromLocalDBUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPVPCByDayFromLocalDBUseCaseMock.swift; sourceTree = "<group>"; };
 		12D84F5F2CB3DC7400D291CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		12D84F662CB3DE4D00D291CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12D84F682CB3E0EE00D291CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -314,6 +322,10 @@
 			isa = PBXGroup;
 			children = (
 				12AED8CF2C7737DE00748EC4 /* GetPricesUseCaseMock.swift */,
+				12D3229D2EC3847A00E1EA28 /* AddToLocalDBUseCaseMock.swift */,
+				12D3229E2EC3847A00E1EA28 /* GetByDayFromDBUseCaseMock.swift */,
+				12D3229F2EC3847A00E1EA28 /* RemoveByDayDBUseCaseMock.swift */,
+				12D322A32EC384BD00E1EA28 /* GetPVPCByDayFromLocalDBUseCaseMock.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -704,7 +716,11 @@
 				8DF50E522C90A13F00F696BA /* GetAllPVPCFromLocalDBUseCaseTest.swift in Sources */,
 				12AED8CD2C772EA600748EC4 /* ModelsTest.swift in Sources */,
 				12AED8D32C773A1F00748EC4 /* Helpers.swift in Sources */,
+				12D322A02EC3847A00E1EA28 /* RemoveByDayDBUseCaseMock.swift in Sources */,
+				12D322A12EC3847A00E1EA28 /* AddToLocalDBUseCaseMock.swift in Sources */,
+				12D322A22EC3847A00E1EA28 /* GetByDayFromDBUseCaseMock.swift in Sources */,
 				12DB826F2C7B037B00A9CC82 /* PriceVMIntegrationTest.swift in Sources */,
+				12D322A42EC384BD00E1EA28 /* GetPVPCByDayFromLocalDBUseCaseMock.swift in Sources */,
 				8DB777882C9B1DC200A4ADA7 /* UpdatePVPCByIDLocaUseCaseTest.swift in Sources */,
 				8DF50E542C90A14800F696BA /* GetPVPCByDayFromLocalDBUseCaseTest.swift in Sources */,
 			);

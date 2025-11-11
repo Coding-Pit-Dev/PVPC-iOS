@@ -5,8 +5,11 @@ import XCTest
 final class PriceViewModelTest: XCTestCase {
     var priceViewModel: PricesVM?
     
+    
     override func setUpWithError() throws {
-        priceViewModel = PricesVM(getPricesUseCase: GetPricesUseCaseMock())
+        priceViewModel = PricesVM(getPricesUseCase:GetPricesUseCaseMock(),
+                                  addPVPCTOLocalDBUseCase: AddToLocalDBUseCaseMock(),
+                                  getPVPCByDayFromLocalDBUseCase: GetPVPCByDayFromLocalDBUseCaseMock())
     }
 
     override func tearDownWithError() throws {
