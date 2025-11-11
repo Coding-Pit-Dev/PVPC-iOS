@@ -2,41 +2,44 @@ import SwiftUI
 
 struct PricesView: View {
 
-    @State private var priceViewModel: PricesVM?
+    @State private var priceViewModel = PricesVM()
     @State private var selectedDate = Date()
+
     @AppStorage(AppStorageKeys.LOCATION.rawValue) var selectedLocation: Locations = .MainlandAndIslands
 
     var body: some View {
         VStack {
-            // TODO: Valor marcado en tabla
-            ChartComponent(chartData:
-                            ChartComponentHelpers.pvpcDataToChartData(
-                                pvpcList: priceViewModel?.prices ?? [],
-                                location: selectedLocation))
+            Spacer()
+            HeaderPriceText(
+                selectedHour: priceViewModel.selectedHour,
+                selectedPrice: priceViewModel.selectedPrice
+            )
+            ChartComponent(
+                        chartData: ChartComponentHelpers.pvpcDataToChartData(
+                            pvpcList: priceViewModel.prices,
+                            location: selectedLocation
+                        ),
+                        onChartSelection: { hour, price in
+                            priceViewModel.updateSelection(hour: hour, price: price)
+                        }
+                    )
             Spacer()
             CustomDatePicker(selectedDate: $selectedDate)
+                .padding(.horizontal)
             CustomLazyList(listDirection: .vertical, backgroundColor: Color.clear) {
-                if let priceViewModel = priceViewModel {
-                    ForEach(priceViewModel.prices, id: \.self) { price in
-                        PricesCard(pvpcCardModel: price.toPVPCCardModel(location: selectedLocation))
-                    }
+                ForEach(priceViewModel.prices, id: \.self) { price in
+                    PricesCard(pvpcCardModel: price.toPVPCCardModel(location: selectedLocation))
                 }
             }
-            .task {
-                await MainActor.run {
-                    self.priceViewModel = PricesVM()
-                }
-
-                if let priceViewModel = priceViewModel {
-                    await priceViewModel.setPrices(with: selectedDate)
-                }
-            }
-            .onChange(of: selectedDate) { _, newDate in
-                Task {
-                    if let priceViewModel = priceViewModel {
-                        await priceViewModel.setPrices(with: newDate)
-                    }
-                }
+        }
+        .task {
+            await priceViewModel.setPrices(with: selectedDate)
+            priceViewModel.updateCurrentHourSelection(location: selectedLocation)
+        }
+        .onChange(of: selectedDate) { _, newDate in
+            Task {
+                await priceViewModel.setPrices(with: newDate)
+                priceViewModel.updateCurrentHourSelection(location: selectedLocation)
             }
         }
     }

@@ -3,52 +3,74 @@ import SwiftUI
 
 struct ChartComponent: View {
     var chartData: [PVPCChartModel]
+    var onChartSelection: (String, String) -> Void = { _, _ in }
+
+    @State private var selectedHour: Int?
 
     var body: some View {
-        CustomCardComponent(backgroundColor: .clear, bodyContent: {
-            HStack {
-                if !chartData.isEmpty {
-                    Chart(chartData) {
-                        LineMark(
-                            x: .value("Hour", Int($0.hour) ?? 0),
-                            y: .value("Cost", Float($0.value) ?? 0)
-                        )
+        CustomCardComponent(backgroundColor: .clear) {
+            chartContent
+        }
+        .frame(height: UIScreen.main.bounds.height / 3)
+    }
+
+    @ViewBuilder
+    private var chartContent: some View {
+        if chartData.isEmpty {
+            emptyStateView
+        } else {
+            priceChart
+        }
+    }
+
+    private var emptyStateView: some View {
+        Text("No hay datos disponibles para la grafica")
+            .foregroundColor(.secondary)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+    private var priceChart: some View {
+        Chart(chartData) {
+            LineMark(
+                x: .value("Hour", Int($0.hour) ?? 0),
+                y: .value("Cost", Float($0.value) ?? 0)
+            )
+        }
+        .chartXSelection(value: $selectedHour)
+        .chartXAxis {
+            AxisMarks(values: .stride(by: 5)) { value in
+                AxisGridLine()
+                AxisTick()
+                AxisValueLabel {
+                    if let hour = value.as(Int.self) {
+                        Text(ChartComponentHelpers.formatHourWithAMPM(hour: hour))
+                            .font(.caption2)
                     }
-                    .chartXAxis {
-                        AxisMarks(values: .stride(by: 5)) { value in
-                            AxisGridLine()
-                            AxisTick()
-                            AxisValueLabel {
-                                if let hour = value.as(Int.self) {
-                                    Text(ChartComponentHelpers.formatHourWithAMPM(hour: hour))
-                                        .font(.caption2)
-                                }
-                            }
-                        }
-                    }
-                    .chartYAxis {
-                        AxisMarks(position: .leading, values: .automatic(desiredCount: 5)) { value in
-                            AxisGridLine()
-                            AxisTick()
-                            AxisValueLabel {
-                                if let cost = value.as(Float.self) {
-                                    Text(String(format: "%.2f €", cost))
-                                        .font(.caption2)
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    Text("No hay datos disponibles para la grafica")
-                        .foregroundColor(.secondary)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
             }
-        }).frame(height: UIScreen.main.bounds.height / 3)
+        }
+        .chartYAxis {
+            AxisMarks(
+                position: .leading,
+                values: .stride(by: ChartComponentHelpers.calculateYAxisStride(for: chartData))
+            ) { value in
+                AxisGridLine()
+                AxisTick()
+                AxisValueLabel {
+                    if let cost = value.as(Float.self) {
+                        Text(String(format: "%.2f €", cost))
+                            .font(.caption2)
+                    }
+                }
+            }
+        }
+        .onChange(of: selectedHour) { _, newValue in
+            if let result = ChartComponentHelpers.handleSelectionChange(hour: newValue, chartData: chartData) {
+                onChartSelection(result.formattedHour, result.formattedPrice)
+            }
+        }
     }
 }
-
-// MARK: List example
 
 #Preview {
     ChartComponent(chartData: [
@@ -77,5 +99,7 @@ struct ChartComponent: View {
         PVPCChartModel(hour: "22", value: "1.0"),
         PVPCChartModel(hour: "23", value: "1.5")
 
-    ])
+    ], onChartSelection: { hour, price in
+        print("Selected hour: \(hour), price: \(price)")
+    })
 }

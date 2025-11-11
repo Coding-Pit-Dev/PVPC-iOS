@@ -1,10 +1,12 @@
 import Foundation
 import PVPCNetwork
 
+@MainActor
 protocol NetworkRepositoryPotocol {
     func getDayPrices(date: Date) async throws -> [PVPCModel]
 }
 
+@MainActor
 struct NetworkRepository: NetworkRepositoryPotocol, NetworkInteractorProtocol {
     static let shared = NetworkRepository()
 

@@ -13,14 +13,78 @@ final class PricesVM {
     var prices: [PVPCModel] = []
     var errorMsg = ""
     var showError = false
+    var selectedHour: String = ""
+    var selectedPrice: String = ""
 
-    init(getPricesUseCase: PricesUseCaseProtocol = GetPricesUseCase(),
-         addPVPCTOLocalDBUseCase: AddToLocalDBUseCaseProtocol = AddPVPCToLocaDBUseCase(),
-         getPVPCByDayFromLocalDBUseCase: GetByDayFromDBUseCaseProtocol = GetPVPCByDayFromLocalDBUseCase()
+    func updateCurrentHourSelection(location: Locations) {
+        guard let currentHourPrice = getCurrentHourPrice(location: location) else {
+            selectedHour = ""
+            selectedPrice = ""
+            return
+        }
+
+        selectedHour = currentHourPrice.hour
+        selectedPrice = currentHourPrice.price
+    }
+
+    func updateSelection(hour: String, price: String) {
+        selectedHour = hour
+        selectedPrice = price
+    }
+
+    private func getCurrentHourPrice(location: Locations) -> (hour: String, price: String)? {
+        let currentHour = Calendar.current.component(.hour, from: Date())
+
+        // Extract the starting hour from the range format (e.g., "11-12" -> 11)
+        guard let currentPrice = prices.first(where: { price in
+            let hourComponents = price.hour.split(separator: "-")
+            guard let startHour = hourComponents.first,
+                  let startHourInt = Int(startHour) else {
+                return false
+            }
+            return startHourInt == currentHour
+        }) else {
+            return nil
+        }
+
+        let priceString: String
+        switch location {
+        case .MainlandAndIslands:
+            priceString = currentPrice.priceMainlandAndIslands
+        case .CeutaMelilla:
+            priceString = currentPrice.priceCeutaMelilla
+        }
+
+        // Replace comma with dot for Float conversion (European format -> US format)
+        let normalizedPriceString = priceString.replacingOccurrences(of: ",", with: ".")
+
+        guard let priceValueMWh = Float(normalizedPriceString) else {
+            return nil
+        }
+
+        // Convert from €/MWh to €/kWh (divide by 1000)
+        let priceValueKWh = priceValueMWh / 1000.0
+
+        let formattedHour = ChartComponentHelpers.formatHourWithAMPM(hour: currentHour)
+        let formattedPrice = String(format: "%.5f €/kWh", priceValueKWh)
+
+        return (formattedHour, formattedPrice)
+    }
+
+    init(getPricesUseCase: PricesUseCaseProtocol,
+         addPVPCTOLocalDBUseCase: AddToLocalDBUseCaseProtocol,
+         getPVPCByDayFromLocalDBUseCase: GetByDayFromDBUseCaseProtocol
     ) {
         self.getPricesUseCase = getPricesUseCase
         self.addPVPCTOLocalDBUseCase = addPVPCTOLocalDBUseCase
         self.getPVPCByDayFromLocalDBUseCase = getPVPCByDayFromLocalDBUseCase
+    }
+    convenience init() {
+        self.init(
+            getPricesUseCase: GetPricesUseCase(),
+            addPVPCTOLocalDBUseCase: AddPVPCToLocaDBUseCase(),
+            getPVPCByDayFromLocalDBUseCase: GetPVPCByDayFromLocalDBUseCase()
+        )
     }
 
     func getPricesList(on date: Date = .now) async {
@@ -40,7 +104,7 @@ final class PricesVM {
             if temporalPrices.isEmpty {
                 print("Cacheo API")
                 await getPricesList(on: date)
-                savePricesToLocal(prices: prices)
+                await savePricesToLocal(prices: prices)
             } else {
                 print("Cacheo Local")
                 prices = temporalPrices
@@ -73,11 +137,11 @@ final class PricesVM {
         return []
     }
 
-    private func savePricesToLocal(prices: [PVPCModel]) {
+    private func savePricesToLocal(prices: [PVPCModel]) async {
         for modelToSave in prices {
             if let dayDate = DateFormatter.convertDate(inputDateString: modelToSave.day) {
                 do {
-                    try addPVPCTOLocalDBUseCase.addPvpc(day: dayDate,
+                    try await addPVPCTOLocalDBUseCase.addPvpc(day: dayDate,
                                                         hour: modelToSave.hour,
                                                         pcb: modelToSave.priceMainlandAndIslands,
                                                         cym: modelToSave.priceCeutaMelilla)

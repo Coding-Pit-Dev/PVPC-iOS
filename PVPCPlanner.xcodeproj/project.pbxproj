@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		124784652CCA607000FC2704 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 124784642CCA607000FC2704 /* FirebaseCrashlytics */; };
+		126273602EC34942000B494D /* HeaderPriceText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1262735F2EC34942000B494D /* HeaderPriceText.swift */; };
 		12726C4D2C3C00130020D35A /* ProjectStructure.md in Resources */ = {isa = PBXBuildFile; fileRef = 12726C4C2C3C00130020D35A /* ProjectStructure.md */; };
 		129120CA2C3BFBA50037E939 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 129120C92C3BFBA50037E939 /* README.md */; };
 		12AED8CD2C772EA600748EC4 /* ModelsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AED8CC2C772EA600748EC4 /* ModelsTest.swift */; };
@@ -15,9 +16,10 @@
 		12AED8D32C773A1F00748EC4 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AED8D22C773A1F00748EC4 /* Helpers.swift */; };
 		12AED8D52C773CE600748EC4 /* PriceViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AED8D42C773CE600748EC4 /* PriceViewModelTest.swift */; };
 		12C821822C3BE8A700717D4F /* PVPCPlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C821812C3BE8A700717D4F /* PVPCPlannerApp.swift */; };
-		12C821842C3BE8A700717D4F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C821832C3BE8A700717D4F /* ContentView.swift */; };
 		12C821862C3BE8A800717D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C821852C3BE8A800717D4F /* Assets.xcassets */; };
 		12C821892C3BE8A800717D4F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C821882C3BE8A800717D4F /* Preview Assets.xcassets */; };
+		12CD04892EC22A0500FED6EC /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD04882EC22A0500FED6EC /* CustomDatePicker.swift */; };
+		12CD048B2EC22F6B00FED6EC /* CustomDatePickerHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD048A2EC22F6B00FED6EC /* CustomDatePickerHelpers.swift */; };
 		12D84F602CB3DC7400D291CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12D84F5F2CB3DC7400D291CF /* GoogleService-Info.plist */; };
 		12D84F632CB3DD3E00D291CF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 12D84F622CB3DD3E00D291CF /* FirebaseAnalytics */; };
 		12D84F652CB3DD3E00D291CF /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 12D84F642CB3DD3E00D291CF /* FirebaseAppCheck */; };
@@ -88,6 +90,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1262735F2EC34942000B494D /* HeaderPriceText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPriceText.swift; sourceTree = "<group>"; };
 		12726C4C2C3C00130020D35A /* ProjectStructure.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ProjectStructure.md; sourceTree = "<group>"; };
 		129120C92C3BFBA50037E939 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		12AED8CC2C772EA600748EC4 /* ModelsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsTest.swift; sourceTree = "<group>"; };
@@ -95,9 +98,10 @@
 		12AED8D22C773A1F00748EC4 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		12AED8D42C773CE600748EC4 /* PriceViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceViewModelTest.swift; sourceTree = "<group>"; };
 		12C821812C3BE8A700717D4F /* PVPCPlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVPCPlannerApp.swift; sourceTree = "<group>"; };
-		12C821832C3BE8A700717D4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		12C821852C3BE8A800717D4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12C821882C3BE8A800717D4F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		12CD04882EC22A0500FED6EC /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
+		12CD048A2EC22F6B00FED6EC /* CustomDatePickerHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerHelpers.swift; sourceTree = "<group>"; };
 		12D84F5F2CB3DC7400D291CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		12D84F662CB3DE4D00D291CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12D84F682CB3E0EE00D291CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -285,6 +289,19 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		12CD04852EC227D600FED6EC /* PrivesViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				8DF24CC92CCF93AE00D4BAD7 /* CustomCardComponent.swift */,
+				8DF24CC72CC945AE00D4BAD7 /* CustomLazyList.swift */,
+				8DF24CCB2CD1479D00D4BAD7 /* PricesCard.swift */,
+				8D3E91FF2EB51A3000C2C180 /* ChartComponent.swift */,
+				12CD04882EC22A0500FED6EC /* CustomDatePicker.swift */,
+				1262735F2EC34942000B494D /* HeaderPriceText.swift */,
+			);
+			path = PrivesViewComponents;
+			sourceTree = "<group>";
+		};
 		12DB826D2C7B034600A9CC82 /* IntegrationTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,7 +340,6 @@
 			isa = PBXGroup;
 			children = (
 				1ADDACFD2C637C2A00797976 /* PricesView.swift */,
-				12C821832C3BE8A700717D4F /* ContentView.swift */,
 				8DF24CD82CD931F800D4BAD7 /* MainScreen.swift */,
 				8DF24CDA2CDFC62B00D4BAD7 /* NotificationsView.swift */,
 				8DF24CDC2CDFC90E00D4BAD7 /* SettingsView.swift */,
@@ -335,10 +351,7 @@
 		1ACBAB142C74D00600269327 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				8D3E91FF2EB51A3000C2C180 /* ChartComponent.swift */,
-				8DF24CCB2CD1479D00D4BAD7 /* PricesCard.swift */,
-				8DF24CC72CC945AE00D4BAD7 /* CustomLazyList.swift */,
-				8DF24CC92CCF93AE00D4BAD7 /* CustomCardComponent.swift */,
+				12CD04852EC227D600FED6EC /* PrivesViewComponents */,
 			);
 			name = Components;
 			path = PVPCPlanner/View/Components;
@@ -378,10 +391,11 @@
 		1ACBAB1A2C74D09400269327 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8D3E92032EB5280A00C2C180 /* ChartComponentHelpers.swift */,
 				1ACBAB1B2C74D09C00269327 /* Extensions */,
+				8D3E92032EB5280A00C2C180 /* ChartComponentHelpers.swift */,
 				8DF24CD22CD15BBA00D4BAD7 /* PricesCardHelpers.swift */,
 				8DD0690E2CE368A700DA84D5 /* AppStorageKeys.swift */,
+				12CD048A2EC22F6B00FED6EC /* CustomDatePickerHelpers.swift */,
 			);
 			name = Utils;
 			path = PVPCPlanner/Utils;
@@ -720,8 +734,8 @@
 				1ADDACF62C6379DD00797976 /* PreviewData.swift in Sources */,
 				8D20FBBC2C78B19D007DBE4A /* AddPVPCToLocaDBUseCase.swift in Sources */,
 				8DB777862C9B1CFE00A4ADA7 /* UpdatePVPCLocalByIdUseCase.swift in Sources */,
+				12CD04892EC22A0500FED6EC /* CustomDatePicker.swift in Sources */,
 				1A00362E2C69F27E00DC89C0 /* PVPCModel.swift in Sources */,
-				12C821842C3BE8A700717D4F /* ContentView.swift in Sources */,
 				8D48E6172CEBDB0800B1CBE0 /* MainScreenViewModel.swift in Sources */,
 				1ADDACFE2C637C2A00797976 /* PricesView.swift in Sources */,
 				8DF24CD12CD14B4700D4BAD7 /* PVPCCardModel.swift in Sources */,
@@ -733,7 +747,9 @@
 				12C821822C3BE8A700717D4F /* PVPCPlannerApp.swift in Sources */,
 				8D3E92002EB51A3D00C2C180 /* ChartComponent.swift in Sources */,
 				8DF24CD52CD795C700D4BAD7 /* PVPCModel+Extension.swift in Sources */,
+				126273602EC34942000B494D /* HeaderPriceText.swift in Sources */,
 				8D20FBB52C78A4B3007DBE4A /* PVPCLocalDataSource.swift in Sources */,
+				12CD048B2EC22F6B00FED6EC /* CustomDatePickerHelpers.swift in Sources */,
 				8DC842242CA2B47500FB3C49 /* PVPCDatabaseError.swift in Sources */,
 				8DF24CCA2CCF93AE00D4BAD7 /* CustomCardComponent.swift in Sources */,
 				8DF24CC82CC945AE00D4BAD7 /* CustomLazyList.swift in Sources */,

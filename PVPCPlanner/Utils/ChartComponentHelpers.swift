@@ -1,16 +1,20 @@
 import Foundation
+import Charts
+import SwiftUI
 
 enum ChartComponentHelpers {
     static func pvpcDataToChartData(pvpcList: [PVPCModel], location: Locations) -> [PVPCChartModel] {
         var temporalData: [PVPCChartModel] = []
 
         for item in pvpcList {
-            temporalData.append(PVPCChartModel(hour: String(item.hour.prefix(2)), value: item.toPVPCCardModel(location: location).price))
+            temporalData.append(
+                PVPCChartModel(hour: String(item.hour.prefix(2)),
+                               value: item.toPVPCCardModel(location: location).price)
+            )
         }
-
         return temporalData
     }
-    
+
     static func formatHourWithAMPM(hour: Int) -> String {
         switch hour {
         case 0:
@@ -25,4 +29,61 @@ enum ChartComponentHelpers {
             return "\(hour)"
         }
     }
+
+    static func calculateYAxisStride(for data: [PVPCChartModel]) -> Float {
+        guard !data.isEmpty else { return 0.5 }
+
+        let values = data.compactMap { Float($0.value) ?? 0 }
+        let maxValue = values.max() ?? 1.0
+        let stride = maxValue / 4
+
+        return stride > 0 ? stride : 0.5
+    }
+
+    static func handleSelectionChange(
+        hour: Int?,
+        chartData: [PVPCChartModel]
+    ) -> (formattedHour: String, formattedPrice: String)? {
+        guard let hour = hour,
+              let data = chartData.first(where: { Int($0.hour) == hour }) else {
+            return nil
+        }
+
+        let price = Float(data.value) ?? 0
+        let formattedHour = formatHourWithAMPM(hour: hour)
+        let formattedPrice = String(format: "%.5f €/kWh", price)
+
+        return (formattedHour, formattedPrice)
+    }
+
+    static func updateSelection(
+        at location: CGPoint,
+        geometry: GeometryProxy,
+        chartProxy: ChartProxy,
+        chartData: [PVPCChartModel]
+    ) -> SelectionResult? {
+        let xPosition = location.x
+        guard let hour = chartProxy.value(atX: xPosition, as: Int.self),
+              let data = chartData.first(where: { Int($0.hour) == hour }) else {
+            return nil
+        }
+
+        let price = Float(data.value) ?? 0
+        let formattedHour = formatHourWithAMPM(hour: hour)
+        let formattedPrice = String(format: "%.5f €/kWh", price)
+
+        return SelectionResult(
+            hour: hour,
+            price: price,
+            formattedHour: formattedHour,
+            formattedPrice: formattedPrice
+        )
+    }
+}
+
+struct SelectionResult {
+    let hour: Int
+    let price: Float
+    let formattedHour: String
+    let formattedPrice: String
 }
