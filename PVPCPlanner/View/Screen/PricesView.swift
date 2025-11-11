@@ -1,12 +1,23 @@
+//
+//  PricesView.swift
+//  PVPCPlanner
+//
+//  Vista principal que muestra los precios de la electricidad (PVPC)
+//  Permite al usuario visualizar el gráfico de precios por hora y seleccionar
+//  una hora específica para ver sus detalles.
+//
+
 import SwiftUI
 
 struct PricesView: View {
 
+    // MARK: - States and AppStorage
     @State private var priceViewModel = PricesVM()
     @State private var selectedDate = Date()
 
     @AppStorage(AppStorageKeys.LOCATION.rawValue) var selectedLocation: Locations = .MainlandAndIslands
 
+    // MARK: - Body
     var body: some View {
         VStack {
             Spacer()
