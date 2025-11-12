@@ -4,16 +4,22 @@ import SwiftUI
 
 enum ChartComponentHelpers {
     static func pvpcDataToChartData(pvpcList: [PVPCModel], location: Locations) -> [PVPCChartModel] {
-        var temporalData: [PVPCChartModel] = []
-
-        for item in pvpcList {
+        pvpcList.compactMap { item in
             let rawPrice = PricesCardHelpers.getLocalizedPrice(pvpcModel: item, location: location)
-            temporalData.append(
-                PVPCChartModel(hour: String(item.hour.prefix(2)),
-                               value: String(format: "%.5f", rawPrice))
+
+            let normalizedPrice = rawPrice.replacingOccurrences(of: ",", with: ".")
+            guard let numericPrice = Float(normalizedPrice) else {
+                return nil
+            }
+
+            let hourString = String(item.hour.prefix(2))
+            let priceInKWh = numericPrice / 1000.0
+
+            return PVPCChartModel(
+                hour: hourString,
+                value: String(format: "%.5f", priceInKWh)
             )
         }
-        return temporalData
     }
 
     static func formatHourWithAMPM(hour: Int) -> String {
