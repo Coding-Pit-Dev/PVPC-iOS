@@ -11,18 +11,27 @@ import Foundation
 /// ```swift
 /// let useCase = GetPVPCByDayFromLocalDBUseCase()
 /// do {
-///     let prices = try await useCase.getItemsByDay(day: Date())
+///     let prices = try useCase.getItemsByDay(day: Date())
 ///     print("Se encontraron \(prices.count) registros de precios")
 /// } catch {
 ///     print("Error al obtener precios: \(error)")
 /// }
 /// ```
 ///
+/// ## Uso con dataSource personalizado
+///
+/// ```swift
+/// let dataSource = PVPCLocalDataSource(container: PVPCDatabaseContainer.shared.container)
+/// let useCase = GetPVPCByDayFromLocalDBUseCase(dataSource: dataSource)
+/// let prices = try useCase.getItemsByDay(day: Date())
+/// ```
+///
 /// - Note: Esta clase está marcada con `@MainActor`, por lo que todas sus operaciones
 ///         se ejecutan en el hilo principal. Esto es adecuado para casos de uso que
 ///         interactúan directamente con la UI.
 ///
-/// - Important: El acceso a datos se realiza de forma asíncrona mediante Swift Concurrency.
+/// - Important: El acceso a datos se realiza de forma síncrona. Los resultados están ordenados
+///              por hora en orden ascendente.
 @MainActor
 final class GetPVPCByDayFromLocalDBUseCase: GetByDayFromDBUseCaseProtocol {
 
@@ -57,30 +66,41 @@ final class GetPVPCByDayFromLocalDBUseCase: GetByDayFromDBUseCaseProtocol {
     /// Obtiene todos los registros de precios PVPC para un día específico.
     ///
     /// Este método consulta la base de datos local y recupera todos los registros
-    /// de precios PVPC que correspondan al día especificado. Los registros incluyen
-    /// información por hora con los precios para las tarifas PCB y CYM.
+    /// de precios PVPC que correspondan al día especificado. Los registros se devuelven
+    /// ordenados por hora en orden ascendente e incluyen información con los precios
+    /// para las tarifas PCB y CYM.
     ///
     /// - Parameter day: Fecha del día para el cual se desean obtener los precios.
     ///                  Se utiliza únicamente la parte de fecha, ignorando la hora.
     ///
-    /// - Returns: Array de modelos `PVPCModelLocal` con los precios del día solicitado.
+    /// - Returns: Array de modelos `PVPCModelLocal` con los precios del día solicitado, ordenados por hora.
     ///            Si no hay registros para ese día, devuelve un array vacío.
     ///
     /// - Throws: Puede lanzar errores relacionados con el acceso a la base de datos,
     ///           como errores de lectura o problemas con SwiftData.
     ///
-    /// ## Ejemplo
+    /// ## Ejemplo básico
+    ///
+    /// ```swift
+    /// let useCase = GetPVPCByDayFromLocalDBUseCase()
+    /// let today = Date()
+    /// let prices = try useCase.getItemsByDay(day: today)
+    ///
+    /// for price in prices {
+    ///     print("Hora: \(price.hour), PCB: \(price.pcb), CYM: \(price.cym)")
+    /// }
+    /// ```
+    ///
+    /// ## Ejemplo con inicio de día
     ///
     /// ```swift
     /// let calendar = Calendar.current
     /// let today = calendar.startOfDay(for: Date())
     ///
-    /// let prices = try await useCase.getItemsByDay(day: today)
-    /// for price in prices {
-    ///     print("Hora: \(price.hour), PCB: \(price.pcb), CYM: \(price.cym)")
-    /// }
+    /// let prices = try useCase.getItemsByDay(day: today)
+    /// print("Total de precios para hoy: \(prices.count)")
     /// ```
-    func getItemsByDay(day: Date) throws -> [PVPCModelLocal] {
+    func getItemsByDay(day: Date) async throws -> [PVPCModelLocal] {
         try dataSource.getItemsByDay(day: day)
     }
 }

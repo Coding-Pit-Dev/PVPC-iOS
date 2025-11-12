@@ -283,13 +283,18 @@ final class PricesVM {
     /// Guarda una lista de precios en la base de datos local
     /// - Parameter prices: Array de modelos de precio a guardar
     private func savePricesToLocal(prices: [PVPCModel]) async {
+        var failedPrices: [String] = []
+        
         for priceModel in prices {
             do {
                 try await saveSinglePrice(priceModel)
             } catch {
                 handleError(error)
-                return
+                failedPrices.append(priceModel.hour)
             }
+        }
+        if !failedPrices.isEmpty {
+            print("⚠️ Failed to save prices for hours: \(failedPrices.joined(separator: ", "))")
         }
     }
 
