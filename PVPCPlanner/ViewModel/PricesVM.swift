@@ -105,11 +105,12 @@ final class PricesVM {
 
     /// Obtiene los precios para una fecha específica desde la API remota
     /// - Parameter date: Fecha para la cual consultar precios (por defecto: fecha actual)
-    func getPricesList(on date: Date = .now) async {
+    func getPricesList(on date: Date = .now) async throws {
         do {
             prices = try await getPricesUseCase.fetchDayPrices(date: date)
         } catch {
             handleError(error)
+            throw error
         }
     }
 
@@ -242,8 +243,12 @@ final class PricesVM {
     /// Obtiene precios desde la API y los guarda en caché local
     /// - Parameter date: Fecha para la cual obtener precios
     private func fetchAndCachePrices(for date: Date) async {
-        await getPricesList(on: date)
-        await savePricesToLocal(prices: prices)
+        do {
+            try await getPricesList(on: date)
+            await savePricesToLocal(prices: prices)
+        } catch {
+            handleError(error)
+        }
     }
 
     /// Consulta precios desde la base de datos local
@@ -284,7 +289,7 @@ final class PricesVM {
     /// - Parameter prices: Array de modelos de precio a guardar
     private func savePricesToLocal(prices: [PVPCModel]) async {
         var failedPrices: [String] = []
-        
+
         for priceModel in prices {
             do {
                 try await saveSinglePrice(priceModel)

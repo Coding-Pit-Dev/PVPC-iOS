@@ -20,7 +20,7 @@ final class PriceViewModelTest: XCTestCase {
         pvpcModelMock.append(makeInitPVPCModel())
         shouldReturnError = false
         
-        await priceViewModel?.getPricesList()
+        try await priceViewModel?.getPricesList()
                 
         XCTAssertEqual(priceViewModel?.prices, pvpcModelMock, "The data returned is not correct")
     }
@@ -29,7 +29,7 @@ final class PriceViewModelTest: XCTestCase {
         pvpcModelMock.append(makeInitPVPCModel())
         shouldReturnError = true
         
-        await priceViewModel?.getPricesList()
+        try await priceViewModel?.getPricesList()
         
         XCTAssertNotNil(priceViewModel?.errorMsg, "An error was expected, but none occurred.")
     }
@@ -38,12 +38,12 @@ final class PriceViewModelTest: XCTestCase {
         pvpcModelMock.append(makeInitPVPCModel())
         shouldReturnError = false
         
-        await priceViewModel?.getPricesList()
+        try await priceViewModel?.getPricesList()
         let toUpdate = priceViewModel?.prices
         
         pvpcModelMock.removeAll()
         pvpcModelMock.append(makeInitPVPCModel(day: "22-08-2024"))
-        await priceViewModel?.getPricesList()
+        try await priceViewModel?.getPricesList()
         
         XCTAssertNotEqual(priceViewModel?.prices, toUpdate, "The data should not be equal")
     }

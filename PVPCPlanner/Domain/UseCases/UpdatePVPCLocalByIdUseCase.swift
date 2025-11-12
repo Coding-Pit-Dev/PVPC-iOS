@@ -2,16 +2,15 @@ import Foundation
 
 /// Caso de uso para actualizar un registro específico de precios PVPC en la base de datos local.
 ///
-/// Esta estructura implementa el patrón de caso de uso (Use Case) y proporciona una capa
+/// Esta clase implementa el patrón de caso de uso (Use Case) y proporciona una capa
 /// de abstracción para operaciones de actualización en la capa de datos. Se encarga de
 /// actualizar un registro existente de precios PVPC almacenado localmente en SwiftData,
 /// identificándolo por su UUID único.
 ///
-/// ## Uso
+/// ## Uso básico
 ///
 /// ```swift
-/// let dataSource = PVPCLocalDataSource(container: PVPCDatabaseContainer.shared.container)
-/// let useCase = UpdatePVPCLocalByIdUseCase(dataSource: dataSource)
+/// let useCase = UpdatePVPCLocalByIdUseCase()
 ///
 /// do {
 ///     let updatedPrice = try await useCase.updateItemById(
@@ -27,13 +26,23 @@ import Foundation
 /// }
 /// ```
 ///
-/// - Note: Esta estructura está marcada con `@MainActor`, por lo que todas sus operaciones
-///         se ejecutan en el hilo principal.
+/// ## Uso con dataSource personalizado
+///
+/// ```swift
+/// let dataSource = PVPCLocalDataSource(container: PVPCDatabaseContainer.shared.container)
+/// let useCase = UpdatePVPCLocalByIdUseCase(dataSource: dataSource)
+/// let updatedPrice = try await useCase.updateItemById(...)
+/// ```
+///
+/// - Note: Esta clase está marcada con `@MainActor`, por lo que todas sus operaciones
+///         se ejecutan en el hilo principal. Esto es adecuado para casos de uso que
+///         interactúan directamente con la UI.
 ///
 /// - Important: El método devuelve el registro actualizado, permitiendo validar los cambios
-///              o actualizar la UI inmediatamente.
+///              o actualizar la UI inmediatamente. El acceso a datos se realiza de forma
+///              asíncrona mediante Swift Concurrency.
 @MainActor
-struct UpdatePVPCLocalByIdUseCase: UpdateLocalByIdUseCaseProtocol {
+final class UpdatePVPCLocalByIdUseCase: UpdateLocalByIdUseCaseProtocol {
 
     // MARK: - Properties
 
@@ -42,33 +51,32 @@ struct UpdatePVPCLocalByIdUseCase: UpdateLocalByIdUseCaseProtocol {
 
     // MARK: - Initialization
 
-    /// Inicializa el caso de uso con una fuente de datos específica.
+    /// Inicializa el caso de uso con una fuente de datos opcional.
     ///
-    /// - Parameter dataSource: Fuente de datos local que se utilizará para las operaciones
-    ///                         de actualización. Aunque se recibe como parámetro, internamente
-    ///                         se crea una nueva instancia con el contenedor compartido.
+    /// Si no se proporciona una fuente de datos, se crea una instancia por defecto
+    /// utilizando el contenedor compartido de la base de datos PVPC.
     ///
-    /// - Note: Actualmente existe una inconsistencia en la implementación: el parámetro
-    ///         `dataSource` recibido no se utiliza. Si deseas usar el dataSource inyectado,
-    ///         cambia la línea a: `self.dataSource = dataSource`
+    /// - Parameter dataSource: Fuente de datos local opcional. Si es `nil`, se utiliza
+    ///                         una instancia por defecto con el contenedor compartido.
     ///
     /// ## Ejemplo para testing
     ///
     /// ```swift
+    /// // Inyección de dependencia para testing
     /// let mockDataSource = MockPVPCLocalDataSource()
     /// let useCase = UpdatePVPCLocalByIdUseCase(dataSource: mockDataSource)
     /// ```
-    init(dataSource: PVPCLocalDataSource) {
-        self.dataSource = dataSource
+    init(dataSource: PVPCLocalDataSource? = nil) {
+        self.dataSource = dataSource ?? PVPCLocalDataSource(container: PVPCDatabaseContainer.shared.container)
     }
 
     // MARK: - Public Methods
 
     /// Actualiza un registro específico de precios PVPC identificado por su UUID.
     ///
-    /// Este método busca en la base de datos local el registro con el UUID especificado
-    /// y actualiza todos sus campos con los nuevos valores proporcionados. Si la operación
-    /// es exitosa, devuelve el modelo actualizado.
+    /// Este método busca de forma asíncrona en la base de datos local el registro con
+    /// el UUID especificado y actualiza todos sus campos con los nuevos valores proporcionados.
+    /// Si la operación es exitosa, devuelve el modelo actualizado.
     ///
     /// - Parameters:
     ///   - id: Identificador único (UUID) del registro que se desea actualizar.
@@ -84,7 +92,21 @@ struct UpdatePVPCLocalByIdUseCase: UpdateLocalByIdUseCaseProtocol {
     ///   - Problemas de acceso a la base de datos
     ///   - Errores de escritura en SwiftData
     ///
-    /// ## Ejemplo de uso completo
+    /// ## Ejemplo básico
+    ///
+    /// ```swift
+    /// let useCase = UpdatePVPCLocalByIdUseCase()
+    /// let updated = try await useCase.updateItemById(
+    ///     id: priceId,
+    ///     day: Date(),
+    ///     hour: "14:00",
+    ///     pcb: "0.16500",
+    ///     cym: "0.15200"
+    /// )
+    /// print("Precio actualizado: PCB=\(updated.pcb), CYM=\(updated.cym)")
+    /// ```
+    ///
+    /// ## Ejemplo completo con manejo de errores
     ///
     /// ```swift
     /// // Actualizar el precio de una hora específica

@@ -7,10 +7,10 @@ enum ChartComponentHelpers {
         var temporalData: [PVPCChartModel] = []
 
         for item in pvpcList {
-            let cardModel = item.toPVPCCardModel(location: location)
+            let rawPrice = PricesCardHelpers.getLocalizedPrice(pvpcModel: item, location: location)
             temporalData.append(
                 PVPCChartModel(hour: String(item.hour.prefix(2)),
-                               value: String(cardModel.price))
+                               value: String(format: "%.5f", rawPrice))
             )
         }
         return temporalData

@@ -4,14 +4,14 @@ import XCTest
 
 @MainActor
 final class RemovePVPCByDayLocalDBUseCaseTest: XCTestCase {
-    var sut: RemovePVPCByDayLocalDBUseCase!
+    var sut: RemovePVPCByDayFromLocalDBUseCase!
     var addUseCase: AddPVPCToLocaDBUseCase!
     var getPVPCUseCase: GetAllPVPCFromLocalDBUseCase!
 
     override func setUpWithError() throws {
         let database = PVPCDatabaseContainer.shared
         database.container = PVPCDatabaseContainer.setupContainer(inMemory: true)
-        sut = RemovePVPCByDayLocalDBUseCase(dataSource: PVPCLocalDataSource(container: database.container))
+        sut = RemovePVPCByDayFromLocalDBUseCase(dataSource: PVPCLocalDataSource(container: database.container))
         addUseCase = AddPVPCToLocaDBUseCase(dataSource: PVPCLocalDataSource(container: database.container))
         getPVPCUseCase = GetAllPVPCFromLocalDBUseCase(dataSource: PVPCLocalDataSource(container: database.container))
     }
@@ -27,8 +27,8 @@ final class RemovePVPCByDayLocalDBUseCaseTest: XCTestCase {
         try await addUseCase.addPvpc(day: .now-5, hour: "hora5", pcb: "pcb5", cym: "CYM5")
 
         // When
-        let pvpcRemoveResponse: [PVPCModelLocal] = try await sut.removeItemsByDay(day: date)
-        let pvpcs: [PVPCModelLocal] = try await getPVPCUseCase.getAllItems()
+        let pvpcRemoveResponse: [PVPCModelLocal] = try sut.removeItemsByDay(day: date)
+        let pvpcs: [PVPCModelLocal] = try  getPVPCUseCase.getAllItems()
         // Then
         print(pvpcRemoveResponse)
         print(pvpcs)

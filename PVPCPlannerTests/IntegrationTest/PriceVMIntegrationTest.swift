@@ -22,26 +22,39 @@ final class PriceVMIntegrationTest: XCTestCase {
     func testGetPricesListSuccess() async throws {
         shouldReturnError = false
         let prices = sut?.prices
-        await sut?.getPricesList()
-
-        XCTAssertNotEqual(prices, sut?.prices, "There should be data inside the list")
+        
+        do {
+            try await sut?.getPricesList()
+            XCTAssertNotEqual(prices, sut?.prices, "There should be data inside the list")
+        } catch {
+            XCTFail("No error should be thrown on success: \(error)")
+        }
     }
 
     func testGetPricesListFailure() async throws {
         shouldReturnError = true
-        await sut?.getPricesList()
-        XCTAssertNotNil(sut?.errorMsg, "An error was expected, but none occurred.")
+        
+        do {
+            try await sut?.getPricesList()
+            XCTFail("Expected an error but none was thrown")
+        } catch {
+            XCTAssertNotNil(sut?.errorMsg, "An error was expected and should be captured")
+        }
     }
 
     func testGetPricesListUpdate() async throws {
         shouldReturnError = false
 
-        await sut?.getPricesList()
-        let firstPrices = sut?.prices
-        numberOfJson = 2
-        await sut?.getPricesList()
-        let expectedPrices = sut?.prices
+        do {
+            try await sut?.getPricesList()
+            let firstPrices = sut?.prices
+            numberOfJson = 2
+            try await sut?.getPricesList()
+            let expectedPrices = sut?.prices
 
-        XCTAssertNotEqual(firstPrices, expectedPrices, "The data should not be equal")
+            XCTAssertNotEqual(firstPrices, expectedPrices, "The data should not be equal")
+        } catch {
+            XCTFail("No error should be thrown: \(error)")
+        }
     }
 }
