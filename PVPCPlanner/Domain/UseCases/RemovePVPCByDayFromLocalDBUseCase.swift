@@ -28,17 +28,17 @@ import Foundation
 ///              su eliminación, lo que permite realizar operaciones de deshacer o logging.
 @MainActor
 struct RemovePVPCByDayLocalDBUseCase {
-    
+
     // MARK: - Properties
-    
+
     /// Contenedor de la base de datos compartido para SwiftData.
-    private var databaseContainer = PVPCDatabaseContainer.shared.container
-    
+    private let databaseContainer = PVPCDatabaseContainer.shared.container
+
     /// Fuente de datos local para acceder y manipular los precios PVPC en SwiftData.
-    private var dataSource: PVPCLocalDataSource
+    private let dataSource: PVPCLocalDataSource
 
     // MARK: - Initialization
-    
+
     /// Inicializa el caso de uso con una fuente de datos específica.
     ///
     /// - Parameter dataSource: Fuente de datos local que se utilizará para las operaciones
@@ -56,11 +56,11 @@ struct RemovePVPCByDayLocalDBUseCase {
     /// let useCase = RemovePVPCByDayLocalDBUseCase(dataSource: mockDataSource)
     /// ```
     init(dataSource: PVPCLocalDataSource) {
-        self.dataSource = PVPCLocalDataSource(container: databaseContainer)
+        self.dataSource = dataSource
     }
 
     // MARK: - Public Methods
-    
+
     /// Elimina todos los registros de precios PVPC para un día específico.
     ///
     /// Este método consulta la base de datos local, encuentra todos los registros
@@ -95,7 +95,7 @@ struct RemovePVPCByDayLocalDBUseCase {
     /// - Warning: Esta operación no se puede deshacer automáticamente. Asegúrate de
     ///            guardar los registros devueltos si necesitas implementar funcionalidad
     ///            de deshacer.
-    func removeItemsByDay(day: Date) async throws -> [PVPCModelLocal] {
-        try await dataSource.removeItemsByDay(day: day)
+    func removeItemsByDay(day: Date) throws -> [PVPCModelLocal] {
+        try dataSource.removeItemsByDay(day: day)
     }
 }

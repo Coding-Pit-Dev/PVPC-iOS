@@ -3,11 +3,11 @@ import SwiftData
 
 @MainActor
 protocol PVPCLocalDataSourceProtocol {
-    func getAllItems() async throws -> [PVPCModelLocal]
-    func addItem(day: Date, hour: String, pcb: String, cym: String) async throws
-    func getItemsByDay(day: Date) async throws -> [PVPCModelLocal]
-    func removeItemsByDay(day: Date) async throws -> [PVPCModelLocal]
-    func updateItemById(id: UUID, day: Date, hour: String, pcb: String, cym: String) async throws -> PVPCModelLocal
+    func getAllItems() throws -> [PVPCModelLocal]
+    func addItem(day: Date, hour: String, pcb: String, cym: String) throws
+    func getItemsByDay(day: Date) throws -> [PVPCModelLocal]
+    func removeItemsByDay(day: Date) throws -> [PVPCModelLocal]
+    func updateItemById(id: UUID, day: Date, hour: String, pcb: String, cym: String) throws -> PVPCModelLocal
 }
 
 @MainActor
@@ -22,7 +22,7 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
         container.mainContext
     }
 
-    func getAllItems() async throws -> [PVPCModelLocal] {
+    func getAllItems() throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             // Get all ordered by 'dia' and 'hora'
             sortBy: [SortDescriptor(\.day, order: .forward), SortDescriptor(\.hour, order: .forward)])
@@ -30,18 +30,12 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
     }
 
     // Maybe send PVPCModelLocal instead of all the props
-    func addItem(day: Date, hour: String, pcb: String, cym: String) async throws {
+    func addItem(day: Date, hour: String, pcb: String, cym: String) throws {
         let newItem = PVPCModelLocal(day: day, hour: hour, pcb: pcb, cym: cym)
         context.insert(newItem)
-        do {
-            try context.save()
-        } catch {
-            print("Error \(error.localizedDescription)")
-            throw PVPCDatabaseError.errorInsert
-        }
     }
 
-    func getItemsByDay(day: Date) async throws -> [PVPCModelLocal] {
+    func getItemsByDay(day: Date) throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             predicate: #Predicate { $0.day == day },
             sortBy: [SortDescriptor(\.hour, order: .forward)])
@@ -49,7 +43,7 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
         return try context.fetch(fetchDescriptor)
     }
 
-    func removeItemsByDay(day: Date) async throws -> [PVPCModelLocal] {
+    func removeItemsByDay(day: Date) throws -> [PVPCModelLocal] {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             predicate: #Predicate { $0.day == day })
 
@@ -70,7 +64,7 @@ class PVPCLocalDataSource: PVPCLocalDataSourceProtocol {
         return itemsToDelete
     }
 
-    func updateItemById(id: UUID, day: Date, hour: String, pcb: String, cym: String) async throws -> PVPCModelLocal {
+    func updateItemById(id: UUID, day: Date, hour: String, pcb: String, cym: String) throws -> PVPCModelLocal {
         let fetchDescriptor = FetchDescriptor<PVPCModelLocal>(
             predicate: #Predicate { $0.id == id }
         )

@@ -49,11 +49,7 @@ enum ChartComponentHelpers {
             return nil
         }
 
-        let price = Float(data.value) ?? 0
-        let formattedHour = formatHourWithAMPM(hour: hour)
-        let formattedPrice = String(format: "%.5f €/kWh", price)
-
-        return (formattedHour, formattedPrice)
+        return formatSelectionData(hour: hour, data: data)
     }
 
     static func updateSelection(
@@ -68,16 +64,23 @@ enum ChartComponentHelpers {
             return nil
         }
 
+        let (formattedHour, formattedPrice) = formatSelectionData(hour: hour, data: data)
+
+        return SelectionResult(
+            hour: hour,
+            price: Float(data.value) ?? 0,
+            formattedHour: formattedHour,
+            formattedPrice: formattedPrice
+        )
+    }
+
+    private static func formatSelectionData(hour: Int,
+                                            data: PVPCChartModel) -> (formattedHour: String, formattedPrice: String) {
         let price = Float(data.value) ?? 0
         let formattedHour = formatHourWithAMPM(hour: hour)
         let formattedPrice = String(format: "%.5f €/kWh", price)
 
-        return SelectionResult(
-            hour: hour,
-            price: price,
-            formattedHour: formattedHour,
-            formattedPrice: formattedPrice
-        )
+        return (formattedHour, formattedPrice)
     }
 }
 

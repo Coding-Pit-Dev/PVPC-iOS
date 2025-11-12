@@ -26,27 +26,27 @@ import Foundation
 /// ```
 @MainActor
 struct GetAllPVPCFromLocalDBUseCase {
-    
+
     // MARK: - Properties
-    
+
     /// Contenedor de la base de datos SwiftData compartido.
     private var databaseContainer = PVPCDatabaseContainer.shared.container
-    
+
     /// Fuente de datos local que gestiona las operaciones de lectura con SwiftData.
     private var dataSource: PVPCLocalDataSource
 
     // MARK: - Initialization
-    
+
     /// Inicializa un nuevo caso de uso para obtener todos los registros PVPC de la base de datos local.
     ///
     /// - Parameter dataSource: La fuente de datos local a utilizar. Aunque se pasa como parámetro,
     ///   internamente se reinicializa con el contenedor compartido de la base de datos.
     init(dataSource: PVPCLocalDataSource) {
-        self.dataSource = PVPCLocalDataSource(container: databaseContainer)
+        self.dataSource = dataSource
     }
 
     // MARK: - Public Methods
-    
+
     /// Obtiene todos los registros de precios PVPC almacenados en la base de datos local.
     ///
     /// Este método recupera todos los registros de precios sin filtros, ordenados por día y hora
@@ -65,7 +65,7 @@ struct GetAllPVPCFromLocalDBUseCase {
     ///
     /// - Important: Esta operación puede devolver grandes cantidades de datos. Considera usar
     ///   `GetPVPCByDayFromLocalDBUseCase` si solo necesitas datos de un día específico.
-    func getAllItems() async throws -> [PVPCModelLocal] {
-        try await dataSource.getAllItems()
+    func getAllItems() throws -> [PVPCModelLocal] {
+        try dataSource.getAllItems()
     }
 }

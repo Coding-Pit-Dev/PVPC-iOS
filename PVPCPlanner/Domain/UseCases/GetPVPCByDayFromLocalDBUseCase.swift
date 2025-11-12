@@ -27,12 +27,12 @@ import Foundation
 final class GetPVPCByDayFromLocalDBUseCase: GetByDayFromDBUseCaseProtocol {
 
     // MARK: - Properties
-    
+
     /// Fuente de datos local para acceder a los precios PVPC almacenados en SwiftData.
     private var dataSource: PVPCLocalDataSource
 
     // MARK: - Initialization
-    
+
     /// Inicializa el caso de uso con una fuente de datos opcional.
     ///
     /// Si no se proporciona una fuente de datos, se crea una instancia por defecto
@@ -53,7 +53,7 @@ final class GetPVPCByDayFromLocalDBUseCase: GetByDayFromDBUseCaseProtocol {
     }
 
     // MARK: - Public Methods
-    
+
     /// Obtiene todos los registros de precios PVPC para un día específico.
     ///
     /// Este método consulta la base de datos local y recupera todos los registros
@@ -80,7 +80,7 @@ final class GetPVPCByDayFromLocalDBUseCase: GetByDayFromDBUseCaseProtocol {
     ///     print("Hora: \(price.hour), PCB: \(price.pcb), CYM: \(price.cym)")
     /// }
     /// ```
-    func getItemsByDay(day: Date) async throws -> [PVPCModelLocal] {
-        try await dataSource.getItemsByDay(day: day)
+    func getItemsByDay(day: Date) throws -> [PVPCModelLocal] {
+        try dataSource.getItemsByDay(day: day)
     }
 }

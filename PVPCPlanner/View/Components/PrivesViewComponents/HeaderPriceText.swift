@@ -3,7 +3,7 @@ import SwiftUI
 struct HeaderPriceText: View {
     let selectedHour: String
     let selectedPrice: String
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text(selectedHour.isEmpty ? "Toca el gráfico" : selectedHour)
@@ -22,4 +22,3 @@ struct HeaderPriceText: View {
 #Preview {
     HeaderPriceText(selectedHour: "14 p.m", selectedPrice: "0.45 €/kWh")
 }
-

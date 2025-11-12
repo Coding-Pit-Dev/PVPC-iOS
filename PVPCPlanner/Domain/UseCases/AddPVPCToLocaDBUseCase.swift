@@ -28,12 +28,12 @@ import Foundation
 final class AddPVPCToLocaDBUseCase: AddToLocalDBUseCaseProtocol {
 
     // MARK: - Properties
-    
+
     /// Fuente de datos local que gestiona las operaciones de persistencia con SwiftData.
     private var dataSource: PVPCLocalDataSource
 
     // MARK: - Initialization
-    
+
     /// Inicializa un nuevo caso de uso para agregar datos PVPC a la base de datos local.
     ///
     /// - Parameter dataSource: La fuente de datos local a utilizar. Si es `nil`, se crea una nueva
@@ -43,7 +43,7 @@ final class AddPVPCToLocaDBUseCase: AddToLocalDBUseCaseProtocol {
     }
 
     // MARK: - Public Methods
-    
+
     /// Agrega un nuevo registro de precio PVPC a la base de datos local.
     ///
     /// Este método persiste un registro con información de precios de electricidad para una hora
@@ -68,6 +68,6 @@ final class AddPVPCToLocaDBUseCase: AddToLocalDBUseCaseProtocol {
     /// )
     /// ```
     func addPvpc(day: Date, hour: String, pcb: String, cym: String) async throws {
-        try await dataSource.addItem(day: day, hour: hour, pcb: pcb, cym: cym)
+        try dataSource.addItem(day: day, hour: hour, pcb: pcb, cym: cym)
     }
 }

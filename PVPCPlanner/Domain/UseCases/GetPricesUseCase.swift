@@ -24,21 +24,22 @@ import Foundation
 final class GetPricesUseCase: PricesUseCaseProtocol {
 
     // MARK: - Properties
-    
+
     /// Repositorio de red utilizado para realizar las peticiones de datos.
-    private let repository: NetworkRepositoryPotocol
+    private let repository: NetworkRepositoryProtocol
 
     // MARK: - Initialization
-    
+
     /// Inicializa un nuevo caso de uso para obtener precios.
     ///
-    /// - Parameter repository: El repositorio de red a utilizar. Si es `nil`, se usa la instancia compartida por defecto.
-    init(repository: NetworkRepositoryPotocol? = nil) {
+    /// - Parameter repository: El repositorio de red a utilizar. Si es `nil`,
+    /// se usa la instancia compartida por defecto.
+    init(repository: NetworkRepositoryProtocol? = nil) {
         self.repository = repository ?? NetworkRepository.shared
     }
 
     // MARK: - Public Methods
-    
+
     /// Obtiene los precios de electricidad para un día específico.
     ///
     /// Este método realiza una petición asíncrona al repositorio para obtener

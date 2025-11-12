@@ -10,6 +10,8 @@ import Foundation
 
 @MainActor
 struct GetByDayFromDBUseCaseMock: GetByDayFromDBUseCaseProtocol {
+    var shouldReturnError: Bool = false
+
     func getItemsByDay(day: Date) async throws -> [PVPCModelLocal] {
         if shouldReturnError {
             throw NSError(domain: "TestError", code: 1, userInfo: nil)

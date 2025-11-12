@@ -34,17 +34,14 @@ import Foundation
 ///              o actualizar la UI inmediatamente.
 @MainActor
 struct UpdatePVPCLocalByIdUseCase: UpdateLocalByIdUseCaseProtocol {
-    
+
     // MARK: - Properties
-    
-    /// Contenedor de la base de datos compartido para SwiftData.
-    private var databaseContainer = PVPCDatabaseContainer.shared.container
-    
+
     /// Fuente de datos local para acceder y manipular los precios PVPC en SwiftData.
-    private var dataSource: PVPCLocalDataSource
+    private let dataSource: PVPCLocalDataSource
 
     // MARK: - Initialization
-    
+
     /// Inicializa el caso de uso con una fuente de datos específica.
     ///
     /// - Parameter dataSource: Fuente de datos local que se utilizará para las operaciones
@@ -62,11 +59,11 @@ struct UpdatePVPCLocalByIdUseCase: UpdateLocalByIdUseCaseProtocol {
     /// let useCase = UpdatePVPCLocalByIdUseCase(dataSource: mockDataSource)
     /// ```
     init(dataSource: PVPCLocalDataSource) {
-        self.dataSource = PVPCLocalDataSource(container: databaseContainer)
+        self.dataSource = dataSource
     }
 
     // MARK: - Public Methods
-    
+
     /// Actualiza un registro específico de precios PVPC identificado por su UUID.
     ///
     /// Este método busca en la base de datos local el registro con el UUID especificado
@@ -117,6 +114,6 @@ struct UpdatePVPCLocalByIdUseCase: UpdateLocalByIdUseCaseProtocol {
     /// - Warning: Asegúrate de que el UUID proporcionado corresponde a un registro existente.
     ///            Si no existe, se lanzará un error.
     func updateItemById(id: UUID, day: Date, hour: String, pcb: String, cym: String) async throws -> PVPCModelLocal {
-        try await dataSource.updateItemById(id: id, day: day, hour: hour, pcb: pcb, cym: cym)
+        try dataSource.updateItemById(id: id, day: day, hour: hour, pcb: pcb, cym: cym)
     }
 }
