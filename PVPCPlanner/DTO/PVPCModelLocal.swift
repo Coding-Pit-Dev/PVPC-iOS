@@ -1,8 +1,6 @@
 import Foundation
 import SwiftData
 
-// Model saved in SwiftData
-
 @Model
 class PVPCModelLocal: Identifiable, Hashable {
     @Attribute(.unique) var id: UUID = UUID() // Adds the uuid automatically

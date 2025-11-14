@@ -3,4 +3,5 @@ enum PVPCDatabaseError: Error {
     case errorFetch
     case errorDelete
     case errorUpdate
+    case errorInsertWithContext(error: Error)
 }

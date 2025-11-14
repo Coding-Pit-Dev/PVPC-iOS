@@ -1,6 +1,6 @@
 import Foundation
 
-struct PreviewNetworkRepository: NetworkRepositoryPotocol {
+struct PreviewNetworkRepository: NetworkRepositoryProtocol {
     func getDayPrices(date: Date) async throws -> [PVPCModel] {
         try getTestLocalData()
     }

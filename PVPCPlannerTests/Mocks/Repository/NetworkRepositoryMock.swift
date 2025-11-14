@@ -1,7 +1,7 @@
 import Foundation
 @testable import PVPCPlanner
 
-struct NetworkRepositoryMock: NetworkRepositoryPotocol {
+struct NetworkRepositoryMock: NetworkRepositoryProtocol {
     func getDayPrices(date: Date) async throws -> [PVPCModel] {
         if !shouldReturnError {
             let url = Bundle.main.url(forResource: "AllPricesTest\(numberOfJson)", withExtension: "json")!
