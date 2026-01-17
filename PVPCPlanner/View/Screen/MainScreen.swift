@@ -8,7 +8,7 @@ struct MainScreen: View {
                 .tabItem {
                     Label("", systemImage: "eurosign.circle")
                 }
-            NotificationsView()
+            DevicesView()
                 .tabItem {
                     Label("", systemImage: "bell.circle")
                 }
