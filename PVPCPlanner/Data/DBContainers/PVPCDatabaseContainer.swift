@@ -1,6 +1,10 @@
 import Foundation
 import SwiftData
 
+// Ejemplo: Para almacenar más de un modelo en el mismo contenedor de SwiftData
+// let container = try ModelContainer(for: PVPCModelLocal.self, DeviceModel.self, configurations: ...)
+// Así, ambos modelos se guardan en la misma base de datos.
+
 class PVPCDatabaseContainer {
     static let shared: PVPCDatabaseContainer = .init()
 
@@ -10,7 +14,7 @@ class PVPCDatabaseContainer {
 
     static func setupContainer(inMemory: Bool) -> ModelContainer {
         do {
-            let container = try ModelContainer(for: PVPCModelLocal.self, configurations:
+            let container = try ModelContainer(for: PVPCModelLocal.self, DeviceModelLocal.self, configurations:
                 ModelConfiguration(isStoredInMemoryOnly: inMemory))
             return container
         } catch {
