@@ -7,14 +7,13 @@ import SwiftData
 
 class PVPCDatabaseContainer {
     static let shared: PVPCDatabaseContainer = .init()
-
     var container: ModelContainer = setupContainer(inMemory: false)
 
     private init() {}
 
     static func setupContainer(inMemory: Bool) -> ModelContainer {
         do {
-            let container = try ModelContainer(for: PVPCModelLocal.self, DeviceModelLocal.self, configurations:
+            let container = try ModelContainer(for: PVPCModelLocal.self, configurations:
                 ModelConfiguration(isStoredInMemoryOnly: inMemory))
             return container
         } catch {

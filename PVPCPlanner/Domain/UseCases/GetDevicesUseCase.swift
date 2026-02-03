@@ -8,7 +8,7 @@ struct GetDevicesUseCase {
         self.dataSource = dataSource
     }
 
-    func fetchDayPrices(date: Date) async throws -> [DeviceModelLocal] {
+    func getAllDevices() async throws -> [DeviceModelLocal] {
         try await dataSource.getAllItems()
     }
 }

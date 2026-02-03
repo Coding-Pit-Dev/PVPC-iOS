@@ -2,8 +2,18 @@ import SwiftUI
 
 @main
 struct PVPCPlannerApp: App {
-    // register app delegate for Firebase setup
+
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
+    func seedDevicesIfNeeded(){
+        
+    }
+    
+    init(){
+        seedDevicesIfNeeded()
+    }
+    
+    
     var body: some Scene {
         WindowGroup {
             MainScreen()

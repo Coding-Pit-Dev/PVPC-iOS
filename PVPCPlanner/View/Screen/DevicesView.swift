@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DevicesView: View {
     @State private var showList = false
+    @State private var devicesViewModel: DevicesViewModel?
     var body: some View {
         ZStack {
             Text("Devices")
@@ -23,6 +24,15 @@ struct DevicesView: View {
                         })
                         .padding()
                 }
+            }
+        }
+        .sheet(isPresented: $showList) {}.task {
+            await MainActor.run {
+                self.devicesViewModel = DevicesViewModel()
+            }
+
+            if let viewModel = devicesViewModel {
+                await viewModel.loadDevices()
             }
         }
     }
